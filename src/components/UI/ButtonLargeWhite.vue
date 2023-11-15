@@ -1,0 +1,37 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+  name: 'btn-large-white'
+})
+</script>
+
+<template>
+  <button class="btn_large">
+    <slot></slot>
+  </button>
+</template>
+
+<style lang="scss" scoped>
+.btn_large {
+  font-size: 16px;
+  padding: 15px 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 5px;
+  border: none;
+  background: var(--white-color) !important;
+  color: var(--purple-color) !important;
+  transition: 0.15s ease;
+}
+@media screen and (max-width: 992px){
+  .btn_large {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 650px){
+  .btn_large {
+    font-size: 12px;
+  }
+}
+</style>

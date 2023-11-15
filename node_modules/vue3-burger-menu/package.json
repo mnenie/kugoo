@@ -1,0 +1,69 @@
+{
+  "name": "vue3-burger-menu",
+  "version": "1.1.1",
+  "private": false,
+  "author": {
+    "name": "Michael Dillard",
+    "email": "mkdillard@hotmail.com"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build-bundle": "vue-cli-service build --target lib --name vue3-burger-menu ./src/components/index.js"
+  },
+  "main": "./dist/vue3-burger-menu.common.js",
+  "files": [
+    "dist/vue3-burger-menu.common.js",
+    "dist/vue3-burger-menu.umd.js"
+  ],
+  "dependencies": {
+    "vue": "^3.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.0",
+    "@vue/cli-plugin-eslint": "^4.5.0",
+    "@vue/cli-service": "^4.5.0",
+    "@vue/compiler-sfc": "^3.0.0-0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "keywords": [
+    "vuejs",
+    "menu",
+    "hamburger",
+    "sidebar"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkdillard/vue3-burger-menu.git"
+  }
+}
