@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import DropdownCards from '@/components/DropdownCards.vue';
+import DropdownCards from '@/components/UI/DropdownCards.vue';
 import { useRouter } from 'vue-router';
 import { BASKET_ROUTE } from '@/utils/consts'
 import DropdownHeader from './DropdownHeader.vue';
-import DropdownBasket from '@/components/DropdownBasket.vue';
+import DropdownBasket from '@/components/UI/DropdownBasket.vue';
 import HeaderTablet from './HeaderTablet.vue';
 import RoundCart from '@/components/UI/RoundCart.vue';
 import HeaderBtn from './HeaderBtn.vue'

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import useClickOutsideHandlerBtn from '@/hooks/useClickOutsideBtn';
+import { ref } from 'vue';
 const tels = ref([
   {
     id: 1,
@@ -22,24 +23,11 @@ const tels = ref([
     link: 'tel:+74993507692'
   },
 ])
-const list = ref<boolean>(false)
+
+const {dropdownValue} = useClickOutsideHandlerBtn()
 const changeList = () => {
-  list.value = !list.value
+  dropdownValue.value = !dropdownValue.value
 }
-const clickOutsideHandler = (event: MouseEvent) => {
-  const target = event.target as HTMLElement;
-  if (!target.closest('.list') && !target.closest('.btn-group')) {
-    list.value = false;
-  }
-};
-
-onMounted(() => {
-  document.addEventListener("click", clickOutsideHandler);
-});
-
-onUnmounted(() => {
-  document.removeEventListener("click", clickOutsideHandler);
-});
 </script>
 
 <template>
@@ -49,7 +37,7 @@ onUnmounted(() => {
       <img @click="changeList" src="/icons/plusrounded.svg" alt="" />
     </div>
     <Transition name="slide-fade">
-      <ul ref="listItem" v-if="list" class="list">
+      <ul ref="listItem" v-if="dropdownValue" class="dropdown">
         <li class="li_item" v-for="item in tels" :key="item.id">
           <p class="size_8">{{ item.title }}</p>
           <a class="size_4" style="cursor: pointer;" :href="item.link">{{ item.tel }}</a>
@@ -61,7 +49,7 @@ onUnmounted(() => {
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .number_display {
   display: flex;
   align-items: center;
@@ -124,7 +112,7 @@ onUnmounted(() => {
   }
 }
 
-.list {
+.dropdown {
   position: absolute;
   transform: translateY(-10px);
   transition: transform 0.3s ease-in;

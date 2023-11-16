@@ -48,7 +48,7 @@ defineProps<{
 
 .ul_drop{
   position: absolute;
-  z-index:99;
+  z-index:10001;
   min-width: var(--bs-dropdown-min-width);
   margin: 0;
   font-size: var(--bs-dropdown-font-size);
@@ -128,6 +128,11 @@ defineProps<{
         color: var(--purple-color);
       }
     }
+  }
+}
+@media screen and (max-width: 992px) {
+  .ul_drop{
+    transform: translate3d(0px, 5px, 0);
   }
 }
 </style>

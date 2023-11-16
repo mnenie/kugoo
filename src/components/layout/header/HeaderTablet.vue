@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import DropdownCatalog from '@/components/DropdownCatalog.vue';
+import DropdownCatalog from '@/components/UI/DropdownCatalog.vue';
 import { useRouter } from 'vue-router';
 import { BASKET_ROUTE } from '@/utils/consts'
 import DropdownHeader from './DropdownHeader.vue';
-import DropdownCards from '@/components/DropdownCards.vue';
+import DropdownCards from '@/components/UI/DropdownCards.vue';
 import RoundCart from '@/components/UI/RoundCart.vue';
 import { useInput } from '@/stores/mainInput';
 

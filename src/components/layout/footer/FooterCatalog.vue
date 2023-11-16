@@ -41,7 +41,7 @@ defineProps<{
         </div>
       </div>
     </div>
-    <a data-bs-toggle="modal" data-bs-target="#modalphone" @click.prev style="cursor: pointer;" class="a_absolute">Заказать звонок</a>
+    <a data-bs-toggle="modal" data-bs-target="#modalphone" @click.prevent style="cursor: pointer;" class="a_absolute">Заказать звонок</a>
     <!-- <ModalPhone /> -->
   </div>
 </template>

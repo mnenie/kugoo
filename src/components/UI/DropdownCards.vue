@@ -15,7 +15,6 @@ const mouseDown1 = (event: MouseEvent) => {
     inputMain.change();
   }
 };
-
 onMounted(() => {
   document.addEventListener("mousedown", mouseDown1);
 })

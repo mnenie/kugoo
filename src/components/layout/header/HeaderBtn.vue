@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
-import DropdownCatalog from '@/components/DropdownCatalog.vue';
-const styleBtn = ref<boolean>(false)
-const dropdownValue = ref<boolean>(false)
+import DropdownCatalog from '@/components/UI/DropdownCatalog.vue';
+import useClickOutsideHandlerBtn from '@/hooks/useClickOutsideBtn';
+const {styleBtn, dropdownValue} = useClickOutsideHandlerBtn()
 const openDropdown = () => {
   styleBtn.value = !styleBtn.value
   dropdownValue.value = !dropdownValue.value
@@ -11,25 +10,11 @@ const closeRoute = () => {
   styleBtn.value = !styleBtn.value
   dropdownValue.value = !dropdownValue.value
 }
-
-const clickOutsideHandler = (event: MouseEvent) => {
-  const target = event.target as HTMLElement;
-  if (!target.closest('.catalog_modal') && !target.closest('.btn-catalog')) {
-    dropdownValue.value = false;
-    styleBtn.value = false;
-  }
-};
-onMounted(() => {
-  window.addEventListener('click', clickOutsideHandler);
-})
-onUnmounted(() => {
-  window.addEventListener('click', clickOutsideHandler);
-})
 </script>
 
 <template>
-  <div class="catalog_modal">
-    <button @click="openDropdown" :class="[styleBtn === true ? 'btn_focus' : '']" class="btn-catalog">
+  <div class="dropdown">
+    <button @click="openDropdown" :class="[styleBtn === true ? 'btn_focus' : '']" class="btn-group">
       <div>
         <span></span>
         <span></span>
@@ -43,7 +28,7 @@ onUnmounted(() => {
 
 
 <style lang="scss" scoped>
-.btn-catalog {
+.btn-group {
   height: 40px;
   font-size: 16px;
   font-style: normal;

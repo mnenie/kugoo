@@ -1,5 +1,5 @@
-<script setup lang="ts">
-import { onMounted, ref } from 'vue';
+<script lang="ts" setup>
+import { ref } from 'vue';
 import HeaderTop from './header/HeaderTop.vue'
 import HeaderMain from './header/HeaderMain.vue'
 import HeaderBottom from './header/HeaderBottom.vue';
