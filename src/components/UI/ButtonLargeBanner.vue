@@ -21,16 +21,17 @@ export default defineComponent({
   line-height: normal;
   color: var(--black-color);
   background: var(--white-color);
-  border: 1px solid var(--white-color);
+  border: 1.3px solid var(--white-color);
   transition: 0.15s ease-in;
-  &:hover{
+
+  &:hover {
     color: var(--white-color);
-    background: #595959;
-    border: 1px solid var(--white-color);
+    background: transparent;
   }
 }
-@media screen and (max-width: 890px){
-  .btn_banner{
+
+@media screen and (max-width: 890px) {
+  .btn_banner {
     font-size: 14px;
   }
 }

@@ -17,7 +17,7 @@ const burger = useBurger()
           <div class="navi">
             <a style="text-decoration: none; height: 16px;" href="tel: +78005055461"><img src="/icons/call.svg"
                 alt=""></a>
-            <img @click="burger.openModal"
+            <img data-bs-toggle="offcanvas" data-bs-target="#burger" aria-controls="burger"
               src="/icons/burgermob.svg" alt="">
           </div>
         </div>

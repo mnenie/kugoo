@@ -15,6 +15,7 @@ body {
   font-family: 'Jost', sans-serif;
   text-size-adjust: 100%;
   overflow-x: hidden;
+  padding: 0 !important;
 }
 @media screen and (max-width: 540px) {
   body {
@@ -38,17 +39,6 @@ body {
 }
 button{cursor: pointer;}
 
-.bm-menu{
-  background-color: var(--white-color) !important;
-  padding-top: 0px !important;
-}
-.bm-item-list>*{
-  padding: 0 !important;
-  flex-direction: column !important;
-}
-.bm-item-list{
-  margin-left: 0 !important;
-}
 
 //fonts const
 .size_1{

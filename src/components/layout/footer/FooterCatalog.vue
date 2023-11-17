@@ -1,13 +1,26 @@
 <script setup lang="ts">
 import type { IFooterCatalog } from '@/types/index';
 import type { IFooterContacts } from '@/types/index';
-// import ModalPhone from '@/components/UI/ModalPhone.vue';
+import { useModal, ModalsContainer } from 'vue-final-modal';
+import ModalPhone from '@/components/UI/ModalPhone.vue';
 defineProps<{
   catalog: IFooterCatalog[],
   buyers: IFooterCatalog[],
   contacts: IFooterContacts[],
   contactsNew: IFooterContacts[]
 }>()
+
+const { open, close } = useModal({
+  component: ModalPhone,
+  attrs:{
+    onClose(){
+      close()
+    },
+    onConfirm(){
+      close();
+    }
+  }
+})
 </script>
 
 
@@ -41,8 +54,8 @@ defineProps<{
         </div>
       </div>
     </div>
-    <a data-bs-toggle="modal" data-bs-target="#modalphone" @click.prevent style="cursor: pointer;" class="a_absolute">Заказать звонок</a>
-    <!-- <ModalPhone /> -->
+    <a  @click.prevent="open" style="cursor: pointer;" class="a_absolute">Заказать звонок</a>
+    <ModalsContainer />
   </div>
 </template>
 

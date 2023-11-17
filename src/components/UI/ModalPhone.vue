@@ -21,8 +21,6 @@ const { defineInputBinds, handleSubmit, errors, validate } = useForm({
       .matches(/^(\+7|8)([-]?[\s]?)?(\()?\d{3}(\))?([-]?[\s]?)?\d{3}([-]?[\s]?)?\d{2}([-]?[\s]?)?\d{2}$/, '*Вы ввели неправильный номер телефона'),
   }),
 });
-
-
 const onSubmit = async () => {
   isSubmit.value = true;
   await validate();
@@ -34,7 +32,7 @@ const phone = defineInputBinds('phone');
 </script>
 
 <template>
-  <VueFinalModal class="modal_vue" content-class="modal_phone">
+  <VueFinalModal class="modal_vue" content-class="modal_phone" :content-transition="'vfm-fade'">
     <div class="text_content">
       <h1>Менеджер позвонит вам в течение 5 минут</h1>
       <p>ответит на все вопросы и проконсультирует по продуктам Kugoo</p>

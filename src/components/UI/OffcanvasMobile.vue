@@ -3,7 +3,6 @@ import MarketHeader from '@/components/layout/header/MarketHeader.vue';
 import type { IMenu } from '@/types/ui.interface';
 import { ABOUT_ROUTE, BLOG_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE } from '@/utils/consts';
 import { ref } from 'vue';
-import { Slide } from 'vue3-burger-menu' 
 import { useBurger } from '@/stores/burger';
 import ModalPhone from './ModalPhone.vue';
 import { useModal, ModalsContainer } from 'vue-final-modal';
@@ -87,7 +86,7 @@ const openModal = () => {
 </script>
 
 <template>
-  <Slide right :burgerIcon="false" :isOpen="burger.isOpen" width="540" :crossIcon="false">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="burger" aria-labelledby="burger">
     <div class="offcanvas-header">
       <MarketHeader />
     </div>
@@ -95,12 +94,12 @@ const openModal = () => {
       <div class="logo">
         <img src="/icons/Kugoo.svg" alt="">
         <div class="navi">
-          <a style="text-decoration: none; height: 25.5px;" href="tel: +78005055461"><img src="/icons/call.svg" alt=""></a>
-          <img @click="burger.closeModal" src="/icons/close.svg" alt="">
+          <a style="text-decoration: none; height: 16px;" href="tel: +78005055461"><img src="/icons/call.svg" alt=""></a>
+          <img data-bs-dismiss="offcanvas" src="/icons/close.svg" alt="">
         </div>
       </div>
       <div class="routes">
-        <div class="routes_pages" @click="burger.closeModal" v-for="menuItem in menuItems" :key="menuItem.id">
+        <div class="routes_pages" data-bs-dismiss="offcanvas" v-for="menuItem in menuItems" :key="menuItem.id">
           <router-link class="routes_pages" :to="{ path: menuItem.routeTo }">
             <div class="more_cont" v-if="menuItem.id === 2">
               <span>{{ menuItem.about }}</span>
@@ -117,7 +116,7 @@ const openModal = () => {
         </div>
       </div>
       <div class="bottom_menu">
-        <div v-for="item in items" @click="burger.closeModal" :key="item.pathTo" class="router_item">
+        <div v-for="item in items" data-bs-dismiss="offcanvas" :key="item.pathTo" class="router_item">
           <router-link class="router_item size_8" :to="{ path: item.pathTo }">
             {{ item.itemTo }}
           </router-link>
@@ -139,7 +138,7 @@ const openModal = () => {
       </div>
     </div>
     <ModalsContainer />
-  </Slide>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -147,7 +146,7 @@ const openModal = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 17px 15px 33px 15px;
+  padding-bottom: 33px;
 
   .navi {
     display: flex;

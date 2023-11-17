@@ -23,6 +23,11 @@ export default defineComponent({
   font-weight: 500;
   line-height: normal;
   color: var(--purple-color);
+  cursor: pointer;
+  transition: gap 0.15s ease-in;
+  &:hover{
+    gap: 16px;
+  }
 }
 @media screen and (max-width:650px){
   .link{

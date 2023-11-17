@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import {useModal, ModalsContainer} from 'vue-final-modal'
+import ModalService from '../UI/ModalService.vue';
 
 interface IBanner {
   id: number
@@ -23,6 +25,17 @@ const items = ref<IBanner[]>([
     title: 'Всегда в наличии оригинальные запчасти от производителя'
   },
 ])
+const { open, close } = useModal({
+  component: ModalService,
+  attrs:{
+    onClose(){
+      close()
+    },
+    onConfirm(){
+      close();
+    }
+  }
+})
 </script>
 
 <template>
@@ -40,11 +53,12 @@ const items = ref<IBanner[]>([
               <span class="size_7">{{ item.title }}</span>
             </div>
           </div>
-          <btn-yellow-large class="btn_yellow" style="align-self: flex-start;">Записаться</btn-yellow-large>
+          <btn-yellow-large @click="open" style="align-self: flex-start;">Записаться</btn-yellow-large>
         </div>
       </div>
       <img class="img" src="/img/service/banner.png" alt="">
     </div>
+    <ModalsContainer />
   </div>
 </template>
 

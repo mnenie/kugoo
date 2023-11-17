@@ -1,4 +1,4 @@
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import type { ICards } from '@/types/cards.interface'
 export default function useScooters() {
   const cards = ref<ICards[]>([])
@@ -23,6 +23,9 @@ export default function useScooters() {
   }
 
   onMounted(loadData)
+  onUnmounted(() => {
+    cards.value.splice(0, cards.value.length, ...originalCards.value);
+  })
   return {
     cards, cards2, originalCards, originalCards2
   }

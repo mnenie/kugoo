@@ -21,10 +21,10 @@ export default defineComponent({
   color: var(--orange-color);
   border-radius: 5px;
   background: var(--white-color);
-  border: none;
+  border: 1.3px solid var(--white-color);
   transition: 0.15s ease-in;
   &:hover{
-    background: var(--orange-color);
+    background: transparent;
     color: var(--white-color);
   }
 }

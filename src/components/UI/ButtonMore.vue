@@ -1,43 +1,43 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-  name: 'btn-large-white'
+  name: 'btn-more'
 })
 </script>
 
 <template>
-  <button class="btn_large">
+  <button class="btn">
     <slot></slot>
   </button>
 </template>
 
 <style lang="scss" scoped>
-.btn_large {
+.btn {
   font-size: 16px;
   padding: 15px 25px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   border-radius: 5px;
-  border: 1.3px solid var(--white-color);
+  border: 1.3px solid var(--purple-color);
   background: var(--white-color) !important;
   color: var(--purple-color) !important;
   transition: 0.15s ease-in;
 
   &:hover {
-    background: transparent !important;
+    background: var(--purple-color) !important;
     color: var(--white-color) !important;
   }
 }
 
 @media screen and (max-width: 992px) {
-  .btn_large {
+  .btn {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .btn_large {
+  .btn {
     font-size: 12px;
   }
 }

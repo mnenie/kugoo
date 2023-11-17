@@ -31,7 +31,7 @@ import NewsBlock from './NewsBlock.vue';
 
     &_blocks {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: space-between;
       gap: 20px;
     }
@@ -55,6 +55,7 @@ import NewsBlock from './NewsBlock.vue';
       &_blocks{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
       }
     }
   }

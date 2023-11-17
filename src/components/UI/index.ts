@@ -8,8 +8,9 @@ import ButtonToPurple from './ButtonToPurple.vue'
 import ButtonChoose from './ButtonChoose.vue'
 import LinkArrow from './LinkArrow.vue'
 import InputForm from './InputForm.vue'
-// import ButtonPurpleLg from './ButtonPurpleLg.vue'
+import ButtonPurpleLg from './ButtonPurpleLg.vue'
 import ButtonLargeYellow from './ButtonLargeYellow.vue'
+import ButtonMore from './ButtonMore.vue'
 export default [
   ButtonLargeWhite,
   InputPurple,
@@ -21,6 +22,7 @@ export default [
   ButtonChoose,
   LinkArrow,
   InputForm,
-  // ButtonPurpleLg,
+  ButtonPurpleLg,
   ButtonLargeYellow,
+  ButtonMore
 ]

@@ -5,8 +5,15 @@ export default defineComponent({
 })
 </script>
 
+<script setup lang="ts">
+defineProps<{
+  modelValue: string,
+}>()
+defineEmits(["update:modelValue"]);
+</script>
+
 <template>
-  <input class="input">
+  <input :value="modelValue" @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" class="input">
 </template>
 
 <style lang="scss" scoped>
@@ -21,7 +28,8 @@ export default defineComponent({
   color: var(--white-color);
   border: none;
   outline: none;
-  &::placeholder{
+
+  &::placeholder {
     color: var(--white-color);
   }
 }

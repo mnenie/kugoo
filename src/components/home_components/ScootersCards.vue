@@ -39,23 +39,27 @@ const addIndexCart = () => {
                 <span class="catalog_2">{{ card.time }}</span>
               </div>
             </div>
-            <div class="price_container">
-              <div class="price">
-                <span class="catalog_3">{{ card.sale }} ₽</span>
-                <span class="catalog_4">{{ card.price }} ₽</span>
-              </div>
-              <div class="cart">
-                <div v-if="card.basket">
-                  <img :src="card.basket" alt="">
+            <div class="bottom_category">
+              <div class="price_container">
+                <div class="price">
+                  <span class="catalog_3">{{ card.sale }} ₽</span>
+                  <span class="catalog_4">{{ card.price }} ₽</span>
                 </div>
-                <div>
-                  <img :src="card.heart" alt="">
+                <div class="cart">
+                  <div v-if="card.basket">
+                    <img :src="card.basket" alt="">
+                  </div>
+                  <div>
+                    <img :src="card.heart" alt="">
+                  </div>
                 </div>
               </div>
+              <btn-card-yellow style="margin: 0 auto; display: block; width: 100%;" v-if="!card.basket">Оформить
+                предзаказ</btn-card-yellow>
+              <btn-card-purple @click="addIndexCart" style="margin: 0 auto; display: block; width: 100%;" v-else>Купить в
+                1
+                клик</btn-card-purple>
             </div>
-            <btn-card-yellow style="margin: 0 auto; display: block; width: 100%;" v-if="!card.basket">Оформить
-              предзаказ</btn-card-yellow>
-            <btn-card-purple @click="addIndexCart" style="margin: 0 auto; display: block; width: 100%;" v-else>Купить в 1 клик</btn-card-purple>
           </div>
           <div v-if="card.rec" class="block_news catalog_3"
             :style="[card.rec === 'ХИТ' ? 'background: var(--pink-color)' : 'background: var(--green-color)']">
@@ -83,6 +87,9 @@ const addIndexCart = () => {
       // min-height: 492px;
       border-radius: 11px;
       border: 1.5px solid #EAEBED;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       .block_news {
         position: absolute;
@@ -215,33 +222,39 @@ const addIndexCart = () => {
     .cards {
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      .card_item{
+
+      .card_item {
         max-width: 350px;
         width: 100%;
       }
     }
   }
 }
+
 @media screen and (max-width: 890px) {
   .cards_block {
     .cards {
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      .card_item{
+
+      .card_item {
         max-width: 100%;
         width: 100%;
       }
     }
   }
 }
+
 @media screen and (max-width: 540px) {
   .cards_block {
     .cards {
       gap: 15px;
-      .card_item{
+
+      .card_item {
         max-width: 400px;
-        .cards_img-container{
-          & img{
+
+        .cards_img-container {
+          & img {
             height: 160px !important;
             width: 170px !important;
           }

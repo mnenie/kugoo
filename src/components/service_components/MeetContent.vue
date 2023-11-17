@@ -41,7 +41,11 @@ const style = ref<string[]>([
     background: var(--white-color);
     color: var(--blue-color);
     align-self: flex-start;
-    border: none;
+    border: 1.3px solid var(--white-color);
+    &:hover{
+      background: transparent;
+      color: var(--white-color);
+    }
   }
 }
 @media screen and (max-width: 992px){

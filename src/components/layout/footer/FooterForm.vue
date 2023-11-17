@@ -1,8 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useForm } from 'vee-validate';
+import * as yup from 'yup';
 
-const title = ref('')
-
+const emailValue = ref<string>('')
+const { defineInputBinds, errors, validate } = useForm({
+  validationSchema: yup.object({
+    email: yup.string().email('Некорректный адрес email').required('*Введите email')
+  }),
+});
+const confirmEmail = async () => {
+  await validate()
+  if (Object.keys(errors.value).length === 0) {
+    emailValue.value = ''
+  }
+}
+const email = defineInputBinds('email')
 </script>
 
 <template>
@@ -11,10 +24,12 @@ const title = ref('')
       <div class="form_display_content">
         <h1 class="size_5">Оставьте свою почту и станьте первым, кто получит скидку на новые самокаты</h1>
         <div class="form_block">
-          <input-purple v-model="title" placeholder="Введите Ваш email" type="text"
-            pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required
-            style="width: 410px; height: 53px;" />
-          <btn-large-white style="height: 53px;">Подписаться</btn-large-white>
+          <div class="input_container">
+            <input-purple v-model="emailValue" placeholder="Введите Ваш email" type="text" v-bind="email"
+              style="width: 410px; height: 53px;" />
+            <span>{{ errors.email }}</span>
+          </div>
+          <btn-large-white @click="confirmEmail" style="height: 53px;">Подписаться</btn-large-white>
         </div>
       </div>
     </div>
@@ -46,6 +61,18 @@ const title = ref('')
       display: flex;
       align-items: center;
       gap: 20px;
+      .input_container{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        & span{
+          color: var(--white-color);
+          position: absolute;
+          right: 5px;
+          top: 0px;
+          font-size: 12px;
+        }
+      }
     }
   }
 }
@@ -54,16 +81,18 @@ const title = ref('')
   .form_display {
     &_content {
       flex-direction: column;
+
       & h1 {
         text-align: center;
       }
     }
   }
 }
+
 @media screen and (max-width: 600px) {
   .form_display {
     &_content {
-      .form_block{
+      .form_block {
         flex-direction: column;
         align-items: unset;
       }

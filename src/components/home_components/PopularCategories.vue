@@ -31,8 +31,8 @@ const {home1} = useTechnic()
         <div class="categories">
           <CategoriesElement :categories="home1" />
         </div>
-        <btn-large-white @click="router.push(CATALOG_ROUTE)"
-          style="border: 1.3px solid var(--purple-color); display: block; margin: 0 auto;">{{ title }}</btn-large-white>
+        <btn-more @click="router.push(CATALOG_ROUTE)"
+          style="display: block; margin: 0 auto;">{{ title }}</btn-more>
       </div>
     </div>
   </div>
