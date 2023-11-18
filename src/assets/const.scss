@@ -71,3 +71,28 @@ button{cursor: pointer;}
 .vs__clear{
   margin-top: 1.5px;
 }
+.video-js{
+  height: 100% !important;
+  // transform: scale(2);
+}
+.video-js .vjs-big-play-button::after{
+  position: absolute;
+  top: -20px;
+  left: -4px;
+  content: url(/icons/videobtn.svg) !important;
+  cursor: pointer;
+}
+.video-js .vjs-big-play-button{
+  background-color: unset !important;
+  border: unset !important;
+}
+.CustomVideoPlayer-dimensions{
+  width: 100% !important;
+  height: 100% !important;
+}
+.video-js .vjs-progress-control{
+  display: none !important;
+}
+.video-js .vjs-control-bar{
+  display: none !important;
+}

@@ -1,5 +1,15 @@
 <script setup lang="ts">
+// import { ref, onBeforeUnmount } from 'vue';
 
+// const counter = ref<number>(0);
+// const videoPlayerRef = ref<any>(null);
+// const updateCounter = () => {
+//   const currentTime = videoPlayerRef.value?.currentTime() || 0;
+//   counter.value = Math.floor(currentTime);
+// };
+// onBeforeUnmount(() => {
+//   videoPlayerRef.value?.off('timeupdate', updateCounter);
+// });
 </script>
 
 <template>
@@ -7,8 +17,9 @@
     <div class="video_block">
       <div class="inside_radius">
         <div class="video_content">
-          <img src="/img/service/video.png" alt="">
-          <img src="/icons/videobtn.svg" alt="">
+          <video-player id="CustomVideoPlayer" class="video-player vjs-theme-forest" crossorigin="anonymous" controls
+            src="/video/service.mp4" poster="/img/service/video.png" :volume="0.00001"
+            :control-bar="{ volumePanel: false, timeDivider: false }" />
         </div>
       </div>
     </div>
@@ -48,23 +59,14 @@
         justify-content: center;
 
         & img {
-          &:first-child {
-            position: relative;
-            z-index: 0;
-            cursor: pointer;
-            border-radius: 393.957px;
-          }
-
-          &:last-child {
-            cursor: pointer;
-            position: absolute;
-            z-index: 99;
-            top: 50%;
-            left: 50%;
-            width: 96px;
-            height: 96px;
-            transform: translate(-50%, -50%);
-          }
+          cursor: pointer;
+          position: absolute;
+          z-index: 99;
+          top: 50%;
+          left: 50%;
+          width: 96px;
+          height: 96px;
+          transform: translate(-50%, -50%);
         }
       }
     }
