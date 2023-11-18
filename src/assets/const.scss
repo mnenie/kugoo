@@ -39,233 +39,35 @@ body {
 }
 button{cursor: pointer;}
 
+.modal_vue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-//fonts const
-.size_1{
-  font-size: 35px;
+.modal_final {
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  background-color: var(--white-color);
+  max-width: 790px;
+  width: 100%;
+  min-height: 428px;
 }
-.size_2{
-  font-size: 30px;
+
+.vs__search{
+  color: var(--gray-600-color) !important;
+  padding: 8px 10px !important;
 }
-.size_3{
-  font-size: 25px;
+.v-select{
+  width: 263px !important;
 }
-.size_4{
-  font-size: 20px;
+.vs__actions{
+  padding-right: 10px !important;
 }
-.size_5{
-  font-size: 18px;
-}
-.size_6{
-  font-size: 16px;
-}
-.size_7{
-  font-size: 14px;
-}
-.size_8{
-  font-size: 12px;
-}
-.size_9{
-  font-size: 10px;
-}
-.catalog_1{
-  font-size: 18px;
-}
-.catalog_2{
-  font-size: 14px;
-}
-.catalog_3{
-  font-size: 12px;
-}
-.catalog_4{
-  font-size: 20px;
-}
-@media screen and (max-width: 1200px){
-  .size_1{
-    font-size: 32px;
-  }
-  .size_2{
-    font-size: 30px;
-  }
-  .size_3{
-    font-size: 22px;
-  }
-  .size_4{
-    font-size: 18px;
-  }
-  .size_5{
-    font-size: 16px;
-  }
-  .size_6{
-    font-size: 14px;
-  }
-  .size_7{
-    font-size: 14px;
-  }
-  .size_8{
-    font-size: 12px;
-  }
-  .size_9{
-    font-size: 10px;
-  }
-}
-@media screen and (max-width: 992px){
-  .size_1{
-    font-size: 28px;
-  }
-  .size_2{
-    font-size: 26px;
-  }
-  .size_3{
-    font-size: 20px;
-  }
-  .size_4{
-    font-size: 16px;
-  }
-  .size_5{
-    font-size: 14px;
-  }
-  .size_6{
-    font-size: 14px;
-  }
-  .size_7{
-    font-size: 12px;
-  }
-  .size_8{
-    font-size: 12px;
-  }
-  .size_9{
-    font-size: 10px;
-  }
-}
-@media screen and (max-width: 890px){
-}
-@media screen and (max-width: 768px){
-  .catalog_1{
-    font-size: 16px;
-  }
-  .catalog_2{
-    font-size: 12px;
-  }
-  .catalog_3{
-    font-size: 10px;
-  }
-  .catalog_4{
-    font-size: 18px;
-  }
-  .size_1{
-    font-size: 24px;
-  }
-  .size_2{
-    font-size: 22px;
-  }
-  .size_3{
-    font-size: 18px;
-  }
-  .size_4{
-    font-size: 14px;
-  }
-  .size_5{
-    font-size: 14px;
-  }
-  .size_6{
-    font-size: 12px;
-  }
-  .size_7{
-    font-size: 12px;
-  }
-  .size_8{
-    font-size: 12px;
-  }
-  .size_9{
-    font-size: 10px;
-  }
-}
-@media screen and (max-width: 650px){
-  .size_1{
-    font-size: 22px;
-  }
-  .size_2{
-    font-size: 20px;
-  }
-  .size_3{
-    font-size: 16px;
-  }
-  .size_4{
-    font-size: 12px;
-  }
-  .size_5{
-    font-size: 14px;
-  }
-  .size_6{
-    font-size: 12px;
-  }
-  .size_7{
-    font-size: 10px;
-  }
-  .size_8{
-    font-size: 10px;
-  }
-  .size_9{
-    font-size: 8px;
-  }
-}
-@media screen and (max-width: 600px){
-  .size_1{
-    font-size: 20px;
-  }
-  .size_2{
-    font-size: 18px;
-  }
-  .size_3{
-    font-size: 14px;
-  }
-  .size_4{
-    font-size: 12px;
-  }
-  .size_5{
-    font-size: 14px;
-  }
-  .size_6{
-    font-size: 12px;
-  }
-  .size_7{
-    font-size: 10px;
-  }
-  .size_8{
-    font-size: 10px;
-  }
-  .size_9{
-    font-size: 8px;
-  }
-}
-@media screen and (max-width: 540px){
-  
-  .size_1{
-    font-size: 19px;
-  }
-  .size_2{
-    font-size: 16px;
-  }
-  .size_3{
-    font-size: 14px;
-  }
-  .size_4{
-    font-size: 12px;
-  }
-  .size_5{
-    font-size: 14px;
-  }
-  .size_6{
-    font-size: 12px;
-  }
-  .size_7{
-    font-size: 10px;
-  }
-  .size_8{
-    font-size: 10px;
-  }
-  .size_9{
-    font-size: 8px;
-  }
+.vs__clear{
+  margin-top: 1.5px;
 }
