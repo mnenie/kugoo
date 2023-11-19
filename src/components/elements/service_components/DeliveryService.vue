@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
 const items = [
   {
     id: 1,
@@ -27,7 +28,7 @@ const items = [
               <span class="size_6">{{ item.name }}</span>
             </div>
           </div>
-          <btn-purple-lg style="align-self: flex-start;">Заказать доставку</btn-purple-lg>
+          <ButtonPurpleLg style="align-self: flex-start;">Заказать доставку</ButtonPurpleLg>
         </div>
       </div>
       <img class="img" src="/img/dron.png" alt="">

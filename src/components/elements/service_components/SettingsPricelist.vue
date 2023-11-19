@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
 import FilterItems from '@/components/UI/FilterItems.vue';
 import { btnsFilter3 } from '@/mocks/ui/btnsFilter';
 import { onMounted, ref } from 'vue';
@@ -34,7 +35,7 @@ const filterPrice = () => {
         2990Р
       </div>
     </div>
-    <btn-purple-lg style="margin-top: -20px;">Заказать гидроизоляцию</btn-purple-lg>
+    <ButtonPurpleLg style="margin-top: -20px;">Заказать гидроизоляцию</ButtonPurpleLg>
   </div>
 </template>
 

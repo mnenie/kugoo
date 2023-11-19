@@ -4,11 +4,27 @@ import Footer from '@/components/layout/Footer.vue'
 import Navigation from '@/components/layout/Navigation.vue';
 import { onMounted, ref } from 'vue';
 import Loader from '@/components/UI/Loader.vue';
-const isLoading = ref(true);
+import ModalTime from './components/UI/ModalTime.vue';
+import { useModal, ModalsContainer } from 'vue-final-modal';
+const isLoading = ref<boolean>(true);
+const { open, close } = useModal({
+  component: ModalTime,
+  attrs: {
+    onClose() {
+      close()
+    },
+    onConfirm() {
+      close();
+    }
+  }
+})
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false;
   }, 700);
+  setTimeout(() => {
+    open();
+  }, 10000)
 });
 
 </script>
@@ -16,12 +32,13 @@ onMounted(() => {
 <template>
   <div class="page-container">
     <Header />
-    <Loader v-if="isLoading"/>
+    <Loader v-if="isLoading" />
     <main v-else>
       <router-view />
     </main>
     <Footer />
     <Navigation />
+    <ModalsContainer />
   </div>
 </template>
 

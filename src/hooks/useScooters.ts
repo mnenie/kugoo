@@ -1,5 +1,6 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import type { ICards } from '@/types/cards.interface'
+import axios from 'axios'
 export default function useScooters() {
   const cards = ref<ICards[]>([])
   const cards2 = ref<ICards[]>([])
@@ -9,10 +10,10 @@ export default function useScooters() {
   const loadData = async () => {
     try {
       const [response1, response2] = await Promise.all([
-        fetch('data/scooters.json'),
-        fetch('data/scooters.json')
+        axios.get('data/scooters.json'),
+        axios.get('data/scooters.json')
       ])
-      const [data1, data2] = await Promise.all([response1.json(), response2.json()])
+      const [data1, data2] = await Promise.all([response1.data, response2.data])
       cards.value = data1.cards1
       cards2.value = data2.cards2
       originalCards.value = data1.cards1

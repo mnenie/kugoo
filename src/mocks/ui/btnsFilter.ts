@@ -36,12 +36,12 @@ export const btnsFilter2 = ref<IBtns[]>([
   },
   {
     id: 2,
-    body: 'Робот-пылесосы',
+    body: 'Гироскутеры',
     active: false,
   },
   {
     id: 3,
-    body: 'Весы',
+    body: 'Электроскутеры',
     active: false,
   },
   {

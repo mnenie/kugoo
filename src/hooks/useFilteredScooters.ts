@@ -1,7 +1,8 @@
-import { computed, ref } from 'vue'
+import { computed, ref, type Ref } from 'vue'
 import { btnsFilter } from '@/mocks/ui/btnsFilter'
+import type { ICards } from '@/types/cards.interface'
 
-export default function useFilteredScooters(cards, cards2, originalCards, originalCards2) {
+export default function useFilteredScooters(cards:Ref<ICards[]>, cards2: Ref<ICards[]>, originalCards: Ref<ICards[]>, originalCards2: Ref<ICards[]>) {
   const usl = ref<boolean>(true)
   const sortValue = ref<boolean>(false)
   const filterCards = computed(() => {

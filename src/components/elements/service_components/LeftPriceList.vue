@@ -1,49 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const items = ref([
-  {
-    id: 1,
-    title: 'Kugoo Kirin M4',
-    active: true
-  },
-  {
-    id: 2,
-    title: 'Kugoo Kirin S2',
-    active: false
-  },
-  {
-    id: 3,
-    title: 'Kugoo Kirin M5',
-    active: false
-  },
-  {
-    id: 4,
-    title: 'Kugoo Kirin M7',
-    active: false
-  },
-  {
-    id: 5,
-    title: 'Kugoo Kirin M8',
-    active: false
-  },
-])
-const changeItem = (index: number) => {
-  items.value.forEach((btn, i) => {
-    btn.active = i === index;
-  });
-}
+import type { IRepair } from '@/types/repair.interface';
+defineProps<{
+  items: IRepair[]
+}>()
+defineEmits<{
+  (e: 'changeItem', id: number) : void
+}>()
 </script>
 
 <template>
   <div class="left">
     <ul>
-      <li @click="changeItem(index)" class="size_5" v-for="(item, index) in items" :key="item.id"
+      <li @click="$emit('changeItem', item.id)" class="size_5" v-for="item in items" :key="item.id"
         :class="{active: item.active}">
         {{ item.title }}
-        <div class="line" v-if="item.active">
-
-        </div>
+        <div class="line" v-if="item.active"></div>
       </li>
     </ul>
   </div>
@@ -72,6 +43,7 @@ const changeItem = (index: number) => {
       display: flex;
       align-items: center;
       transition: 0.15s ease-in;
+      cursor: pointer;
       .line {
         position: absolute;
         left: 0;

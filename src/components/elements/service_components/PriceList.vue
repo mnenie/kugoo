@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import LeftPriceList from './LeftPriceList.vue';
 import RightPriceList from './RightPriceList.vue';
+import type { IRepair } from '@/types/repair.interface';
+
+defineProps<{
+  items: IRepair[]
+}>()
+const emit = defineEmits([
+  'change-item'
+])
+const itemChange = (id: number) => {
+  emit('change-item', id);
+}
 </script>
 
 <template>
   <div class="price_list">
-    <LeftPriceList />
-    <RightPriceList />
+    <LeftPriceList :items="items" @changeItem="itemChange" />
+    <RightPriceList :items="items" />
   </div>
 </template>
 

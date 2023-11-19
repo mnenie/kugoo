@@ -1,4 +1,5 @@
 import type { ICategories } from "@/types/categories.interface";
+import axios from "axios";
 import { ref, onMounted } from 'vue';
 
 export default function useTechnic(){
@@ -6,9 +7,8 @@ export default function useTechnic(){
 
   const loadTechnic = async () => {
     try {
-      const response = await fetch('data/technic.json')
-      const data = await response.json()
-      home1.value = data.technic
+      const response = await axios.get('data/technic.json')
+      home1.value = response.data.technic
 
     } catch (error) {
       console.error(error)

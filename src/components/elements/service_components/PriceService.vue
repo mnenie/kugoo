@@ -2,9 +2,19 @@
 import FilterItems from '@/components/UI/FilterItems.vue';
 import PriceList from './PriceList.vue';
 import { btnsFilter2 } from '@/mocks/ui/btnsFilter';
-const filterPrice = () => {
-
-}
+import { onMounted, ref } from 'vue';
+import type { IRepair } from '@/types/repair.interface';
+import useFilterRepair from '@/hooks/useFilterRepair';
+const items = ref<IRepair[]>([])
+const {filterPrice} = useFilterRepair(items)
+onMounted(async () => {
+  await filterPrice.value(0);
+})
+const changeItem = async (id: number) => {
+  items.value.forEach((btn) => {
+    btn.active = btn.id === id;
+  });
+};
 
 </script>
 
@@ -15,7 +25,7 @@ const filterPrice = () => {
       <p class="size_5">Точную стоимость работ вам озвучит специалист сервисного центра после диагностики. Примерные цены
         на ремонт без учета запчастей смотрите ниже.</p>
       <FilterItems class="btns" @filter-cards="filterPrice" :btns-filter="btnsFilter2" />
-      <PriceList />
+      <PriceList :items="items" @change-item="changeItem" />
     </div>
   </div>
 </template>
