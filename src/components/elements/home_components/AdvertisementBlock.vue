@@ -114,6 +114,10 @@ defineProps<{
         font-weight: 500;
         line-height: normal;
         color: var(--purple-color);
+        transition: gap 0.15s ease-in;
+        &:hover{
+          gap: 12px;
+        }
       }
     }
   }

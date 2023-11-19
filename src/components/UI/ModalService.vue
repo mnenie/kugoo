@@ -49,6 +49,7 @@ const imgs = [
     img: '/icons/service/tg.svg'
   },
 ]
+const btnTitle = ref('Записаться')
 </script>
 
 <template>
@@ -79,7 +80,7 @@ const imgs = [
           </div>
         </div>
       </div>
-      <FormModal v-model:checked="checked" :errors="errors" :phone="phone" :place="place" v-model="formValue" @on-submit="onSubmit" />
+      <FormModal v-model:checked="checked" :errors="errors" :phone="phone" :place="place" v-model="formValue" @on-submit="onSubmit" :btn-title="btnTitle" />
     </div>
     <img class="img" src="/img/service/modal1.png" alt="">
     <div class="circle"></div>

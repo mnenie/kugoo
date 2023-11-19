@@ -2,7 +2,16 @@
 import { ref } from 'vue';
 import { useForm } from 'vee-validate';
 import * as yup from 'yup';
-
+import { ModalsContainer, useModal } from 'vue-final-modal';
+import ModalEmail from '@/components/UI/ModalEmail.vue';
+const { open, close } = useModal({
+  component: ModalEmail,
+  attrs: {
+    onClose() {
+      close()
+    }
+  }
+})
 const emailValue = ref<string>('')
 const { defineInputBinds, errors, validate } = useForm({
   validationSchema: yup.object({
@@ -12,7 +21,7 @@ const { defineInputBinds, errors, validate } = useForm({
 const confirmEmail = async () => {
   await validate()
   if (Object.keys(errors.value).length === 0) {
-    emailValue.value = ''
+    open()
   }
 }
 const email = defineInputBinds('email')
@@ -33,6 +42,7 @@ const email = defineInputBinds('email')
         </div>
       </div>
     </div>
+    <ModalsContainer />
   </div>
 </template>
 
@@ -61,11 +71,13 @@ const email = defineInputBinds('email')
       display: flex;
       align-items: center;
       gap: 20px;
-      .input_container{
+
+      .input_container {
         display: flex;
         flex-direction: column;
         position: relative;
-        & span{
+
+        & span {
           color: var(--white-color);
           position: absolute;
           right: 5px;

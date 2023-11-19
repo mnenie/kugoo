@@ -7,11 +7,13 @@ defineProps<{
 const svgItems = ref([
   {
     id: 1,
-    svg: '/icons/googleplay.svg'
+    svg: '/icons/googleplay.svg',
+    link: 'https://play.google.com/store/apps/details?id=com.vehicle.kugooa&hl=ru&gl=US'
   },
   {
     id: 2,
-    svg: '/icons/appstore.svg'
+    svg: '/icons/appstore.svg',
+    link: 'https://apps.apple.com/ru/app/kugoo-russia-ru/id1539136862'
   }
 ])
 </script>
@@ -23,7 +25,7 @@ const svgItems = ref([
     </div>
     <div class="section_2">
       <div class="network_display_market">
-        <img v-for="svgItem in svgItems" :src="svgItem.svg" alt="" :key="svgItem.id">
+        <a v-for="svgItem in svgItems" :key="svgItem.id" :href="svgItem.link" target="_blank"><img  :src="svgItem.svg" alt=""></a>
       </div>
       <div class="networks_blocks">
         <div v-for="item in network" class="network-item" :key="item.id">
@@ -57,6 +59,9 @@ const svgItems = ref([
       display: flex;
       align-items: center;
       gap: 10px;
+      & a{
+        height: 45px;
+      }
     }
   }
 
@@ -121,49 +126,56 @@ const svgItems = ref([
 }
 
 @media screen and (max-width: 1200px) {
-  .network_display{
-    .section_2{
+  .network_display {
+    .section_2 {
       gap: 30px;
     }
   }
 }
+
 @media screen and (max-width: 1064px) {
-  .network_display{
+  .network_display {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    .network_1{
-      & h1{
+
+    .network_1 {
+      & h1 {
         margin-right: 0;
       }
     }
   }
 }
+
 @media screen and (max-width: 890px) {
-  .network_display{
+  .network_display {
     align-items: flex-start;
-    .section_2{
+
+    .section_2 {
       flex-direction: column;
       align-items: flex-start;
       gap: 20px;
     }
   }
 }
+
 @media screen and (max-width: 768px) {
-  .network_display{
+  .network_display {
     align-items: flex-start;
-    .section_2{
+
+    .section_2 {
       align-items: flex-start;
     }
   }
 }
+
 @media screen and (max-width: 600px) {
-  .network_display{
+  .network_display {
     align-items: flex-start;
-    .networks_blocks{
+
+    .networks_blocks {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
   }
-}
-</style>
+}</style>

@@ -31,6 +31,7 @@ const onSubmit = async () => {
   }
 };
 const phone = defineInputBinds('phone');
+const btnTitle = ref('Позвоните мне')
 </script>
 
 <template>
@@ -38,7 +39,7 @@ const phone = defineInputBinds('phone');
     <div class="text_content">
       <h1>Менеджер позвонит вам в течение 5 минут</h1>
       <p>ответит на все вопросы и проконсультирует по продуктам Kugoo</p>
-      <FormModal v-model:checked="checked" :errors="errors" :phone="phone" :place="place" v-model="formValue" @on-submit="onSubmit" />
+      <FormModal v-model:checked="checked" :errors="errors" :phone="phone" :place="place" v-model="formValue" @on-submit="onSubmit" :btn-title="btnTitle" />
     </div>
     <img class="img" src="/img/womanmodal.png" alt="">
     <div class="circle"></div>

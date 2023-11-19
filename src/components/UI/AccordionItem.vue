@@ -10,15 +10,16 @@ defineProps<{
 <template>
   <div class="accordion" id="accordionExample">
     <div class="accordion-item" v-for="item in accordion" :key="item.id">
-      <h2 class="accordion-header">
+      <div class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" :data-bs-target="item.target"
           :aria-expanded="item.expanded" :aria-controls="item.controls">
-          {{ item.title }}
+          <span class="size_6">{{ item.title }}</span>
         </button>
-      </h2>
-      <div :id="item.controls" :class="[item.expanded===true ? 'show' : '']" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      </div>
+      <div :id="item.controls" :class="[item.expanded === true ? 'show' : '']" class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          {{ item.body }}
+          <span class="size_7">{{ item.body }}</span>
         </div>
       </div>
     </div>
@@ -32,11 +33,21 @@ defineProps<{
   width: 100%;
 
   .accordion-header {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 121%;
-    color: var(--black-color);
+    & span {
+      font-style: normal;
+      font-weight: 500;
+      line-height: 121%;
+      color: var(--black-color);
+      max-width: 650px;
+    }
+  }
+
+  .accordion-body {
+    & span {
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
   }
 }
 </style>

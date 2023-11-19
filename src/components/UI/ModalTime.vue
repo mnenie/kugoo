@@ -14,7 +14,7 @@ const goToCatalog = () => {
 </script>
 
 <template>
-  <VueFinalModal class="modal_vue" content-class="modal_final" :lock-scroll="true" :content-transition="'vfm-slide-up'">
+  <VueFinalModal class="modal_vue" content-class="modal_final_sm" :lock-scroll="true" :content-transition="'vfm-slide-up'">
     <div class="content">
       <h2 class="size_3">Счастливые часы</h2>
       <p class="size_6"><span class="size_6">Каждые выходные с 00:00 до 05:00 </span>дополнительный подарок к любому заказу
@@ -29,9 +29,6 @@ const goToCatalog = () => {
 
 
 <style lang="scss" scoped>
-.modal_final{
-  width: 659px !important;
-}
 .content {
   margin-top: 16px;
   display: flex;

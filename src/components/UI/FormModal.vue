@@ -6,6 +6,7 @@ interface IFormProps {
   phone: any;
   modelValue: string | number;
   checked: boolean;
+  btnTitle: string 
 }
 defineProps<IFormProps>()
 defineEmits([
@@ -20,7 +21,7 @@ defineEmits([
     <input-form :placeholder="place" style="margin-bottom: 20px;" v-bind="phone" :value="modelValue"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
     <div style="color: var(--pink-color); margin-top: -15px; margin-bottom: 20px;">{{ errors.phone }}</div>
-    <ButtonPurpleLg style="margin-bottom: 16px;">Записаться</ButtonPurpleLg>
+    <ButtonPurpleLg style="margin-bottom: 16px;">{{ btnTitle }}</ButtonPurpleLg>
     <div class="check_block">
       <input type="checkbox" :checked="checked" @change="$emit('update:checked', ($event.target as HTMLInputElement).checked)" :disabled="checked"
         id="flexCheckChecked">

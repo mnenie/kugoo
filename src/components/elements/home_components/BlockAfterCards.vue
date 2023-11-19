@@ -82,7 +82,7 @@ defineProps<{
     transition: gap 0.15s ease-in;
 
     &:hover {
-      gap: 16px;
+      gap: 12px;
     }
   }
 

@@ -55,7 +55,29 @@ button{cursor: pointer;}
   background-color: var(--white-color);
   max-width: 790px;
   width: 100%;
-  // min-height: 428px;
+}
+.modal_final_sm{
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  background-color: var(--white-color);
+  max-width: 652px;
+  width: 100%;
+}
+.modal_final_sm_sm{
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white-color);
+  max-width: 618px;
+  width: 100%;
 }
 
 .vs__search{
