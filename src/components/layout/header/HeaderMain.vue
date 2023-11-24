@@ -25,12 +25,20 @@ const handleResize = () => {
   screenWidth.value = window.innerWidth;
   isScreenSmall.value = screenWidth.value < 990;
 };
+const scrollY = ref(window.scrollY);
+const offset = ref(100);
+
+const handleScroll = () => {
+  scrollY.value = window.scrollY;
+};
 
 onMounted(() => {
   window.addEventListener('resize', handleResize);
+  window.addEventListener('scroll', handleScroll);
 });
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
+  window.removeEventListener('scroll', handleScroll);
 });
 
 const inputMain = useInput()
@@ -43,7 +51,7 @@ const searchThis = () => {
 </script>
 
 <template>
-  <div v-if="!isScreenSmall" class="main_display">
+  <div v-if="!isScreenSmall" :class="{ 'main_display': true, 'fixed': scrollY > offset }" class="main_display">
     <div class="container">
       <div class="main_display-content">
         <router-link style="text-decoration: none;" to="/">
@@ -77,8 +85,17 @@ const searchThis = () => {
 
 <style lang="scss" scoped>
 .main_display {
-  padding: 27px 0 34px 0;
+  // padding: 27px 0 34px 0;
   position: relative;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  &:not(.fixed) {
+    padding: 27px 0 34px 0;
+  }
+  &.fixed {
+    padding: 20px 0;
+  }
 
   &-content {
     display: flex;
@@ -200,5 +217,15 @@ form {
     line-height: normal;
     color: var(--white-color);
   }
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--white-color);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 10px 40px #41464c12;
 }
 </style>
