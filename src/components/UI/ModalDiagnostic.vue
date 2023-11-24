@@ -61,7 +61,7 @@ onBeforeUnmount(() => {
       <FlexFormModal v-if="!isScreenSmall" v-model:checked="checked" :errors="errors" :phone="phone" :place="place"
         v-model="formValue" @on-submit="onSubmit" :btn-title="btnTitle" :purple-btn="true" />
       <div v-else class="mobile">
-        <NetworksMobile />
+        <NetworksMobile style="margin-bottom: 20px;" />
         <FormModal v-model:checked="checked" :errors="errors" :phone="phone" :place="place" v-model="formValue"
           @on-submit="onSubmit" :btn-title="btnTitle" :purple-btn="true" />
       </div>

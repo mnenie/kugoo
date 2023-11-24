@@ -57,10 +57,10 @@ const btnTitle = ref('Записаться')
             <span style="color: var(--gray-600-color);" class="size_7">{{ city }}</span>
           </template>
         </v-select>
-        <div style="color: var(--pink-color); margin-top: -10px">{{ selected === null ? errors.select : '' }}</div>
+        <div class="size_7" style="color: var(--pink-color); margin-top: -10px">{{ selected === null ? errors.select : '' }}</div>
       </div>
       <span class="size_8 how">Как с вами удобнее связаться?</span>
-      <NetworksMobile />
+      <NetworksMobile style="margin-bottom: 20px;" />
       <FormModal v-model:checked="checked" :errors="errors" :phone="phone" :place="place" v-model="formValue"
         @on-submit="onSubmit" :btn-title="btnTitle" :purple-btn="true" />
     </div>

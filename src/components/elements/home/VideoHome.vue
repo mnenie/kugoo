@@ -9,10 +9,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="video">
-    <video style="width: 100%; cursor: auto;" src="/video/main.mp4" ref="video" loop muted>
-    </video>
-  </div>
+  <!-- <div class="container_lg"> -->
+    <div class="video">
+      <video style="width: 100%; cursor: auto;" src="/video/main.mp4" ref="video" loop muted>
+      </video>
+    </div>
+  <!-- </div> -->
 </template>
 
 <style lang="scss" scoped>
@@ -45,17 +47,19 @@ onMounted(() => {
   }
 }
 
-@media screen and (max-width: 1120px){
+@media screen and (max-width: 1120px) {
   .video {
     height: unset;
   }
 }
-@media screen and (max-width: 992px){
+
+@media screen and (max-width: 992px) {
   .video {
     margin-bottom: 80px;
   }
 }
-@media screen and (max-width: 600px){
+
+@media screen and (max-width: 600px) {
   .video {
     margin-bottom: 60px;
   }

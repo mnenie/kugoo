@@ -4,9 +4,54 @@ import FilterItems from '@/components/UI/FilterItems.vue';
 import { btnsFilter3 } from '@/mocks/ui/btnsFilter';
 import useFilterSettings from '@/hooks/useFilterSettings';
 import useGetAllScooters from '@/hooks/useGetAllScooters';
+import { useModal } from 'vue-final-modal';
+import ModalGidroisolation from '@/components/UI/ModalGidroisolation.vue';
+import { ref } from 'vue';
 
 const { items } = useGetAllScooters()
 const { filterSettings, btnTitle, formattedPrice } = useFilterSettings()
+const title = ref<string>('')
+const about = ref<string>('')
+const btn = ref<string>('')
+const {open, close, patchOptions} = useModal({
+  component: ModalGidroisolation,
+  attrs:{
+    title: title.value,
+    about: about.value,
+    btnTitle: btn.value,
+    onClose(){
+      close()
+    },
+    onConfirm(){
+      close();
+    }
+  }
+})
+const openModal = (btnTitle: string) => {
+  if(btnTitle === 'Заказать гидроизоляцию'){
+    title.value = 'Закажите гидроизоляцию и катайтесь на своем самокате в любую погоду!'
+    about.value = 'Оставьте номер, менеджер свяжется с вами в течение 5 минут'
+    btn.value = 'Записаться на диагностику'
+  }
+  if(btnTitle === 'Заказать настройку'){
+    title.value = 'Закажите настройку электросамоката перед покупкой'
+    about.value = 'Оставьте номер, менеджер свяжется с вами в течение 5 минут'
+    btn.value = 'Заказать настройку'
+  }
+  else if(btnTitle === 'Заказать гидроизоляцию + настройку'){
+    title.value = 'Закажите «настройку+гидроизоляцию» и сэкономьте до 1 000 руб.'
+    about.value = 'Оставьте номер, менеджер свяжется с вами в течение 5 минут'
+    btn.value = 'Заказать все вместе'
+  }
+  patchOptions({
+    attrs: {
+      title: title.value, 
+      about: about.value,
+      btnTitle: btn.value
+    }
+  })
+  open()
+}
 </script>
 <template>
   <div class="price_list">
@@ -19,7 +64,7 @@ const { filterSettings, btnTitle, formattedPrice } = useFilterSettings()
         </span>
       </div>
     </div>
-    <ButtonPurpleLg style="margin-top: -20px;">{{ btnTitle }}</ButtonPurpleLg>
+    <ButtonPurpleLg @click="openModal(btnTitle)" style="margin-top: -20px;">{{ btnTitle }}</ButtonPurpleLg>
   </div>
 </template>
 

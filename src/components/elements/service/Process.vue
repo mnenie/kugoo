@@ -134,7 +134,7 @@ const imgs = [
         &:first-child {
           max-width: 485px;
           width: 100%;
-          height: 485px;
+          height: 380px;
 
           & img {
             position: absolute;
@@ -148,7 +148,7 @@ const imgs = [
         &:nth-child(2) {
           max-width: 350px;
           width: 100%;
-          height: 485px;
+          height: 380px;
 
           & img {
             position: absolute;
@@ -162,7 +162,7 @@ const imgs = [
         &:nth-child(3) {
           max-width: 485px;
           width: 100%;
-          height: 485px;
+          height: 380px;
 
           & img {
             position: absolute;

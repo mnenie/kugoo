@@ -71,7 +71,7 @@ const nextNavi = (index: number) => {
   position: fixed;
   bottom: 0;
   display: none;
-  z-index: 99;
+  z-index: 999;
 
   .navi_blocks {
     width: 100%;

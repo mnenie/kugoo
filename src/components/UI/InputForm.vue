@@ -27,7 +27,7 @@ export default defineComponent({
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 2.48px;
+  letter-spacing: 1.5px;
   color: var(--gray-600-color);
   transition: 0.15s ease;
   outline: none;

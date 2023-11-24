@@ -10,6 +10,11 @@
     padding-right: 20px;
   }
 }
+@media screen and (max-width: 650px){
+  .vs__search{
+    font-size: 12px !important;
+  }
+}
 @media screen and (max-width: 540px){
   .container{
     padding-left: 15px;

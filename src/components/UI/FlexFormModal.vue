@@ -21,14 +21,14 @@ defineEmits([
 <template>
   <form @submit.prevent="$emit('onSubmit')" class="form">
     <div class="btn_content">
-      <NetworksMobile />
+      <NetworksMobile style="margin-bottom: 20px;" />
       <ButtonPurpleLg v-if="purpleBtn">{{ btnTitle }}</ButtonPurpleLg>
       <btn-bg-yellow v-else >{{ btnTitle }}</btn-bg-yellow>
     </div>
     <div class="input_content">
       <input-form :placeholder="place" style="margin-bottom: 16px;" v-bind="phone" :value="modelValue"
         @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
-      <div class="size_7" style="color: var(--pink-color); margin-top: -15px; margin-bottom: 20px;">{{ errors.phone }}
+      <div class="size_7" style="color: var(--pink-color); margin-top: -10px; margin-bottom: 20px;">{{ errors.phone }}
       </div>
       <div class="check_block">
         <input type="checkbox" :checked="checked"

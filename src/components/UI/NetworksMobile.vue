@@ -32,7 +32,6 @@ const imgs = [
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
 
     .social {
       border-radius: 5px;
