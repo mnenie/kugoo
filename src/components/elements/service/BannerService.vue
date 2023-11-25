@@ -54,7 +54,6 @@ const { open, close } = useModal({
             </div>
           </div>
           <btn-yellow-large @click="open" style="align-self: flex-start;">Записаться</btn-yellow-large>
-          <!-- <span @click="open" v-else style="align-self: flex-start; color: var(--white-color); margin-top: 15px;">Записаться</span> -->
         </div>
       </div>
       <img class="img" src="/img/service/banner.png" alt="">

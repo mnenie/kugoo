@@ -1,10 +1,16 @@
 <script setup lang="ts">
-
+import BannerPriceList from '@/components/elements/cooperation/BannerPriceList.vue'
+import OftenProducts from '@/components/elements/cooperation/OftenProducts.vue'
+import PurpleBanner from '@/components/elements/cooperation/PurpleBanner.vue';
+import Alert from '@/components/UI/Alert.vue';
 </script>
 
 <template>
   <div>
-    cooperation
+    <BannerPriceList />
+    <OftenProducts />
+    <Alert />
+    <PurpleBanner />
   </div>
 </template>
 

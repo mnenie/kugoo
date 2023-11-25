@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useCart } from '@/stores/cart';
-
 const alert = useCart()
 </script>
     
@@ -33,7 +32,7 @@ const alert = useCart()
 }
 .alert_item {
   position: fixed;
-  top: 80px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;

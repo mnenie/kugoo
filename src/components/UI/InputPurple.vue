@@ -7,7 +7,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 defineProps<{
-  modelValue: string,
+  modelValue: string | number,
 }>()
 defineEmits(["update:modelValue"]);
 </script>
