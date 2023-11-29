@@ -27,12 +27,12 @@ import PriceListForm from './PriceListForm.vue';
 <style lang="scss" scoped>
 .banner {
   margin-top: 30px;
-  border-radius: 10px;
-  background: var(--btn-gray-color);
   margin-bottom: 100px;
 
   .content {
     padding: 40px 0;
+    border-radius: 10px;
+    background: var(--btn-gray-color);
 
     .content_inside {
       display: flex;
@@ -66,40 +66,41 @@ import PriceListForm from './PriceListForm.vue';
     }
   }
 }
-@media screen and (max-width: 1200px){
-  .banner{
+
+@media screen and (max-width: 1200px) {
+  .banner {
     margin-bottom: 80px;
   }
 }
-@media screen and (max-width: 900px){
-  .content_inside{
+
+@media screen and (max-width: 900px) {
+  .content_inside {
     flex-direction: column;
-    .text{
+
+    .text {
       align-items: center;
-      & h1{
+
+      & h1 {
         text-align: center;
       }
-      & p{
+
+      & p {
         text-align: center;
       }
     }
   }
 }
-@media screen and (max-width: 600px){
-  .banner{
-    margin-bottom: 60px;
-  }
-}
-@media screen and (max-width: 540px){
-  .banner{
-    .content{
+
+@media screen and (max-width: 540px) {
+  .banner {
+    .content {
       padding: 30px 0;
     }
   }
 }
-@media screen and (max-width: 520px){
-  .banner{
+
+@media screen and (max-width: 520px) {
+  .banner {
     margin-top: 0;
   }
-}
-</style>
+}</style>

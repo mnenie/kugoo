@@ -25,6 +25,7 @@ defineEmits(["update:modelValue"]);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  letter-spacing: 1.5px;
   color: var(--white-color);
   border: none;
   outline: none;

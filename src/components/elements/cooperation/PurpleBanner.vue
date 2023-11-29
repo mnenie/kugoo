@@ -27,12 +27,12 @@ import ConnectFormList from './ConnectFormList.vue';
 
 <style lang="scss" scoped>
 .banner {
-  border-radius: 10px;
-  background: radial-gradient(202.55% 104.39% at 82.43% 76.38%, #8185FF 0%, #6F73EE 100%);
   margin-bottom: 100px;
 
   .blocks {
     padding: 50px 0 43px 0;
+    border-radius: 10px;
+    background: radial-gradient(202.55% 104.39% at 82.43% 76.38%, #8185FF 0%, #6F73EE 100%);
 
     .content {
       display: flex;
@@ -75,20 +75,24 @@ import ConnectFormList from './ConnectFormList.vue';
     }
   }
 }
-@media screen and (max-width: 1200px){
-  .banner{
+
+@media screen and (max-width: 1200px) {
+  .banner {
     margin-bottom: 80px;
   }
 }
-@media screen and (max-width: 840px){
-  .banner{
-    .blocks{
-      .content{
+
+@media screen and (max-width: 840px) {
+  .banner {
+    .blocks {
+      .content {
         flex-direction: column;
         align-items: center;
-        .text{
+
+        .text {
           text-align: center;
-          .img{
+
+          .img {
             justify-content: center;
           }
         }
@@ -96,16 +100,17 @@ import ConnectFormList from './ConnectFormList.vue';
     }
   }
 }
-@media screen and (max-width: 600px){
-  .banner{
+
+@media screen and (max-width: 600px) {
+  .banner {
     margin-bottom: 60px;
   }
 }
-@media screen and (max-width: 540px){
-  .banner{
-    .blocks{
+
+@media screen and (max-width: 540px) {
+  .banner {
+    .blocks {
       padding: 40px 0;
     }
   }
-}
-</style>
+}</style>
