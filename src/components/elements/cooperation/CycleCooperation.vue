@@ -19,7 +19,7 @@
 
 <style lang="scss" scoped>
 .cycle {
-  margin-bottom: 132px;
+  margin-bottom: 100px;
 
   .content {
     display: flex;
@@ -59,13 +59,8 @@
 
 @media screen and (max-width: 1200px) {
   .cycle {
-    margin-bottom: 100px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .cycle {
     margin-bottom: 80px;
   }
 }
+
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 import DropdownCatalog from '@/components/UI/DropdownCatalog.vue';
 import { useRouter } from 'vue-router';
 import { BASKET_ROUTE } from '@/utils/consts'
@@ -39,13 +39,26 @@ const inputCatalog = () => {
 const searchThis = () => {
   inputMain1.searchThis()
 }
+const scrollY = ref(window.scrollY);
+const offset = ref(100);
+
+const handleScroll = () => {
+  scrollY.value = window.scrollY;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
   <div class="main_display_new">
     <div class="container">
       <div class="main_display_new-content">
-        <div class="main_display_new-content_1">
+        <div :class="{'main_display_new-content_1': true, 'fixed': scrollY > offset}">
           <div style="display: flex; align-items: center;" class="catalog_new">
             <div @mouseover="catalogStyle" @mouseleave="catalogStyleNone" class="catalog_modal">
               <button @mouseover="openDropdown" :class="[flag === true ? 'btn_focus' : '']" class="btn-catalog">
@@ -100,6 +113,7 @@ const searchThis = () => {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      transition: padding 0.2s ease;
 
       .btn-catalog {
         height: 40px;
@@ -276,4 +290,15 @@ form {
     color: var(--purple-color);
   }
 }
-</style>@/store/mainInput
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--white-color);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 10px 40px #41464c12;
+  padding: 20px 20px;
+}
+</style>

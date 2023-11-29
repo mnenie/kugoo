@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import FormList from './FormList.vue';
 import { useForm } from 'vee-validate';
 import * as yup from 'yup';
+
+
 const place = ref('+7 (___) __ - __ - __')
 const phoneValue = ref<string>('')
 const emailValue = ref<string>('')
@@ -18,10 +20,22 @@ const { defineInputBinds, errors, validate } = useForm({
       .matches(/^(\+7|8)([-]?[\s]?)?(\()?\d{3}(\))?([-]?[\s]?)?\d{3}([-]?[\s]?)?\d{2}([-]?[\s]?)?\d{2}$/, '*Вы ввели неправильный номер телефона'),
   }),
 });
+const downlandExcel = async () => {
+  const filePath = '/data/pricelist.xlsx';
+  const response = await fetch(filePath);
+  const blob = await response.blob()
+  const downloadLink = document.createElement('a')
+  downloadLink.href = window.URL.createObjectURL(blob)
+  downloadLink.download = 'pricelist.xlsx'
+
+  document.body.appendChild(downloadLink)
+  downloadLink.click()
+  document.body.removeChild(downloadLink)
+}
 const onSubmit = async () => {
   await validate();
   if (Object.keys(errors.value).length === 0) {
-    alert('ok')
+    await downlandExcel()
   }
 };
 const phone = defineInputBinds('phone');
@@ -86,4 +100,5 @@ const phone = defineInputBinds('phone');
       max-width: none;
     }
   }
-}</style>
+}
+</style>
