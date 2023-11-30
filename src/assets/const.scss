@@ -33,9 +33,10 @@ body {
   width: 100%;
 }
 .container_left{
-  max-width: calc($max_width - 165px);
-  margin-left: 165px;
-  width: 100%;
+  padding-left: calc((100% - 1100px) / 2);
+}
+.container_right{
+  padding-right: calc((100% - 1100px) / 2);
 }
 button{cursor: pointer;}
 
