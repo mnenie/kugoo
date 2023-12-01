@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import SwiperReviews from '@/components/UI/swiper/SwiperReviews.vue'
-
 </script>
 
 <template>

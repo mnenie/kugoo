@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CategoriesElement from './CategoriesElement.vue';
-import ModalConsultation from '@/components/UI/ModalConsultation.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { CATALOG_ROUTE } from '@/utils/consts';
@@ -9,7 +8,8 @@ import useTechnic from '@/hooks/useTechnic';
 const title = ref<string>('Смотреть все')
 
 const router = useRouter()
-const {home1} = useTechnic()
+const { home1 } = useTechnic()
+
 </script>
 
 <template>
@@ -24,15 +24,14 @@ const {home1} = useTechnic()
             </div>
             <div class="text_manager">
               <p>Менеджер ответит на любой ваш вопрос о продуктах Kugoo</p>
-              <a style="cursor: pointer;" >Задать вопрос</a>
+              <a style="cursor: pointer;">Задать вопрос</a>
             </div>
           </div>
         </div>
         <div class="categories">
           <CategoriesElement :categories="home1" />
         </div>
-        <btn-more @click="router.push(CATALOG_ROUTE)"
-          style="display: block; margin: 0 auto;">{{ title }}</btn-more>
+        <btn-more @click="router.push(CATALOG_ROUTE)" style="display: block; margin: 0 auto;">{{ title }}</btn-more>
       </div>
     </div>
   </div>
@@ -138,12 +137,14 @@ const {home1} = useTechnic()
     margin-bottom: 90px;
   }
 }
+
 @media screen and (max-width: 992px) {
 
   .popular_categories {
     margin-bottom: 80px;
   }
 }
+
 @media screen and (max-width: 820px) {
   .categories_display {
     .categories {
@@ -151,28 +152,32 @@ const {home1} = useTechnic()
     }
   }
 }
+
 @media screen and (max-width: 768px) {
-  .text_block{
+  .text_block {
     flex-direction: column;
     gap: 20px;
     margin-bottom: 40px;
-    .manager_block{
+
+    .manager_block {
       display: none;
     }
   }
 }
+
 @media screen and (max-width: 600px) {
-  .popular_categories{
+  .popular_categories {
     margin-bottom: 60px;
   }
 }
-@media screen and (max-width: 540px){
+
+@media screen and (max-width: 540px) {
   .categories_display {
 
-  .categories {
-    gap: 15px;
-    margin-bottom: 30px;
+    .categories {
+      gap: 15px;
+      margin-bottom: 30px;
+    }
   }
-}
 }
 </style>

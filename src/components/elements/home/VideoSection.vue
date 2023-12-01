@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import VideoBlock from './VideoBlock.vue';
-
-
 </script>
 
 <template>
