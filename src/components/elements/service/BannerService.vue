@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {ref} from 'vue';
-import {useModal, ModalsContainer} from 'vue-final-modal'
+import { ref } from 'vue';
+import { useModal, ModalsContainer } from 'vue-final-modal'
 import ModalService from '@/components/UI/ModalService.vue';
 
 interface IBanner {
@@ -27,11 +27,11 @@ const items = ref<IBanner[]>([
 ])
 const { open, close } = useModal({
   component: ModalService,
-  attrs:{
-    onClose(){
+  attrs: {
+    onClose() {
       close()
     },
-    onConfirm(){
+    onConfirm() {
       close();
     }
   }
@@ -174,8 +174,8 @@ const { open, close } = useModal({
   }
 }
 
-@media screen and (max-width: 1200px){
-  .banner_service{
+@media screen and (max-width: 1200px) {
+  .banner_service {
     margin-bottom: 80px;
   }
 }
@@ -189,32 +189,38 @@ const { open, close } = useModal({
     }
   }
 }
+
 @media screen and (max-width: 890px) {
-  .banner_service{
-    .block_banner{
-      .blocks_in_banner{
+  .banner_service {
+    .block_banner {
+      .blocks_in_banner {
         gap: 20px;
         margin-bottom: 30px;
         max-width: 500px;
       }
     }
-    .img{
+
+    .img {
       width: 694px;
       height: 454px;
     }
   }
 }
+
 @media screen and (max-width: 768px) {
-  .banner_service{
+  .banner_service {
     padding: 20px 0;
-    .btn_yellow{
+
+    .btn_yellow {
       margin-top: 15px;
     }
-    .block_banner{
+
+    .block_banner {
       .h1_banner {
         max-width: 440px;
       }
-      .blocks_in_banner{
+
+      .blocks_in_banner {
         gap: 15px;
         display: flex;
         flex-direction: column;
@@ -223,41 +229,64 @@ const { open, close } = useModal({
     }
   }
 }
+
 @media screen and (max-width: 650px) {
-  .banner_service{
-    .block_banner{
-      .h1_banner{
+  .banner_service {
+    .block_banner {
+      .h1_banner {
         max-width: 386px;
       }
     }
-    .img{
+
+    .img {
       width: 600px;
       height: 404px;
     }
   }
 }
+
 @media screen and (max-width: 600px) {
-  .banner_service{
+  .banner_service {
     margin-bottom: 60px;
-    .block_banner{
-      .h1_banner{
+
+    .block_banner {
+      .h1_banner {
         max-width: 384px;
       }
     }
-    .img{
+
+    .img {
       width: 542px;
       height: 370px;
     }
   }
 }
-@media screen and (max-width: 540px){
+
+@media screen and (max-width: 540px) {
   .banner_service {
-    padding: 15px 0;
+
+    .block_banner {
+      .blocks_in_banner {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
   }
 }
+
 @media screen and (max-width:520px) {
-  .banner_service{
+  .banner_service {
     margin-top: 0;
+  }
+}
+@media screen and (max-width: 440px) {
+  .banner_service {
+
+    .block_banner {
+      .blocks_in_banner {
+        flex-direction: column;
+      }
+    }
   }
 }
 </style>

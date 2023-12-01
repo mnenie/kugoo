@@ -197,4 +197,22 @@ const items = ref<IAddress[]>([
     }
   }
 }
+@media screen and (max-width: 540px) {
+  .address {
+    .blocks{
+      .items{
+        display: flex;
+      }
+    }
+  }
+}
+@media screen and (max-width: 387px) {
+  .address {
+    .blocks{
+      .items{
+        display: grid;
+      }
+    }
+  }
+}
 </style>

@@ -1,5 +1,18 @@
 <script setup lang="ts">
+import { useModal } from 'vue-final-modal';
 import BannerBlocks from './BannerBlocks.vue'
+import ModalTestDrive from '@/components/UI/ModalTestDrive.vue';
+const { open, close } = useModal({
+  component: ModalTestDrive,
+  attrs: {
+    onClose() {
+      close()
+    },
+    onConfirm() {
+      close();
+    }
+  }
+})
 </script>
 
 <template>
@@ -16,7 +29,7 @@ import BannerBlocks from './BannerBlocks.vue'
             <h1 class="szie_1">Запишитесь на бесплатный тест-драйв электросамокатов</h1>
             <p class="size_4 main_p">в Москве без ограничения по времени</p>
             <BannerBlocks />
-            <btn-large-white>Записаться</btn-large-white>
+            <btn-large-white @click="open">Записаться</btn-large-white>
           </div>
         </div>
       </div>
@@ -161,6 +174,28 @@ import BannerBlocks from './BannerBlocks.vue'
     .content {
       &::after {
         right: -220px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 540px) {
+  .banner {
+    .content {
+      .text{
+        & h1{
+          max-width: 500px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .banner {
+    .content {
+      .text{
+        & h1{
+          max-width: 400px;
+        }
       }
     }
   }

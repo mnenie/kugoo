@@ -4,6 +4,8 @@ import MainBanner from '@/components/elements/testdrive/MainBanner.vue';
 import RightList from '@/components/elements/testdrive/RightList.vue';
 import LeftList from '@/components/elements/testdrive/LeftList.vue';
 import { ref } from 'vue';
+import CardsTestDrive from '@/components/elements/testdrive/CardsTestDrive.vue';
+import RequestBlock from '@/components/elements/testdrive/RequestBlock.vue';
 const title = ref<string>('Тест-драйв')
 </script>
 
@@ -13,6 +15,8 @@ const title = ref<string>('Тест-драйв')
     <MainBanner />
     <RightList />
     <LeftList />
+    <CardsTestDrive />
+    <RequestBlock />
   </div>
 </template>
 

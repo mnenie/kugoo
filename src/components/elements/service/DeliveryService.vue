@@ -268,4 +268,18 @@ const {open, close} = useModal({
     }
   }
 }
+@media screen and (max-width: 540px) {
+  .delivery {
+    .content {
+      max-width: 480px;
+    }
+  }
+}
+@media screen and (max-width: 430px) {
+  .delivery {
+    .content {
+      max-width: 320px;
+    }
+  }
+}
 </style>

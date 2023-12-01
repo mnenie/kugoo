@@ -108,9 +108,19 @@ const style = 'max-width: 451px'
   .video_about {
     .img{
       & img{
+        width: 658px;
+        height: 446px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 410px) {
+  .video_about {
+    .img{
+      & img{
         width: 530px;
         height:395px;
-        right: -230px;
+        right: -200px;
       }
     }
   }

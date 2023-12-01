@@ -3,15 +3,20 @@ import type { ICards } from '@/types/cards.interface';
 import { useCart } from '@/stores/cart';
 import { useModal, ModalsContainer } from 'vue-final-modal';
 import ModalPreOrder from '@/components/UI/ModalPreOrder.vue';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import { TEST_ROUTE } from '@/utils/consts';
+
 defineProps<{
   cards: ICards[],
   style: string
 }>()
+const emit = defineEmits<{
+  (e: 'openModalTest'): void
+}>()
 const cart = useCart()
-const addIndexCart = () => {
-  cart.addIndex()
-}
+
+const titleBtn = ref<string>('Купить в 1 клик')
 const titleScooter = ref<string>('');
 const imgScooter = ref<string>('')
 const priceScooter = ref<string>('')
@@ -35,12 +40,27 @@ const openModal = (cardTitle: string, cardImg: string, cardPrice: string) => {
   priceScooter.value = cardPrice
   patchOptions({
     attrs: {
-      titleScooter: titleScooter.value, 
+      titleScooter: titleScooter.value,
       imgScooter: imgScooter.value,
       priceScooter: priceScooter.value
     }
   })
   open()
+}
+
+const router = useRouter()
+onMounted(() => {
+  if (router.currentRoute.value.path === TEST_ROUTE) {
+    titleBtn.value = 'Записаться на тест-драйв'
+  }
+})
+
+const clickCardBtn = () => {
+  if (titleBtn.value === 'Записаться на тест-драйв') {
+    emit('openModalTest')
+  } else {
+    cart.addIndex()
+  }
 }
 </script>
 
@@ -87,12 +107,11 @@ const openModal = (cardTitle: string, cardImg: string, cardPrice: string) => {
                   </div>
                 </div>
               </div>
-              <btn-card-yellow @click="openModal(card.title, card.img, card.price)" style="margin: 0 auto; display: block; width: 100%;"
-                v-if="!card.basket">Оформить
+              <btn-card-yellow @click="openModal(card.title, card.img, card.price)"
+                style="margin: 0 auto; display: block; width: 100%;" v-if="!card.basket">Оформить
                 предзаказ</btn-card-yellow>
-              <btn-card-purple @click="addIndexCart" style="margin: 0 auto; display: block; width: 100%;" v-else>Купить в
-                1
-                клик</btn-card-purple>
+              <btn-card-purple @click="clickCardBtn" style="margin: 0 auto; display: block; width: 100%;" v-else>{{
+                titleBtn }}</btn-card-purple>
             </div>
           </div>
           <div v-if="card.rec" class="block_news catalog_3"

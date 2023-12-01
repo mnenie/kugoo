@@ -116,7 +116,18 @@ button{cursor: pointer;}
   max-width: 632px;
   width: 100%;
 }
-
+.modal_final_between{
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  z-index: 2;
+  display: flex;
+  background-color: var(--white-color);
+  max-width: 790px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
 .vs__search{
   color: var(--gray-600-color) !important;
   padding: 8px 10px !important;
