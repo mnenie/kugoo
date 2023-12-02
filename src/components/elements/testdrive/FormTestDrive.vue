@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import * as yup from 'yup'
 import { useForm } from 'vee-validate';
 import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
+import { useRouter } from 'vue-router';
 
 
 const placeholder = ref<string>('+7 (___) __ - __ - __')
@@ -15,10 +16,11 @@ const { defineInputBinds, errors, validate } = useForm({
       .matches(/^(\+7|8)([-]?[\s]?)?(\()?\d{3}(\))?([-]?[\s]?)?\d{3}([-]?[\s]?)?\d{2}([-]?[\s]?)?\d{2}$/, '*Вы ввели неправильный номер телефона'),
   }),
 });
+const router = useRouter()
 const onSubmit = async () => {
   await validate();
   if (Object.keys(errors.value).length === 0) {
-    alert('ok')
+    router.push({name: 'thanks', params: {id: '2'}})
   }
 };
 const phone = defineInputBinds('phone');

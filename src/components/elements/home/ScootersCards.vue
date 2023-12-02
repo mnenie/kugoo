@@ -15,6 +15,7 @@ const emit = defineEmits<{
   (e: 'openModalTest'): void
 }>()
 const cart = useCart()
+const router = useRouter()
 
 const titleBtn = ref<string>('Купить в 1 клик')
 const titleScooter = ref<string>('');
@@ -30,7 +31,7 @@ const { open, close, patchOptions } = useModal({
       close()
     },
     onConfirm() {
-      close();
+      router.push({name: 'thanks', params: {id: '1'}})
     }
   }
 })
@@ -47,8 +48,6 @@ const openModal = (cardTitle: string, cardImg: string, cardPrice: string) => {
   })
   open()
 }
-
-const router = useRouter()
 onMounted(() => {
   if (router.currentRoute.value.path === TEST_ROUTE) {
     titleBtn.value = 'Записаться на тест-драйв'

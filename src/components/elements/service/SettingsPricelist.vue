@@ -7,12 +7,15 @@ import useGetAllScooters from '@/hooks/useGetAllScooters';
 import { useModal } from 'vue-final-modal';
 import ModalGidroisolation from '@/components/UI/ModalGidroisolation.vue';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const { items } = useGetAllScooters()
 const { filterSettings, btnTitle, formattedPrice } = useFilterSettings()
 const title = ref<string>('')
 const about = ref<string>('')
 const btn = ref<string>('')
+
+const router = useRouter()
 const {open, close, patchOptions} = useModal({
   component: ModalGidroisolation,
   attrs:{
@@ -24,6 +27,7 @@ const {open, close, patchOptions} = useModal({
     },
     onConfirm(){
       close();
+      router.push({name: 'thanks', params: {id: '2'}})
     }
   }
 })

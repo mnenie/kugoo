@@ -12,3 +12,6 @@ export const PRODUCT_ROUTE = '/product'
 export const BASKET_ROUTE = '/basket'
 export const FAVOURITES_ROUTE = '/favourites'
 export const COMPARISON_ROUTE = '/comparison'
+export const THANKS_ROUTE = '/thanks/:id'
+export const NOT_FOUND_ROUTE = '/:catchAll(.*)'
+

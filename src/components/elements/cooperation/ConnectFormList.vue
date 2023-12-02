@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import FormList from './FormList.vue';
 import { useForm } from 'vee-validate';
 import * as yup from 'yup';
+import { useRouter } from 'vue-router';
 const place = ref('+7 (___) __ - __ - __')
 const phoneValue = ref<string>('')
 const emailValue = ref<string>('')
@@ -19,10 +20,11 @@ const { defineInputBinds, errors, validate } = useForm({
     email: yup.string().email('Некорректный адрес email').required('*Обязательное поле')
   }),
 });
+const router = useRouter()
 const onSubmit = async () => {
   await validate();
   if (Object.keys(errors.value).length === 0) {
-    alert('ok')
+    router.push({name: 'thanks', params: {id: '4'}})
   }
 };
 const phone = defineInputBinds('phone');

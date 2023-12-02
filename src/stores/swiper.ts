@@ -18,15 +18,15 @@ export const useSwiperStore = defineStore('swiper', () => {
   })
 
   const prevSlide = computed(() => {
-    if(count.value ===1){
-      return false
+    if (count.value === 1) {
+      return false;
+    } else {
+      swiperInstance.value.slidePrev();
+      count.value = (count.value % 3) + 1;
+      div.value = count.value * 11;
+      return true;
     }
-    else {
-      swiperInstance.value.slidePrev()
-      count.value = (count.value % 3) + 1
-      div.value = count.value * 11
-    }
-  })
+  });
 
   return {
     swiperInstance,

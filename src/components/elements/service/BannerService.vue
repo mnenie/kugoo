@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useModal, ModalsContainer } from 'vue-final-modal'
 import ModalService from '@/components/UI/ModalService.vue';
+import { useRouter } from 'vue-router';
 
 interface IBanner {
   id: number
@@ -25,6 +26,7 @@ const items = ref<IBanner[]>([
     title: 'Всегда в наличии оригинальные запчасти от производителя'
   },
 ])
+const router = useRouter()
 const { open, close } = useModal({
   component: ModalService,
   attrs: {
@@ -33,6 +35,7 @@ const { open, close } = useModal({
     },
     onConfirm() {
       close();
+      router.push({name: 'thanks', params: {id: '2'}})
     }
   }
 })

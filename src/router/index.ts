@@ -1,4 +1,4 @@
-import { ABOUT_ROUTE, BASKET_ROUTE, BLOG_ROUTE, CATALOG_ROUTE, COMPARISON_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, FAVOURITES_ROUTE, HOME_ROUTE, PRODUCT_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE } from '@/utils/consts'
+import { ABOUT_ROUTE, BASKET_ROUTE, BLOG_ROUTE, CATALOG_ROUTE, COMPARISON_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, FAVOURITES_ROUTE, HOME_ROUTE, NOT_FOUND_ROUTE, PRODUCT_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, THANKS_ROUTE } from '@/utils/consts'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -74,6 +74,16 @@ const router = createRouter({
       name: 'comparison',
       component: () => import('@/views/ComparisonPage.vue')
     },
+    {
+      path: '/thanks/:id',
+      name: 'thanks',
+      component: () => import('@/views/ThanksPage.vue')
+    },
+    {
+      path: NOT_FOUND_ROUTE,
+      name: 'notfound',
+      component: () => import('@/views/NotFoundPage.vue')
+    }
   ]
 })
 

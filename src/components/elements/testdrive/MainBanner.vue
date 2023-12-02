@@ -2,6 +2,9 @@
 import { useModal } from 'vue-final-modal';
 import BannerBlocks from './BannerBlocks.vue'
 import ModalTestDrive from '@/components/UI/ModalTestDrive.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const { open, close } = useModal({
   component: ModalTestDrive,
   attrs: {
@@ -10,6 +13,7 @@ const { open, close } = useModal({
     },
     onConfirm() {
       close();
+      router.push({name: 'thanks', params: {id: '2'}})
     }
   }
 })

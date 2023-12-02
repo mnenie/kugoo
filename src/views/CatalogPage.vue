@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavigationTopPage from '@/components/layout/NavigationTopPage.vue';
+import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 import BannerCatalog from '@/components/elements/catalog/BannerCatalog.vue';
 import { ref } from 'vue';
 import CatalogChoice from '@/components/elements/catalog/CatalogChoice.vue'

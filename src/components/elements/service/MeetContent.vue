@@ -3,10 +3,12 @@ import BtnBanner from '@/components/UI/BtnBanner.vue'
 import ModalDiagnostic from '@/components/UI/ModalDiagnostic.vue';
 import { ref } from 'vue';
 import { useModal, ModalsContainer } from 'vue-final-modal';
+import { useRouter } from 'vue-router';
 const style = ref<string[]>([
   'background: var(--green-color)',
   'border: 1px solid var(--green-color)'
 ])
+const router = useRouter()
 const { open, close } = useModal({
   component: ModalDiagnostic,
   attrs:{
@@ -15,6 +17,7 @@ const { open, close } = useModal({
     },
     onConfirm(){
       close();
+      router.push({name: 'thanks', params: {id: '3'}})
     }
   }
 })

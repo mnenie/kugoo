@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavigationTopPage from '@/components/layout/NavigationTopPage.vue';
+import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 import MainBanner from '@/components/elements/testdrive/MainBanner.vue';
 import RightList from '@/components/elements/testdrive/RightList.vue';
 import LeftList from '@/components/elements/testdrive/LeftList.vue';

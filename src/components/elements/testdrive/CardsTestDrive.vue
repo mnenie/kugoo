@@ -4,10 +4,12 @@ import ScootersCards from '@/components/elements/home/ScootersCards.vue';
 import useTestDriveScooters from '@/hooks/useTestDriveScooters';
 import { computed } from 'vue';
 import { useModal } from 'vue-final-modal';
+import { useRouter } from 'vue-router';
 const { cards } = useTestDriveScooters()
 const style = computed(() => {
   return 'margin-bottom: 0px'
 })
+const router = useRouter()
 const { open, close } = useModal({
   component: ModalTestDrive,
   attrs: {
@@ -16,6 +18,7 @@ const { open, close } = useModal({
     },
     onConfirm() {
       close();
+      router.push({name: 'thanks', params: {id: '4'}})
     }
   }
 })

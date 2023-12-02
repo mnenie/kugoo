@@ -2,6 +2,7 @@
 import { useModal, ModalsContainer } from 'vue-final-modal';
 import Numbers from '@/components/UI/Numbers.vue';
 import ModalPhone from '@/components/UI/ModalPhone.vue';
+import { useRouter } from 'vue-router';
 
 interface IHeader {
   pathTo: string;
@@ -15,6 +16,7 @@ defineProps<{
   items: IHeader[],
   svg: ISvg[]
 }>()
+const router = useRouter()
 const { open, close } = useModal({
   component: ModalPhone,
   attrs:{
@@ -22,7 +24,8 @@ const { open, close } = useModal({
       close()
     },
     onConfirm(){
-      close();
+      close()
+      router.push({name: 'thanks', params: {id: '2'}})
     }
   }
 })

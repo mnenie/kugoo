@@ -3,13 +3,14 @@ import type { IFooterCatalog } from '@/types/index';
 import type { IFooterContacts } from '@/types/index';
 import { useModal, ModalsContainer } from 'vue-final-modal';
 import ModalPhone from '@/components/UI/ModalPhone.vue';
+import { useRouter } from 'vue-router';
 defineProps<{
   catalog: IFooterCatalog[],
   buyers: IFooterCatalog[],
   contacts: IFooterContacts[],
   contactsNew: IFooterContacts[]
 }>()
-
+const router = useRouter()
 const { open, close } = useModal({
   component: ModalPhone,
   attrs:{
@@ -17,6 +18,7 @@ const { open, close } = useModal({
       close()
     },
     onConfirm(){
+      router.push({name: 'thanks', params: {id: '3'}})
       close();
     }
   }

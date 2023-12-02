@@ -2,6 +2,7 @@
 import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
 import { useModal } from 'vue-final-modal';
 import ModalGidroisolation from '@/components/UI/ModalGidroisolation.vue';
+import { useRouter } from 'vue-router';
 const items = [
   {
     id: 1,
@@ -14,6 +15,7 @@ const items = [
     name: '1000 руб. туда-обратно'
   },
 ]
+const router = useRouter()
 const {open, close} = useModal({
   component: ModalGidroisolation,
   attrs: {
@@ -25,6 +27,7 @@ const {open, close} = useModal({
     },
     onConfirm(){
       close();
+      router.push({name: 'thanks', params: {id: '4'}})
     }
   }
 })

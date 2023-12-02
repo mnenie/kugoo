@@ -85,16 +85,16 @@ const searchThis = () => {
 
 <style lang="scss" scoped>
 .main_display {
-  // padding: 27px 0 34px 0;
   position: relative;
   backface-visibility: hidden;
-  transform: translateZ(0);
+  
 
   &:not(.fixed) {
     padding: 27px 0 34px 0;
   }
   &.fixed {
     padding: 20px 0;
+    transform: translateZ(0);
   }
 
   &-content {

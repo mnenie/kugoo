@@ -5,6 +5,7 @@ import { ABOUT_ROUTE, BLOG_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_RO
 import { ref } from 'vue';
 import ModalPhone from './ModalPhone.vue';
 import { useModal, ModalsContainer } from 'vue-final-modal';
+import { useRouter } from 'vue-router';
 
 const menuItems = ref<IMenu[]>([
   {
@@ -64,7 +65,7 @@ const svg = ref([
     svgItem: '/icons/telegram.svg'
   },
 ])
-
+const router = useRouter()
 const { open, close } = useModal({
   component: ModalPhone,
   attrs:{
@@ -72,6 +73,7 @@ const { open, close } = useModal({
       close()
     },
     onConfirm(){
+      router.push({name: 'thanks', params: {id: '2'}})
       close();
     }
   }
