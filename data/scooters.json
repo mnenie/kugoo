@@ -20,7 +20,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2790,
       "settings": 2350,
-      "gidroset": 3780
+      "gidroset": 3780,
+      "imgsMore": [
+        "/img/scootersmore/g2pro/1.webp",
+        "/img/scootersmore/g2pro/2.webp",
+        "/img/scootersmore/g2pro/3.webp",
+        "/img/cards/scooter1.png",
+        "/img/scootersmore/g2pro/4.webp",
+        "/img/scootersmore/g2pro/5.webp"
+      ], 
+      "article": "2299770002524"
     },
     {
       "id": 2,

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 interface INavigationTop {
   title: string
+  title2?: string
+  title3?: string
 }
 defineProps<INavigationTop>()
 </script>
@@ -15,6 +17,10 @@ defineProps<INavigationTop>()
         </router-link>
         <span class="size_8 line">/</span>
         <span class="size_8 title">{{ title }}</span>
+        <span v-if="title2" class="size_8 line">/</span>
+        <span v-if="title2" class="size_8 title">{{ title2 }}</span>
+        <span v-if="title3" class="size_8 line">/</span>
+        <span v-if="title3" class="size_8 title">{{ title3 }}</span>
       </div>
     </div>
   </div>

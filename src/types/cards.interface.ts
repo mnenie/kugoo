@@ -19,4 +19,6 @@ export interface ICards {
   gidroisolation?: number
   settings?: number
   gidroset?: number
+  imgsMore?: string[]
+  article?: string
 }
