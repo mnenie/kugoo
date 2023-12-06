@@ -3,6 +3,9 @@ import type { ICards } from '@/types/cards.interface';
 import ProductImgBlock from './ProductImgBlock.vue';
 import MainInfoProduct from './MainInfoProduct.vue';
 import EquipmentItem from './EquipmentItem.vue';
+import TireItems from './TireItems.vue';
+import GuaranteeItem from './GuaranteeItem.vue';
+import AdditionalItems from './AdditionalItems.vue';
 defineProps<{
   card: ICards
 }>()
@@ -19,6 +22,9 @@ const emit = defineEmits<{
     <div class="main_info">
       <MainInfoProduct :card="card" />
       <EquipmentItem />
+      <TireItems />
+      <GuaranteeItem />
+      <AdditionalItems />
     </div>
   </div>
 </template>

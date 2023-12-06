@@ -17,7 +17,7 @@ const emit = defineEmits<{
 const cart = useCart()
 const router = useRouter()
 
-const titleBtn = ref<string>('Купить в 1 клик')
+const titleBtn = ref<string>('Перейти к товару')
 const titleScooter = ref<string>('');
 const imgScooter = ref<string>('')
 const priceScooter = ref<string>('')
@@ -53,12 +53,24 @@ onMounted(() => {
     titleBtn.value = 'Записаться на тест-драйв'
   }
 })
-
-const clickCardBtn = () => {
+const smoothScrollToTop = () => {
+  const scrollDuration = 2000; // milliseconds
+  const scrollStep = -window.scrollY / (scrollDuration / 15);
+  const scrollInterval = setInterval(() => {
+    if (window.scrollY !== 0) {
+      window.scrollBy(0, scrollStep);
+    } else {
+      clearInterval(scrollInterval);
+    }
+  }, 15);
+};
+const clickCardBtn = (cardId: number) => {
   if (titleBtn.value === 'Записаться на тест-драйв') {
     emit('openModalTest')
   } else {
-    cart.addIndex()
+    // cart.addIndex()
+    router.push(`/products/${cardId}`)
+    smoothScrollToTop()
   }
 }
 </script>
@@ -109,7 +121,7 @@ const clickCardBtn = () => {
               <btn-card-yellow @click="openModal(card.title, card.img, card.price)"
                 style="margin: 0 auto; display: block; width: 100%;" v-if="!card.basket">Оформить
                 предзаказ</btn-card-yellow>
-              <btn-card-purple @click="clickCardBtn" style="margin: 0 auto; display: block; width: 100%;" v-else>{{
+              <btn-card-purple @click="clickCardBtn(card.id)" style="margin: 0 auto; display: block; width: 100%;" v-else>{{
                 titleBtn }}</btn-card-purple>
             </div>
           </div>

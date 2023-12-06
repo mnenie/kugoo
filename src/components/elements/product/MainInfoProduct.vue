@@ -41,7 +41,7 @@ const count = ref<number>(196)
         <img src="/icons/scooters/card.png" alt="">
         <div class="text">
           <span class="size_8">Рассрочка:</span>
-          <span class="size_7">2 495 ₽ в месяц / 24 месяца</span>
+          <span class="size_7">{{ (Number(card.price.replace(/\s/g, '')) / 24).toFixed(0) }} ₽ в месяц / 24 месяца</span>
         </div>
       </div>
     </div>
