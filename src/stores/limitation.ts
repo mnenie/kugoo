@@ -54,7 +54,7 @@ export const useLimitation = defineStore('limitation', () => {
     });
   };
   const applyFontSizeStylesLgMoreBig = () => {
-    const fontSizeMultiplier = increaseFontSize.value ? 1.5 : 1;
+    const fontSizeMultiplier = increaseFontSize.value ? 1.4 : 1;
     const elementsToChangeFontSize = document.querySelectorAll('h1, h2, h3, p, button, input, select');
     elementsToChangeFontSize.forEach((element) => {
       const tagName = element.tagName.toLowerCase();

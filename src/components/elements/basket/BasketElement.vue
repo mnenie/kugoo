@@ -16,7 +16,7 @@ const style = computed(() => {
     <div class="container">
       <div class="content">
         <h1 :style="style" class="size_1 h1">Моя корзина</h1>
-        <p v-if="cartIndex !== 0" class="size_7 span">Количество товаров: {{ cartIndex }}</p>
+        <p v-if="cartIndex != 0" class="size_7 span">Количество товаров: {{ cartIndex }}</p>
         <EmptyBasket v-if="cartIndex === 0" />
         <FillBasket v-else />
       </div>
