@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useInput } from '@/stores/mainInput';
+import { useInput } from '@/stores/search';
 import DropdownCards from '@/components/UI/DropdownCards.vue';
 
 const inputMobile = useInput()
@@ -42,4 +42,4 @@ const inputMobile = useInput()
     top: 11px;
   }
 }
-</style>
+</style>@/stores/search

@@ -6,7 +6,7 @@ import 'swiper/scss/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { ref } from 'vue';
 import { useSwiperStore } from '@/stores/swiper';
-import { useInput } from '@/stores/mainInput';
+import { useInput } from '@/stores/search';
 const modules = [Autoplay, Pagination, Navigation]
 const swilderItems = ref([
   {
@@ -116,4 +116,4 @@ const onSwiper = store.onSwiper;
     }
   }
 }
-</style>@/store/swiper@/store/mainInput
+</style>@/store/swiper@/store/mainInput@/stores/search

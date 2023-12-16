@@ -6,7 +6,7 @@ import { BASKET_ROUTE } from '@/utils/consts'
 import DropdownHeader from './DropdownHeader.vue';
 import DropdownCards from '@/components/UI/DropdownCards.vue';
 import RoundCart from '@/components/UI/RoundCart.vue';
-import { useInput } from '@/stores/mainInput';
+import { useInput } from '@/stores/search';
 
 defineProps<{
   shopItems: any[]
@@ -301,4 +301,4 @@ form {
   box-shadow: 0 10px 40px #41464c12;
   padding: 20px 20px;
 }
-</style>
+</style>@/stores/search

@@ -2,21 +2,22 @@
 import ProductItem from '@/components/elements/product/ProductItem.vue'
 import useGetScooterById from '../hooks/getProductScooter';
 import { useRoute } from 'vue-router';
-import { watch } from 'vue';
+import { watchEffect } from 'vue';
 import Alert from '@/components/UI/Alert.vue';
 
 const route = useRoute()
-const {product} = useGetScooterById(parseInt(route.params.id as string))
+const {product, getScooterById} = useGetScooterById(parseInt(route.params.id as string))
 const changeImg = (img: string) => {
   if(product.value?.img){
     product.value.img = img
   }
 }
-watch(() => product.value?.img, (newImg) => {
-  if (newImg && product.value?.img) {
-    product.value.img = newImg;
+watchEffect(async () => {
+  const productId = parseInt(route.params.id as string)
+  if(product.value?.id !== productId){
+    await getScooterById(productId)
   }
-});
+})
 </script>
 
 <template>

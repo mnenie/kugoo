@@ -4,9 +4,9 @@ import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
 import { useRouter } from 'vue-router';
 
 const prices = ref([
-  { id: 1, title: 'Стоимость товаров', price: '58 800 ₽' },
-  { id: 2, title: 'Сумма скидки', price: '8 000 ₽' },
-  { id: 3, title: 'Итого без учета доставки', price: '50 800 ₽' },
+  { id: 1, title: 'Стоимость товаров', price: '106 680 ₽' },
+  { id: 2, title: 'Сумма скидки', price: '0 ₽' },
+  { id: 3, title: 'Итого без учета доставки', price: '106 680 ₽' },
 ])
 const checked = ref<boolean>(true)
 const router = useRouter()
@@ -16,7 +16,7 @@ const router = useRouter()
   <div class="pay_block">
     <div class="total">
       <span class="size_8">Итого</span>
-      <h2 class="size_3">58 800 ₽</h2>
+      <h2 class="size_3">106 680 ₽</h2>
     </div>
     <div class="cost_blocks">
       <div v-for="item in prices" :key="item.id" class="cost_block">

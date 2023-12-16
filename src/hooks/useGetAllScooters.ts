@@ -9,15 +9,17 @@ export default function useGetAllScooters() {
       const response = await axios.get('data/scooters.json')
       const data = response.data
       items.value = [...data.cards1, ...data.cards2]
+      return items.value
     }
     catch (e) {
       console.log(e)
+      return [] as ICards[]
     }
   }
   onMounted(() => {
     getAllScooters()
   })
   return {
-    items
+    items, getAllScooters
   }
 }

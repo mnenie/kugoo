@@ -51,7 +51,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2540,
       "settings": 2100,
-      "gidroset": 3290
+      "gidroset": 3290,
+      "imgsMore": [
+        "/img/scootersmore/g2max/1.png",
+        "/img/scootersmore/g2max/2.webp",
+        "/img/cards/scooter2.png",
+        "/img/scootersmore/g2max/3.webp",
+        "/img/scootersmore/g2max/4.webp",
+        "/img/scootersmore/g2max/5.webp"
+      ], 
+      "article": "2299770002525"
     },
     {
       "id": 3,
@@ -70,14 +79,24 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2650,
       "settings": 2400,
-      "gidroset": 3699
+      "gidroset": 3699,
+      "imgsMore": [
+        "/img/scootersmore/g3pro/1.webp",
+        "/img/scootersmore/g3pro/2.webp",
+        "/img/scootersmore/g3pro/3.webp",
+        "/img/cards/scooter3.png",
+        "/img/scootersmore/g3pro/4.webp",
+        "/img/scootersmore/g3pro/5.webp",
+        "/img/scootersmore/g3pro/6.webp"
+      ], 
+      "article": "2299770002526"
     },
     {
       "id": 4,
       "img": "/img/cards/scooter4.png",
       "balance": "/icons/balance2.svg",
       "rec": "Новинка",
-      "title": "KUGOO 4 Pro Electric Scooter",
+      "title": "KUGOO M4 Pro Electric Scooter",
       "accum": "18000 mAh",
       "accumSvg": "/icons/accumulator.svg",
       "speed": "50 км/ч",
@@ -92,7 +111,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2700,
       "settings": 2200,
-      "gidroset": 4190
+      "gidroset": 4190,
+      "imgsMore": [
+        "/img/scootersmore/4pro/1.webp",
+        "/img/cards/scooter4.png",
+        "/img/scootersmore/4pro/2.webp",
+        "/img/scootersmore/4pro/3.webp",
+        "/img/scootersmore/4pro/4.webp",
+        "/img/scootersmore/4pro/5.webp"
+      ], 
+      "article": "2299770002527"
     },
     {
       "id": 5,
@@ -111,7 +139,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2560,
       "settings": 2270,
-      "gidroset": 3870
+      "gidroset": 3870,
+      "imgsMore": [
+        "/img/scootersmore/s1pro/1.webp",
+        "/img/scootersmore/s1pro/2.webp",
+        "/img/cards/scooter5.png",
+        "/img/scootersmore/s1pro/3.webp",
+        "/img/scootersmore/s1pro/4.webp",
+        "/img/scootersmore/s1pro/5.webp"
+      ], 
+      "article": "2299770002528"
     },
     {
       "id": 6,
@@ -133,7 +170,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 3100,
       "settings": 2560,
-      "gidroset": 4640
+      "gidroset": 4640,
+      "imgsMore": [
+        "/img/scootersmore/gbooster/1.webp",
+        "/img/scootersmore/gbooster/2.webp",
+        "/img/cards/scooter6.png",
+        "/img/scootersmore/gbooster/3.webp",
+        "/img/scootersmore/gbooster/4.webp",
+        "/img/scootersmore/gbooster/5.webp"
+      ], 
+      "article": "2299770002529"
     },
     {
       "id": 7,
@@ -155,7 +201,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 3290,
       "settings": 2390,
-      "gidroset": 4780
+      "gidroset": 4780,
+      "imgsMore": [
+        "/img/scootersmore/m4/1.webp",
+        "/img/scootersmore/m4/2.webp",
+        "/img/scootersmore/m4/3.webp",
+        "/img/cards/scooter7.png",
+        "/img/scootersmore/m4/4.webp",
+        "/img/scootersmore/m4/5.webp"
+      ], 
+      "article": "2299770002530"
     },
     {
       "id": 8,
@@ -176,7 +231,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2540,
       "settings": 2199,
-      "gidroset": 3870
+      "gidroset": 3870,
+      "imgsMore": [
+        "/img/scootersmore/g3/1.webp",
+        "/img/scootersmore/g3/2.webp",
+        "/img/scootersmore/g3/3.webp",
+        "/img/cards/scooter8.png",
+        "/img/scootersmore/g3/4.webp",
+        "/img/scootersmore/g3/5.webp"
+      ], 
+      "article": "2299770002531"
     }
   ],
   "cards2": [
@@ -199,7 +263,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2790,
       "settings": 2120,
-      "gidroset": 3920
+      "gidroset": 3920,
+      "imgsMore": [
+        "/img/scootersmore/g2pro/1.webp",
+        "/img/scootersmore/g2pro/2.webp",
+        "/img/cards/scooter9.png",
+        "/img/scootersmore/g2pro/3.webp",
+        "/img/scootersmore/g2pro/4.webp",
+        "/img/scootersmore/g2pro/5.webp"
+      ], 
+      "article": "2299770002532"
     },
     {
       "id": 10,
@@ -219,7 +292,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2970,
       "settings": 2290,
-      "gidroset": 4200
+      "gidroset": 4200, 
+      "imgsMore": [
+        "/img/cards/scooter10.png",
+        "/img/scootersmore/m5pro/1.webp",
+        "/img/scootersmore/m5pro/2.webp",
+        "/img/scootersmore/m5pro/3.webp",
+        "/img/scootersmore/m5pro/4.webp",
+        "/img/scootersmore/m5pro/5.webp"
+      ], 
+      "article": "2299770002533"
     },
     {
       "id": 11,
@@ -241,7 +323,16 @@
       "heart": "/icons/heartpurple.svg",
       "gidroisolation": 2630,
       "settings": 2199,
-      "gidroset": 3899
+      "gidroset": 3899,
+      "imgsMore": [
+        "/img/scootersmore/c1pro/1.webp",
+        "/img/cards/scooter11.png",
+        "/img/scootersmore/c1pro/2.webp",
+        "/img/scootersmore/c1pro/3.webp",
+        "/img/scootersmore/c1pro/4.webp",
+        "/img/scootersmore/c1pro/5.webp"
+      ], 
+      "article": "2299770002534"
     }
   ],
   "cardsOften": [

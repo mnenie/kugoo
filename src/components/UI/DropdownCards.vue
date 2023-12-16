@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { useInput } from '@/stores/mainInput';
-import { computed, onMounted, onUnmounted, ref, watch, watchEffect } from 'vue';
+import { useInput } from '@/stores/search';
+import { computed, onBeforeMount, onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 const inputMain = useInput()
 const myBlock = ref<HTMLElement | null>(null)
+
 const filteredCards = computed(() => {
   return inputMain.filteredProducts
 })
@@ -16,8 +17,9 @@ const mouseDown1 = (event: MouseEvent) => {
     inputMain.change();
   }
 };
-onMounted(() => {
+onMounted(async () => {
   document.addEventListener("mousedown", mouseDown1);
+  await inputMain.getScooters()
 })
 onUnmounted(() => {
   document.removeEventListener("mousedown", mouseDown1)

@@ -8,7 +8,7 @@ import DropdownBasket from '@/components/UI/DropdownBasket.vue';
 import HeaderTablet from './HeaderTablet.vue';
 import RoundCart from '@/components/UI/RoundCart.vue';
 import HeaderBtn from './HeaderBtn.vue'
-import { useInput } from '@/stores/mainInput';
+import { useInput } from '@/stores/search';
 
 defineProps<{
   shopItems: any[]
@@ -228,4 +228,4 @@ form {
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 10px 40px #41464c12;
 }
-</style>
+</style>@/stores/search

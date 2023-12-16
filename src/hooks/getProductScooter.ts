@@ -22,6 +22,6 @@ export default function useGetScooterById(id: number) {
   })
 
   return {
-    product
+    product, getScooterById
   }
 }
