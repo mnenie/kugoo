@@ -113,12 +113,12 @@
       "settings": 2200,
       "gidroset": 4190,
       "imgsMore": [
-        "/img/scootersmore/4pro/1.webp",
+        "/img/scootersmore/m4pro/1.webp",
         "/img/cards/scooter4.png",
-        "/img/scootersmore/4pro/2.webp",
-        "/img/scootersmore/4pro/3.webp",
-        "/img/scootersmore/4pro/4.webp",
-        "/img/scootersmore/4pro/5.webp"
+        "/img/scootersmore/m4pro/2.webp",
+        "/img/scootersmore/m4pro/3.webp",
+        "/img/scootersmore/m4pro/4.webp",
+        "/img/scootersmore/m4pro/5.webp"
       ], 
       "article": "2299770002527"
     },
@@ -208,7 +208,9 @@
         "/img/scootersmore/m4/3.webp",
         "/img/cards/scooter7.png",
         "/img/scootersmore/m4/4.webp",
-        "/img/scootersmore/m4/5.webp"
+        "/img/scootersmore/m4/5.webp",
+        "/img/scootersmore/m4/6.webp",
+        "/img/scootersmore/m4/7.webp"
       ], 
       "article": "2299770002530"
     },
@@ -248,7 +250,7 @@
       "id": 9,
       "img": "/img/cards/scooter9.png",
       "balance": "/icons/balance2.svg",
-      "title": "KUGOO G2 PRO Electric Scooter",
+      "title": "KUGOO G2 Electric Scooter",
       "accum": "15000 mAh",
       "accumSvg": "/icons/accumulator.svg",
       "speed": "45 км/ч",
@@ -265,12 +267,13 @@
       "settings": 2120,
       "gidroset": 3920,
       "imgsMore": [
-        "/img/scootersmore/g2pro/1.webp",
-        "/img/scootersmore/g2pro/2.webp",
+        "/img/scootersmore/g2/1.webp",
+        "/img/scootersmore/g2/2.webp",
         "/img/cards/scooter9.png",
-        "/img/scootersmore/g2pro/3.webp",
-        "/img/scootersmore/g2pro/4.webp",
-        "/img/scootersmore/g2pro/5.webp"
+        "/img/scootersmore/g2/3.webp",
+        "/img/scootersmore/g2/4.webp",
+        "/img/scootersmore/g2/5.webp",
+        "/img/scootersmore/g2/6.webp"
       ], 
       "article": "2299770002532"
     },
@@ -308,7 +311,7 @@
       "img": "/img/cards/scooter11.png",
       "balance": "/icons/balance2.svg",
       "rec": "Новинка",
-      "title": "KUGOO C1 Pro Electric Scooter",
+      "title": "KUGOO M3 Electric Scooter",
       "accum": "25000 mAh",
       "accumSvg": "/icons/accumulator.svg",
       "speed": "45 км/ч",
@@ -325,12 +328,12 @@
       "settings": 2199,
       "gidroset": 3899,
       "imgsMore": [
-        "/img/scootersmore/c1pro/1.webp",
+        "/img/scootersmore/m3/1.webp",
         "/img/cards/scooter11.png",
-        "/img/scootersmore/c1pro/2.webp",
-        "/img/scootersmore/c1pro/3.webp",
-        "/img/scootersmore/c1pro/4.webp",
-        "/img/scootersmore/c1pro/5.webp"
+        "/img/scootersmore/m3/2.webp",
+        "/img/scootersmore/m3/3.webp",
+        "/img/scootersmore/m3/4.webp",
+        "/img/scootersmore/m3/5.webp"
       ], 
       "article": "2299770002534"
     }
@@ -397,7 +400,7 @@
       "img": "/img/cards/scooter4.png",
       "balance": "/icons/balance2.svg",
       "rec": "Новинка",
-      "title": "KUGOO 4 Pro Electric Scooter",
+      "title": "KUGOO M4 Pro Electric Scooter",
       "accum": "18000 mAh",
       "accumSvg": "/icons/accumulator.svg",
       "speed": "50 км/ч",

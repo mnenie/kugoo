@@ -6,7 +6,7 @@ export default function useGetAllScooters() {
   const items = ref<ICards[]>([])
   const getAllScooters = async () => {
     try {
-      const response = await axios.get('data/scooters.json')
+      const response = await axios.get('/data/scooters.json')
       const data = response.data
       items.value = [...data.cards1, ...data.cards2]
       return items.value
