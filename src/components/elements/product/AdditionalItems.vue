@@ -7,6 +7,11 @@ const { isItems, changeCard } = dropdownProductHelper()
 const item = ref({
   title: 'Дополнительные услуги', body: 'Настройка', link: 'Изменить', price: '1 520 руб.'
 })
+const changeFilter = (id: number) => {
+  choiceItems4.value.forEach((btn, i) => {
+    btn.active = i === id 
+  })
+}
 </script>
 
 <template>
@@ -17,7 +22,7 @@ const item = ref({
         <p class="size_6">Дополнительные услуги</p>
       </div>
       <div class="items">
-        <div v-for="item in choiceItems4" :key="item.id" :class="['item', item.active ? 'active' : '']">
+        <div v-for="item in choiceItems4" :key="item.id" :class="['item', item.active ? 'active' : '']" @click="changeFilter(item.id)">
           <div style="display: flex; flex-direction: column; gap: 5px;" class="spans">
             <span class="size_5">{{ item.title }}</span>
             <span style="color: var(--gray-600-color);" class="size_7">{{ item.price }}</span>
@@ -30,9 +35,13 @@ const item = ref({
 
 <style lang="scss" scoped>
 .equipment {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+
+  .block_1 {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
   .text {
     display: flex;
@@ -59,7 +68,6 @@ const item = ref({
     flex-wrap: wrap;
     gap: 20px;
     padding-bottom: 30px;
-    margin-bottom: 20px;
     border-bottom: 1px solid var(--gray-200-color);
 
     .item {
@@ -71,6 +79,7 @@ const item = ref({
       height: 130px;
       border-radius: 10px;
       border: 1.5px solid var(--gray-200-color);
+      cursor: pointer;
 
       &.active {
         border-radius: 10px;

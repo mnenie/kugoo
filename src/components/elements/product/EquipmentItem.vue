@@ -7,6 +7,12 @@ const { isItems, changeCard } = dropdownProductHelper()
 const item = ref({
   title: 'Комплектация', body: 'Базовая', link: 'Изменить'
 })
+
+const changeFilter = (id: number) => {
+  choiceItems1.value.forEach((btn, i) => {
+    btn.active = i === id 
+  })
+}
 </script>
 
 <template>
@@ -18,7 +24,7 @@ const item = ref({
         <img src="/icons/scooters/question.svg" alt="">
       </div>
       <div class="items">
-        <div v-for="item in choiceItems1" :key="item.id" :class="['item', item.active ? 'active' : '']">
+        <div v-for="item in choiceItems1" :key="item.id" :class="['item', item.active ? 'active' : '']" @click="changeFilter(item.id)">
           <span class="size_5">{{ item.title }}</span>
         </div>
       </div>
@@ -63,7 +69,6 @@ const item = ref({
     flex-wrap: wrap;
     gap: 20px;
     padding-bottom: 30px;
-    margin-bottom: 20px;
     border-bottom: 1px solid var(--gray-200-color);
 
     .item {
@@ -75,6 +80,7 @@ const item = ref({
       height: 80px;
       border-radius: 10px;
       border: 1.5px solid var(--gray-200-color);
+      cursor: pointer;
 
       &.active {
         border-radius: 10px;

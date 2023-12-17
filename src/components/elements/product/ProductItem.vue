@@ -7,7 +7,8 @@ import { ref } from 'vue';
 const title = ref<string>('Каталог')
 const title2 = ref<string>('Электросамокаты')
 defineProps<{
-  card: ICards | null
+  card: ICards | null, 
+  active: boolean
 }>()
 const emit = defineEmits<{
   (e: 'changeImg', img: string): void
@@ -19,7 +20,7 @@ const emit = defineEmits<{
     <div v-if="card">
       <NavigationTopPage :title="title" :title2="title2" :title3="card.title" />
       <div class="container">
-        <ProductDetails :card="card" @change-img="emit('changeImg', $event)" />
+        <ProductDetails :card="card" @change-img="emit('changeImg', $event)" :active="active" />
       </div>
     </div>
     <div style="display: flex; align-items: center; justify-content: center; margin: 50px 0;" v-else>

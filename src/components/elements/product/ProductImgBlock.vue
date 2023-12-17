@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import type { ICards } from '@/types/cards.interface';
-defineProps<{
-  card: ICards
+ const props = defineProps<{
+  card: ICards,
+  active: boolean
 }>()
 const emit = defineEmits<{
   (e: 'changeImg', img: string): void
 }>()
+const isActive = (img: string) => {
+  return props.active && props.card.img === img;
+}
 </script>
 
 <template>
@@ -14,8 +18,10 @@ const emit = defineEmits<{
       <img :src="card.img" alt="">
     </div>
     <div class="more">
-      <div v-for="img in card.imgsMore" :key="img" class="img_more">
-        <img @click="emit('changeImg', img)" style="cursor: pointer;" :src="img" alt="">
+      <div v-for="img in card.imgsMore" :key="img" @click="emit('changeImg', img)" style="cursor: pointer;" :class="{
+        'img_more': true, 'active': isActive(img)
+      }">
+        <img :src="img" alt="">
       </div>
     </div>
   </div>
@@ -39,11 +45,12 @@ const emit = defineEmits<{
     justify-content: center;
 
     & img {
-      width: 450px;
+      width: 440px;
       height: 426px;
     }
   }
-  .more{
+
+  .more {
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
@@ -52,7 +59,8 @@ const emit = defineEmits<{
     width: 100%;
     align-items: center;
     justify-content: flex-start;
-    .img_more{
+
+    .img_more {
       border-radius: 10px;
       border: 1.3px solid #F0F1F5;
       background: #F0F1F5;
@@ -61,26 +69,41 @@ const emit = defineEmits<{
       display: flex;
       align-items: center;
       justify-content: center;
-      & img{
-        width: 70px; 
+
+      & img {
+        width: 70px;
         height: 70px;
       }
     }
   }
 }
 
+.active {
+  border: 1.3px solid var(--purple-color) !important;
+}
+
 @media screen and (max-width: 1200px) {
-  .img_block{
+  .img_block {
     width: 100%;
     max-width: 100%;
-    .img{
+
+    .img {
       min-width: unset;
       max-width: 100%;
       width: 100%;
     }
-    .more{
+
+    .more {
       max-width: 100%;
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .img_block{
+    .more{
+      min-width: 400px;
     }
   }
 }

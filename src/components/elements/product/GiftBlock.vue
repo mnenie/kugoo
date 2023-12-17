@@ -19,11 +19,16 @@ onMounted(() => {
 onBeforeUnmount(() => {
   clearInterval(timer);
 });
+const changeFilter = (id: number) => {
+  choiceItems5.value.forEach((btn, i) => {
+    btn.active = i === id 
+  })
+}
 </script>
 
 <template>
   <div class="gift_block">
-    <ChangeBlock class="gift_change" :item="item" v-if="!isItems" @change-card="changeCard" />
+    <ChangeBlock class="gift_change" :item="item" v-if="!isItems" @change-card="changeCard" style="border-bottom: none;" />
     <div v-else class="content">
       <div class="text">
         <p class="size_6">Подарочная упаковка</p>
@@ -34,7 +39,7 @@ onBeforeUnmount(() => {
       </div>
       <GiftBanner />
       <div class="items">
-        <div v-for="item in choiceItems5" :key="item.id" :class="['item', item.active ? 'active' : '']">
+        <div v-for="item in choiceItems5" :key="item.id" :class="['item', item.active ? 'active' : '']" @click="changeFilter(item.id)">
           <img v-if="item.img" :src="item.img" alt="">
           <span class="size_5">{{ item.title }}</span>
         </div>
@@ -46,13 +51,13 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .gift_block {
   .gift_change{
-    border-bottom: 1px solid var(--gray-200-color);
     margin-bottom: 30px;
   }
   .content {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-top: 20px;
 
     .text {
       display: flex;
@@ -75,7 +80,7 @@ onBeforeUnmount(() => {
       gap: 20px;
       padding-bottom: 30px;
       margin-bottom: 20px;
-      border-bottom: 1px solid var(--gray-200-color);
+      // border-bottom: 1px solid var(--gray-200-color);
 
       .item {
         max-width: 220px;
@@ -87,6 +92,7 @@ onBeforeUnmount(() => {
         height: 126px;
         border-radius: 10px;
         border: 1.5px solid var(--gray-200-color);
+        cursor: pointer;
 
         &.active {
           border-radius: 10px;

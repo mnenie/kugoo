@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IDescription } from '@/types/description.interface';
-defineProps<{
+const props = defineProps<{
   item: IDescription
 }>()
 const emit = defineEmits<{
@@ -28,7 +28,7 @@ const emit = defineEmits<{
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  border-top: 1px solid var(--gray-200-color);
+  border-bottom: 1px solid var(--gray-200-color);
 
   .text_content {
     display: flex;

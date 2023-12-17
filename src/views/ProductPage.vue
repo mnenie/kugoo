@@ -2,7 +2,7 @@
 import ProductItem from '@/components/elements/product/ProductItem.vue'
 import useGetScooterById from '../hooks/getProductScooter';
 import { useRoute } from 'vue-router';
-import { watchEffect } from 'vue';
+import { watchEffect, computed, ref } from 'vue';
 import Alert from '@/components/UI/Alert.vue';
 
 const route = useRoute()
@@ -18,11 +18,15 @@ watchEffect(async () => {
     await getScooterById(productId)
   }
 })
+
+const active = computed(() => {
+  return product.value?.imgsMore?.includes(product.value?.img) || false;
+});
 </script>
 
 <template>
   <div>
-    <ProductItem :card="product" @change-img="changeImg" />
+    <ProductItem :card="product" @change-img="changeImg" :active="active" />
     <Alert />
   </div>
 </template>

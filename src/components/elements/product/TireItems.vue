@@ -7,6 +7,12 @@ const { isItems, changeCard } = dropdownProductHelper()
 const item = ref({
   title: 'Покрышки', body: 'Внедорожная шипованная', add: '+ установка (с доп.комплектом базовых покрышек)', link: 'Изменить', price: '5 600 руб.'
 })
+
+const changeFilter = (id: number) => {
+  choiceItems2.value.forEach((btn, i) => {
+    btn.active = i === id 
+  })
+}
 </script>
 
 <template>
@@ -18,7 +24,8 @@ const item = ref({
         <img src="/icons/scooters/question.svg" alt="">
       </div>
       <div class="items">
-        <div v-for="item in choiceItems2" :key="item.id" :class="['item', item.active ? 'active' : '']">
+        <div v-for="item in choiceItems2" :key="item.id" :class="['item', item.active ? 'active' : '']"
+          @click="changeFilter(item.id)">
           <div style="display: flex; flex-direction: column; gap: 5px;" class="spans">
             <span class="size_5">{{ item.title }}</span>
             <span style="color: var(--gray-600-color);" class="size_7">{{ item.price }}</span>
@@ -36,6 +43,7 @@ const item = ref({
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-top: 20px;
   }
 
   .text {
@@ -63,7 +71,6 @@ const item = ref({
     flex-wrap: wrap;
     gap: 20px;
     padding-bottom: 30px;
-    margin-bottom: 20px;
     border-bottom: 1px solid var(--gray-200-color);
 
     .item {
@@ -75,6 +82,7 @@ const item = ref({
       height: 130px;
       border-radius: 10px;
       border: 1.5px solid var(--gray-200-color);
+      cursor: pointer;
 
       &.active {
         border-radius: 10px;

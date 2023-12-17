@@ -9,7 +9,8 @@ import AdditionalItems from './AdditionalItems.vue';
 import GiftBlock from './GiftBlock.vue';
 import PayBanner from './PayBanner.vue';
 defineProps<{
-  card: ICards
+  card: ICards,
+  active: boolean
 }>()
 const emit = defineEmits<{
   (e: 'changeImg', img: string): void
@@ -19,7 +20,7 @@ const emit = defineEmits<{
 <template>
   <div class="content">
     <div class="img">
-      <ProductImgBlock :card="card" @change-img="emit('changeImg', $event)" />
+      <ProductImgBlock :card="card" @change-img="emit('changeImg', $event)" :active="active" />
     </div>
     <div class="main_info">
       <MainInfoProduct :card="card" />
