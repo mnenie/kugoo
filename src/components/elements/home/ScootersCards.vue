@@ -54,15 +54,16 @@ onMounted(() => {
   }
 })
 const smoothScrollToTop = () => {
-  const scrollDuration = 2000; // milliseconds
-  const scrollStep = -window.scrollY / (scrollDuration / 15);
-  const scrollInterval = setInterval(() => {
-    if (window.scrollY !== 0) {
-      window.scrollBy(0, scrollStep);
-    } else {
-      clearInterval(scrollInterval);
-    }
-  }, 15);
+  // const scrollDuration = 250;
+  const scrollStep = -window.scrollY;
+  window.scrollBy(0, scrollStep);
+  // const scrollInterval = setInterval(() => {
+  //   if (window.scrollY !== 0) {
+  //     window.scrollBy(0, scrollStep);
+  //   } else {
+  //     clearInterval(scrollInterval);
+  //   }
+  // }, 10);
 };
 const clickCardBtn = (cardId: number) => {
   if (titleBtn.value === 'Записаться на тест-драйв') {

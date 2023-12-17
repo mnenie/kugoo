@@ -4,6 +4,7 @@ import useGetScooterById from '../hooks/getProductScooter';
 import { useRoute } from 'vue-router';
 import { watchEffect, computed, ref } from 'vue';
 import Alert from '@/components/UI/Alert.vue';
+import BottomDescriptionProduct from '@/components/elements/product/BottomDescriptionProduct.vue';
 
 const route = useRoute()
 const {product, getScooterById} = useGetScooterById(parseInt(route.params.id as string))
@@ -27,6 +28,7 @@ const active = computed(() => {
 <template>
   <div>
     <ProductItem :card="product" @change-img="changeImg" :active="active" />
+    <BottomDescriptionProduct :card="product" />
     <Alert />
   </div>
 </template>

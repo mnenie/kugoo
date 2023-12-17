@@ -21,4 +21,5 @@ export interface ICards {
   gidroset?: number
   imgsMore?: string[]
   article?: string
+  tags?: string[]
 }

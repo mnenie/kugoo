@@ -29,7 +29,13 @@
         "/img/scootersmore/g2pro/4.webp",
         "/img/scootersmore/g2pro/5.webp"
       ], 
-      "article": "2299770002524"
+      "article": "2299770002524",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Легкий",
+        "Небольшой"
+      ]
     },
     {
       "id": 2,
@@ -60,7 +66,13 @@
         "/img/scootersmore/g2max/4.webp",
         "/img/scootersmore/g2max/5.webp"
       ], 
-      "article": "2299770002525"
+      "article": "2299770002525",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Быстрый",
+        "Легкий"
+      ]
     },
     {
       "id": 3,
@@ -89,7 +101,13 @@
         "/img/scootersmore/g3pro/5.webp",
         "/img/scootersmore/g3pro/6.webp"
       ], 
-      "article": "2299770002526"
+      "article": "2299770002526",
+      "tags": [
+        "Вне города",
+        "Комфортный",
+        "Легкий",
+        "Быстрый"
+      ]
     },
     {
       "id": 4,
@@ -120,7 +138,13 @@
         "/img/scootersmore/m4pro/4.webp",
         "/img/scootersmore/m4pro/5.webp"
       ], 
-      "article": "2299770002527"
+      "article": "2299770002527",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Тяжелый",
+        "Быстрый"
+      ]
     },
     {
       "id": 5,
@@ -148,7 +172,13 @@
         "/img/scootersmore/s1pro/4.webp",
         "/img/scootersmore/s1pro/5.webp"
       ], 
-      "article": "2299770002528"
+      "article": "2299770002528",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Легкий",
+        "Небольшой"
+      ]
     },
     {
       "id": 6,
@@ -179,7 +209,13 @@
         "/img/scootersmore/gbooster/4.webp",
         "/img/scootersmore/gbooster/5.webp"
       ], 
-      "article": "2299770002529"
+      "article": "2299770002529",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Большой",
+        "Быстрый"
+      ]
     },
     {
       "id": 7,
@@ -212,7 +248,13 @@
         "/img/scootersmore/m4/6.webp",
         "/img/scootersmore/m4/7.webp"
       ], 
-      "article": "2299770002530"
+      "article": "2299770002530",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Легкий",
+        "Небольшой"
+      ]
     },
     {
       "id": 8,
@@ -242,7 +284,13 @@
         "/img/scootersmore/g3/4.webp",
         "/img/scootersmore/g3/5.webp"
       ], 
-      "article": "2299770002531"
+      "article": "2299770002531",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Легкий",
+        "Подходящий"
+      ]
     }
   ],
   "cards2": [
@@ -275,7 +323,13 @@
         "/img/scootersmore/g2/5.webp",
         "/img/scootersmore/g2/6.webp"
       ], 
-      "article": "2299770002532"
+      "article": "2299770002532",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Тяжелый",
+        "Большой"
+      ]
     },
     {
       "id": 10,
@@ -304,7 +358,13 @@
         "/img/scootersmore/m5pro/4.webp",
         "/img/scootersmore/m5pro/5.webp"
       ], 
-      "article": "2299770002533"
+      "article": "2299770002533",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Большой",
+        "Быстрый"
+      ]
     },
     {
       "id": 11,
@@ -335,7 +395,13 @@
         "/img/scootersmore/m3/4.webp",
         "/img/scootersmore/m3/5.webp"
       ], 
-      "article": "2299770002534"
+      "article": "2299770002534",
+      "tags": [
+        "Для города",
+        "Комфортный",
+        "Рекомендовано",
+        "Быстрый"
+      ]
     }
   ],
   "cardsOften": [
