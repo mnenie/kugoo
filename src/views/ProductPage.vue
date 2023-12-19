@@ -2,7 +2,7 @@
 import ProductItem from '@/components/elements/product/ProductItem.vue'
 import useGetScooterById from '../hooks/getProductScooter';
 import { useRoute } from 'vue-router';
-import { watchEffect, computed, ref } from 'vue';
+import { watchEffect, computed } from 'vue';
 import Alert from '@/components/UI/Alert.vue';
 import BottomDescriptionProduct from '@/components/elements/product/BottomDescriptionProduct.vue';
 

@@ -8,27 +8,27 @@ import RoundCart from '@/components/UI/RoundCart.vue';
 const navigations = ref<INavigation[]>([
   {
     id: 1,
-    img: '/Kugoo/icons/navigation/home.svg',
+    img: '/icons/navigation/home.svg',
     title: 'Главная',
   },
   {
     id: 2,
-    img: '/Kugoo/icons/navigation/search.svg',
+    img: '/icons/navigation/search.svg',
     title: 'Каталог',
   },
   {
     id: 3,
-    img: '/Kugoo/icons/navigation/cart.svg',
+    img: '/icons/navigation/cart.svg',
     title: 'Корзина',
   },
   {
     id: 4,
-    img: '/Kugoo/icons/navigation/heart.svg',
+    img: '/icons/navigation/heart.svg',
     title: 'Избранное',
   },
   {
     id: 5,
-    img: '/Kugoo/icons/navigation/balance.svg',
+    img: '/icons/navigation/balance.svg',
     title: 'Сравнить',
   }
 ])

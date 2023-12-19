@@ -28,7 +28,7 @@ const {addIndex} = useCart()
       <ButtonPurpleLg @click="router.push('/registration')" class="btn">Купить в 1 клик</ButtonPurpleLg>
       <ButtonLgBorderPurple @click="addIndex" class="btn">Добавить в корзину</ButtonLgBorderPurple>
     </div>
-    <div v-else style="text-align: center; color: var(--pink-color);" class="no_content">
+    <div v-else style="text-align: center; color: var(--pink-color); margin-top: 40px;" class="no_content">
       нет в наличии
     </div>
   </div>

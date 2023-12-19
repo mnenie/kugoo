@@ -68,5 +68,6 @@ const changeFilters = computed(() => {
 .active {
   color: var(--purple-color) !important;
   border-bottom: 2px solid var(--purple-color);
+  padding-bottom: 20px !important;
 }
 </style>

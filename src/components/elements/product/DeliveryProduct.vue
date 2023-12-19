@@ -93,4 +93,23 @@ const items2 = [
     display: flex;
     flex-direction: column;
   }
-}</style>
+}
+@media screen and (max-width: 746px){
+  .delivery{
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    .items{
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .block_1{
+      align-items: center;
+    }
+    .block_2{
+      align-items: center;
+    }
+  }
+}
+</style>

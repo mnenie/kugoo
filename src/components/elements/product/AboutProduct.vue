@@ -129,4 +129,35 @@ const items = [
     }
   }
 }
+@media screen and (max-width: 1040px){
+  .about_product{
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+    .text{
+      width: 100%;
+      & h2{
+        max-width: unset;
+        text-align: center;
+      }
+      & span{
+        max-width: unset;
+        text-align: center;
+      }
+    }
+    .complectation{
+      .block_1{
+        align-items: center;
+        .items{
+          display: flex;
+        }
+      }
+      .block_2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
 </style>

@@ -22,4 +22,13 @@ export interface ICards {
   imgsMore?: string[]
   article?: string
   tags?: string[]
+  weight?: string
+  mileage?: string
+  load?: string
+  wheels?: string
+  lighting?: string
+  actuator?:string
+  brake? : string
+  equipment?: string
+  guarantees?: string
 }

@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: '/Kugoo/',
+  base: '/',
   server: {
     port: 3000
   },
