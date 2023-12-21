@@ -17,7 +17,7 @@ const store = useSwiperStore()
             Новинка
           </div>
           <SwiperMain />
-          <btn-large-white @click="router.push(CATALOG_ROUTE)" class="btn">Перейти в каталог</btn-large-white>
+          <ButtonLargeWhite @click="router.push(CATALOG_ROUTE)" class="btn">Перейти в каталог</ButtonLargeWhite>
           <div class="navigation_slide">
             <img @click="store.prevSlide" style="cursor: pointer;" src="/icons/arrowslide1.svg" alt="">
             <div class="block-nums">

@@ -9,12 +9,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- <div class="container_lg"> -->
-    <div class="video">
-      <video style="width: 100%; cursor: auto;" src="/video/main.mp4" ref="video" loop muted>
-      </video>
-    </div>
-  <!-- </div> -->
+  <div class="video">
+    <video style="width: 100%; cursor: auto;" src="/video/main.mp4" ref="video" loop muted>
+    </video>
+  </div>
 </template>
 
 <style lang="scss" scoped>

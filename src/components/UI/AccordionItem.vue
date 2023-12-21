@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { IAccordion } from '@/types/accordion.interface';
 
-defineProps<{
+const props = defineProps<{
   accordion: IAccordion[]
 }>()
 

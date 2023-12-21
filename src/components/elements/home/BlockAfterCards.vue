@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { CATALOG_ROUTE } from '@/utils/consts'
-// import { catalogMenu1 } from '../mocks/catalogMenu';
 interface IBlock {
   id: number
   title: string
   body: string
   img: string
 }
-defineProps<{
+const props = defineProps<{
   blocks: IBlock[]
 }>()
 </script>

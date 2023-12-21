@@ -1,11 +1,9 @@
 <script setup lang="ts">
-const emit = defineEmits<{
-  (e: 'click') : void
-}>()
+
 </script>
 
 <template>
-  <button @click="emit('click')" class="btn_card">
+  <button class="btn_card">
     <slot></slot>
   </button>
 </template>

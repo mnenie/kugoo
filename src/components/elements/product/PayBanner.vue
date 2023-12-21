@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import ButtonLgBorderPurple from '@/components/UI/ButtonLgBorderPurple.vue';
-import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
 import { useRouter } from 'vue-router';
 import type { ICards } from '@/types/cards.interface';
 import { useCart } from '@/stores/cart';
@@ -59,6 +57,7 @@ const {addIndex} = useCart()
     }
 
     .img {
+      cursor: pointer;
       width: 40px;
       height: 40px;
       border: 1px solid var(--gray-200-color);

@@ -13,8 +13,8 @@ const router = useRouter()
             Акция
           </div>
           <h1 class="size_1">Бесплатная доставка электросамокатов по России до 01.12</h1>
-          <btn-large-banner @click="router.push(DELIVERY_ROUTE)"
-            style="align-self: flex-start; position: relative; z-index: 99;">Подробнее</btn-large-banner>
+          <ButtonLargeBanner @click="router.push(DELIVERY_ROUTE)"
+            style="align-self: flex-start; position: relative; z-index: 99;">Подробнее</ButtonLargeBanner>
         </div>
       </div>
       <img src="/img/dron.png" alt="">

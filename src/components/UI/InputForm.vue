@@ -1,19 +1,13 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   placeholder: string
   modelValue: string | number
 }>()
-defineEmits(["update:modelValue"]);
-</script>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'input-form'
-})
+const emit = defineEmits(["update:modelValue"]);
 </script>
 
 <template>
-  <input class="input_form" :placeholder="placeholder" :value="modelValue" @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+  <input class="input_form" :placeholder="placeholder" :value="modelValue" @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
   >
 </template>
 

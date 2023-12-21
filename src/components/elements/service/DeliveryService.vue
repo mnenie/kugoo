@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
 import { useModal } from 'vue-final-modal';
 import ModalGidroisolation from '@/components/UI/ModalGidroisolation.vue';
 import { useRouter } from 'vue-router';
@@ -47,15 +46,6 @@ const {open, close} = useModal({
               <span class="size_6">{{ item.name }}</span>
             </div>
           </div>
-          <!-- <div class="block_crown">
-            <span class="size_6">
-              Для владельцев версии VIP —
-            </span>
-            <div class="block_crown_inside">
-              <span class="size_6">услуга бесплатна.</span>
-            </div>
-            <img src="/icons/service/crown.png" alt="" class="img_crown">
-          </div> -->
           <ButtonPurpleLg @click="open" style="align-self: flex-start;">Заказать доставку</ButtonPurpleLg>
         </div>
       </div>

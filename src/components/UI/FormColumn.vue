@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonPurpleLg from './ButtonPurpleLg.vue';
 interface IFormProps {
   place: string;
   errors: any;
@@ -10,7 +9,7 @@ interface IFormProps {
   purpleBtn: boolean
 }
 defineProps<IFormProps>()
-defineEmits([
+const emits = defineEmits([
   'onSubmit',
   'update:modelValue',
   'update:checked'
@@ -21,15 +20,15 @@ defineEmits([
   <form @submit.prevent="$emit('onSubmit')" class="form">
     <div class="input_content">
       <div style="width: 100%;" class="input_er">
-        <input-form class="input" :placeholder="place" v-bind="phone" :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
+        <InputForm class="input" :placeholder="place" v-bind="phone" :value="modelValue"
+        @input="emits('update:modelValue', ($event.target as HTMLInputElement).value)" />
       <div class="size_7" style="color: var(--pink-color); margin-top: 5px;">{{ errors.phone }}</div>
       </div>
       <ButtonPurpleLg style="max-width: 263px; width: 100%;" v-if="purpleBtn">{{ btnTitle }}</ButtonPurpleLg>
     </div>
     <div class="check_block">
       <input type="checkbox" :checked="checked"
-        @change="$emit('update:checked', ($event.target as HTMLInputElement).checked)" :disabled="checked"
+        @change="emits('update:checked', ($event.target as HTMLInputElement).checked)" :disabled="checked"
         id="flexCheckChecked">
       <label class="size_8" for="flexCheckChecked">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и
         <router-link class="route" to="/">политикой конфиденциальности</router-link>

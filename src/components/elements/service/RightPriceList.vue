@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IRepair } from '@/types/repair.interface';
-defineProps<{
+const props = defineProps<{
   items: IRepair[]
 }>()
 </script>

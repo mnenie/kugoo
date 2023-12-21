@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IAdvertisement } from '@/types/index';
-defineProps<{
+const props = defineProps<{
   blocks: IAdvertisement[]
   blocks1: IAdvertisement[]
   flag: boolean

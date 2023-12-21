@@ -43,7 +43,7 @@ const route = computed(() => {
         <h1 class="size_1">Предлагаем самые выгодные цены на продукты Kugoo за счет прямых поставок</h1>
         <p class="size_4">и заботимся об удобстве покупателей</p>
         <div class="btns_section">
-          <btn-choose v-for="(btn, index) in btns" :key="btn.id" @click="btnUpdate(index)" :class="[btn.active === true ? 'active' : '']">{{ btn.title }}</btn-choose>
+          <ButtonChoose v-for="(btn, index) in btns" :key="btn.id" @click="btnUpdate(index)" :class="[btn.active === true ? 'active' : '']">{{ btn.title }}</ButtonChoose>
         </div>
         <AdvertisementBlock :route="route" :blocks1="advertisement2" :flag="flag" :blocks="advertisement1" />
       </div>

@@ -1,19 +1,12 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'input-purple'
-})
-</script>
-
 <script setup lang="ts">
 defineProps<{
   modelValue: string | number,
 }>()
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 </script>
 
 <template>
-  <input :value="modelValue" @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" class="input">
+  <input :value="modelValue" @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" class="input">
 </template>
 
 <style lang="scss" scoped>

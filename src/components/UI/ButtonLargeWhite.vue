@@ -1,10 +1,3 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'btn-large-white'
-})
-</script>
-
 <template>
   <button class="btn_large">
     <slot></slot>

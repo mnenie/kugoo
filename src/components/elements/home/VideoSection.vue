@@ -12,7 +12,7 @@ import VideoBlock from './VideoBlock.vue';
             <p class="size_7">Узнайте больше о самокатах Kugoo и посмотрите сравнительные обзоры разных моделей на нашем YouTube-канале.
             </p>
           </div>
-          <link-arrow>Смотреть все видеообзоры</link-arrow>
+          <LinkArrow>Смотреть все видеообзоры</LinkArrow>
         </div>
         <VideoBlock />
       </div>

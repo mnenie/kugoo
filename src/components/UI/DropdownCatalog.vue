@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { catalogMenu1, catalogMenu2, catalogMenu3 } from '@/mocks/catalogMenu';
-defineEmits([
+const emit = defineEmits([
   'closeDropdownRoute'
 ])
-defineProps<{
+const props = defineProps<{
   ul: boolean
 }>()
 </script>
@@ -16,7 +16,7 @@ defineProps<{
     <div style="display: flex; align-items: center;" class="ul_main">
       <div class="li_1">
         <li v-for="item in catalogMenu1" :key="item.id">
-          <router-link @click="$emit('closeDropdownRoute')" class="route_1" style="text-decoration: none;" to="/service">
+          <router-link @click="emit('closeDropdownRoute')" class="route_1" style="text-decoration: none;" to="/service">
             <img :src="item.svg" alt="">
             {{ item.category }}
           </router-link>

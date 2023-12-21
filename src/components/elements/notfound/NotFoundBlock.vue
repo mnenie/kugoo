@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonNotFound from '@/components/UI/ButtonNotFound.vue'
 const goToInst = () => {
   const externalSiteUrl: string = 'https://www.instagram.com/kugoo_russia_com/';
   window.open(externalSiteUrl, '_blank');

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ICards } from '@/types/cards.interface';
 import { ref } from 'vue';
-defineProps<{
+const props = defineProps<{
   card: ICards
 }>()
 const count = ref<number>(196)

@@ -4,7 +4,6 @@ import FooterCatalog from './footer/FooterCatalog.vue'
 import FooterNetworks from './footer/FooterNetworks.vue'
 import FooterBottom from './footer/FooterBottom.vue'
 import FooterMobile from './footer/FooterMobile.vue'
-
 import { footerCatalog } from '@/mocks/footer/footerCatalog';
 import { footerBuyers } from '@/mocks/footer/footerBuyers';
 import { footerContacts } from '@/mocks/footer/footerContacts';

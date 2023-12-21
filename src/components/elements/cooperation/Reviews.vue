@@ -9,7 +9,7 @@ import SwiperReviews from '@/components/UI/swiper/SwiperReviews.vue'
       <h1 class="size_1">1 600+ положительных оценок покупателей о продуктах Kugoo</h1>
       <a style="text-decoration: none;" target="_blank"
         href="https://market.yandex.ru/shop--kugoo-russia/1071730/reviews">
-        <link-arrow>Читать отзывы на Яндекс</link-arrow>
+        <LinkArrow>Читать отзывы на Яндекс</LinkArrow>
       </a>
       <SwiperReviews />
     </div>

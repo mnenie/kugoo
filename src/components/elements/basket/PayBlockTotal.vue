@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
 import { useRouter } from 'vue-router';
 
 const prices = ref([

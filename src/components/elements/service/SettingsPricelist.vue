@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
-import FilterItems from '@/components/UI/FilterItems.vue';
 import { btnsFilter3 } from '@/mocks/ui/btnsFilter';
 import useFilterSettings from '@/hooks/useFilterSettings';
 import useGetAllScooters from '@/hooks/useGetAllScooters';

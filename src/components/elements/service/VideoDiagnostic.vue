@@ -1,15 +1,4 @@
 <script setup lang="ts">
-// import { ref, onBeforeUnmount } from 'vue';
-
-// const counter = ref<number>(0);
-// const videoPlayerRef = ref<any>(null);
-// const updateCounter = () => {
-//   const currentTime = videoPlayerRef.value?.currentTime() || 0;
-//   counter.value = Math.floor(currentTime);
-// };
-// onBeforeUnmount(() => {
-//   videoPlayerRef.value?.off('timeupdate', updateCounter);
-// });
 </script>
 
 <template>

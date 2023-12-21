@@ -17,12 +17,11 @@ import VueVideoPlayer from '@videojs-player/vue'
 
 
 const app = createApp(App)
-uicomponents.forEach((component) => {
-  app.component(component.name, component)
-})
+
 
 app.use(createPinia())
 app.use(router)
+app.use(uicomponents)
 app.use(createVfm())
 app.use(vue3Spinner)
 app.use(bootstrap)

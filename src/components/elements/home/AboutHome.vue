@@ -35,9 +35,9 @@ const router = useRouter();
         <div class="form_img">
           <h1 class="size_5">Тест-драйв в Москве</h1>
           <p class="size_6">Оцените все преимущества самокатов лично</p>
-          <btn-to-purple @click="router.push(TEST_ROUTE)">
+          <ButtonToPurple @click="router.push(TEST_ROUTE)">
             Подробнее
-          </btn-to-purple>
+          </ButtonToPurple>
         </div>
       </div>
       <div class="about_content">

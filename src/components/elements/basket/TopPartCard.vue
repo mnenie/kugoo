@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ICards } from '@/types/cards.interface';
 import QuantityBlock from './QuantityBlock.vue';
-defineProps<{
+const props = defineProps<{
   card: ICards
 }>()
 </script>

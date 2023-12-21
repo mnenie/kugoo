@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useInput } from '@/stores/search';
-import { computed, onBeforeMount, onMounted, onUnmounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 const inputMain = useInput()
 const myBlock = ref<HTMLElement | null>(null)

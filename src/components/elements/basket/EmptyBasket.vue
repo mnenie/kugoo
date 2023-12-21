@@ -10,7 +10,7 @@ const router = useRouter()
     <img src="/icons/basket/empty.svg" alt="">
     <h1 class="size_3">Ваша корзина пуста</h1>
     <p class="size_7">Добавьте в нее товары из каталога</p>
-    <btn-card-purple @click="router.push(CATALOG_ROUTE)">Перейти в каталог</btn-card-purple>
+    <ButtonCardPurple @click="router.push(CATALOG_ROUTE)">Перейти в каталог</ButtonCardPurple>
   </div>
 </template>
 

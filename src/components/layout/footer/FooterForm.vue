@@ -34,11 +34,11 @@ const email = defineInputBinds('email')
         <h1 class="size_5">Оставьте свою почту и станьте первым, кто получит скидку на новые самокаты</h1>
         <div class="form_block">
           <div class="input_container">
-            <input-purple v-model="emailValue" placeholder="Введите Ваш email" type="text" v-bind="email"
+            <InputPurple v-model="emailValue" placeholder="Введите Ваш email" type="text" v-bind="email"
               style="width: 410px; height: 53px; letter-spacing: 0;" />
             <span>{{ errors.email }}</span>
           </div>
-          <btn-large-white @click="confirmEmail" style="height: 53px;">Подписаться</btn-large-white>
+          <ButtonLargeWhite @click="confirmEmail" style="height: 53px;">Подписаться</ButtonLargeWhite>
         </div>
       </div>
     </div>

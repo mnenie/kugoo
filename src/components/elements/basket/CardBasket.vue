@@ -2,7 +2,7 @@
 import type { ICards } from '@/types/cards.interface';
 import TopPartCard from './TopPartCard.vue';
 import BottomPartCard from './BottomPartCard.vue';
-defineProps<{
+const props = defineProps<{
   cards: ICards[]
 }>()
 </script>

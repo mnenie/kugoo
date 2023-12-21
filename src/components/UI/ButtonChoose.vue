@@ -1,10 +1,3 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'btn-choose'
-})
-</script>
-
 <template>
   <button class="btn-gray">
     <slot></slot>

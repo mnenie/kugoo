@@ -33,7 +33,7 @@ const cart = useCart()
         <span>Сумма: </span>
         <span>59 800 ₽</span>
       </div>
-      <btn-card-purple>Оформить заказ</btn-card-purple>
+      <ButtonCardPurple>Оформить заказ</ButtonCardPurple>
     </div>
   </div>
 </template>

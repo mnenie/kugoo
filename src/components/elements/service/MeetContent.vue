@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import BtnBanner from '@/components/UI/BtnBanner.vue'
 import ModalDiagnostic from '@/components/UI/ModalDiagnostic.vue';
 import { ref } from 'vue';
 import { useModal, ModalsContainer } from 'vue-final-modal';

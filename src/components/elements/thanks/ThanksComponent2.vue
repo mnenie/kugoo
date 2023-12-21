@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonThanks from '@/components/UI/ButtonThanks.vue';
 import linkToTelegramHelper from '@/helpers/linkToTelegramHelper';
 import ThanksCheck from './ThanksCheck.vue';
 const { goToTg } = linkToTelegramHelper()

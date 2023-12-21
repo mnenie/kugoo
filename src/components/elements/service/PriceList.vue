@@ -3,7 +3,7 @@ import LeftPriceList from './LeftPriceList.vue';
 import RightPriceList from './RightPriceList.vue';
 import type { IRepair } from '@/types/repair.interface';
 
-defineProps<{
+const props = defineProps<{
   items: IRepair[]
 }>()
 const emit = defineEmits([

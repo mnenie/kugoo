@@ -33,7 +33,7 @@ const { open, close } = useModal({
             <h1 class="szie_1">Запишитесь на бесплатный тест-драйв электросамокатов</h1>
             <p class="size_4 main_p">в Москве без ограничения по времени</p>
             <BannerBlocks />
-            <btn-large-white @click="open">Записаться</btn-large-white>
+            <ButtonLargeWhite @click="open">Записаться</ButtonLargeWhite>
           </div>
         </div>
       </div>

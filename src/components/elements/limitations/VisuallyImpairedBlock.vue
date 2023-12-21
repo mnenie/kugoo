@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonLimitation from '@/components/UI/ButtonLimitation.vue'
 import { useLimitation } from '@/stores/limitation';
 const limitation = useLimitation()
 </script>
@@ -14,7 +13,7 @@ const limitation = useLimitation()
           <ButtonLimitation @click="limitation.toggleIncreaseFontSizeLgBig">Очень большой</ButtonLimitation>
           <ButtonLimitation @click="limitation.toggleIncreaseFontSizeLgMoreBig">Огромный</ButtonLimitation>
         </div>
-        <btn-card-purple @click="limitation.changeShowLimitationReset">Обычный режим</btn-card-purple>
+        <ButtonCardPurple @click="limitation.changeShowLimitationReset">Обычный режим</ButtonCardPurple>
       </div>
     </div>
   </div>

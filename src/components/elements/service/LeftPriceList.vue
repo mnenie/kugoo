@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { IRepair } from '@/types/repair.interface';
-defineProps<{
+const props = defineProps<{
   items: IRepair[]
 }>()
-defineEmits<{
+const emit = defineEmits<{
   (e: 'changeItem', id: number) : void
 }>()
 </script>
@@ -11,7 +11,7 @@ defineEmits<{
 <template>
   <div class="left">
     <ul>
-      <li @click="$emit('changeItem', item.id)" class="size_5" v-for="item in items" :key="item.id"
+      <li @click="emit('changeItem', item.id)" class="size_5" v-for="item in items" :key="item.id"
         :class="{active: item.active}">
         {{ item.title }}
         <div class="line" v-if="item.active"></div>

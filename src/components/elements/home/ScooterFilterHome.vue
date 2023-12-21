@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FilterItems from '@/components/UI/FilterItems.vue';
 import type { IBtns } from '@/types/ui.interface';
-defineProps<{
+const props = defineProps<{
   btnsFilter: IBtns[]
 }>()
 const emit = defineEmits<{

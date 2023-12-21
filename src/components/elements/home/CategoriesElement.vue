@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ICategories } from '@/types/categories.interface';
 import { ref } from 'vue';
-defineProps<{
+const props = defineProps<{
   categories: ICategories[]
 }>()
 const about = ref<boolean[]>([])

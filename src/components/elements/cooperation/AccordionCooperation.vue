@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AccordionItem from '@/components/UI/AccordionItem.vue';
 import { accordion3 } from '@/mocks/accordion';
 
 </script>

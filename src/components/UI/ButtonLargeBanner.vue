@@ -1,10 +1,3 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'btn-large-banner'
-})
-</script>
-
 <template>
   <button class="btn_banner">
     <slot></slot>

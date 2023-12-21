@@ -1,10 +1,3 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'btn-card-purple'
-})
-</script>
-
 <template>
   <button class="btn_card">
     <slot></slot>
@@ -12,7 +5,7 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
-.btn_card{
+.btn_card {
   padding: 10px 20px;
   font-size: 12px;
   font-style: normal;
@@ -23,12 +16,14 @@ export default defineComponent({
   background: var(--purple-color);
   border: none;
   transition: 0.15s ease-in;
-  &:hover{
+
+  &:hover {
     background: #8185F9;
   }
 }
-@media screen and (max-width: 650px){
-  .btn_card{
+
+@media screen and (max-width: 650px) {
+  .btn_card {
     font-size: 10px;
   }
 }

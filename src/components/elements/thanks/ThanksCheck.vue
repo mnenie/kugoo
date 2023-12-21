@@ -4,7 +4,7 @@ interface ICheck {
   title: string;
   icon: string;
 }
-defineProps<{
+const props = defineProps<{
   items: ICheck[]
 }>()
 </script>

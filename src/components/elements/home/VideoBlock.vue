@@ -9,7 +9,6 @@ declare global {
 }
 
 const embedYouTubeVideo = (videoId: string, elementId: string) => {
-  // Подключаем API только если еще не подключено
   if (!window.YT) {
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -17,7 +16,6 @@ const embedYouTubeVideo = (videoId: string, elementId: string) => {
     firstScriptTag.parentNode!.insertBefore(tag, firstScriptTag);
   }
 
-  // Функция, вызываемая API после загрузки
   window.onYouTubeIframeAPIReady = function () {
     new window.YT.Player(elementId, {
       height: '200',
@@ -32,7 +30,6 @@ const embedYouTubeVideo = (videoId: string, elementId: string) => {
   };
 };
 
-// Запускаем функцию встраивания при монтировании компонента
 onMounted(() => {
   embedYouTubeVideo('b2DkjWpOX38', 'video1');
   embedYouTubeVideo('hhkyfuVnXw0', 'video2');

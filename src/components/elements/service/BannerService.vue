@@ -56,7 +56,7 @@ const { open, close } = useModal({
               <span class="size_7">{{ item.title }}</span>
             </div>
           </div>
-          <btn-yellow-large @click="open" style="align-self: flex-start;">Записаться</btn-yellow-large>
+          <ButtonLargeYellow @click="open" style="align-self: flex-start;">Записаться</ButtonLargeYellow>
         </div>
       </div>
       <img class="img" src="/img/service/banner.png" alt="">

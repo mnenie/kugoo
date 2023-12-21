@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import BtnBanner from '@/components/UI/BtnBanner.vue';
 import PriceListForm from './PriceListForm.vue';
 import { ref } from 'vue';
 const style = ref([

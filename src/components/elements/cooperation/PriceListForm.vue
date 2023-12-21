@@ -5,7 +5,6 @@ import { useForm } from 'vee-validate';
 import * as yup from 'yup';
 import downloadExcelHelper from '@/helpers/downloadExcelHelper';
 
-
 const place = ref('+7 (___) __ - __ - __')
 const phoneValue = ref<string>('')
 const emailValue = ref<string>('')

@@ -39,4 +39,4 @@ const cartIndex = computed(() => cart.cartIndex);
     }
   }
 }
-</style>@/store/cart
+</style>

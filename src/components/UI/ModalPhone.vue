@@ -5,7 +5,6 @@ import { useForm } from 'vee-validate';
 import * as yup from 'yup';
 import FormModal from './FormModal.vue';
 
-
 const place = ref('+7 (___) __ - __ - __')
 const formValue = ref<string>('')
 const checked = ref<boolean>(true)

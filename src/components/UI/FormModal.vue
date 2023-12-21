@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonPurpleLg from './ButtonPurpleLg.vue';
 interface IFormProps {
   place: string;
   errors: any;
@@ -10,7 +9,7 @@ interface IFormProps {
   purpleBtn: boolean
 }
 defineProps<IFormProps>()
-defineEmits([
+const emits = defineEmits([
   'onSubmit',
   'update:modelValue',
   'update:checked'
@@ -18,14 +17,14 @@ defineEmits([
 </script>
 
 <template>
-  <form @submit.prevent="$emit('onSubmit')" style="max-width: 263px; width: 100%; display: flex; flex-direction: column">
-    <input-form :placeholder="place" style="margin-bottom: 20px;" v-bind="phone" :value="modelValue"
-      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
+  <form @submit.prevent="emits('onSubmit')" style="max-width: 263px; width: 100%; display: flex; flex-direction: column">
+    <InputForm :placeholder="place" style="margin-bottom: 20px;" v-bind="phone" :value="modelValue"
+      @input="emits('update:modelValue', ($event.target as HTMLInputElement).value)" />
     <div class="size_7" style="color: var(--pink-color); margin-top: -15px; margin-bottom: 20px;">{{ errors.phone }}</div>
     <ButtonPurpleLg v-if="purpleBtn" style="margin-bottom: 16px;">{{ btnTitle }}</ButtonPurpleLg>
-    <btn-bg-yellow v-else style="margin-bottom: 16px;">{{ btnTitle }}</btn-bg-yellow>
+    <ButtonYellowBg v-else style="margin-bottom: 16px;">{{ btnTitle }}</ButtonYellowBg>
     <div class="check_block">
-      <input type="checkbox" :checked="checked" @change="$emit('update:checked', ($event.target as HTMLInputElement).checked)" :disabled="checked"
+      <input type="checkbox" :checked="checked" @change="emits('update:checked', ($event.target as HTMLInputElement).checked)" :disabled="checked"
         id="flexCheckChecked">
       <label class="size_8" for="flexCheckChecked">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и
         <router-link class="route" to="/">политикой конфиденциальности</router-link>

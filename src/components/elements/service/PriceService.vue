@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import FilterItems from '@/components/UI/FilterItems.vue';
 import PriceList from './PriceList.vue';
 import { btnsFilter2 } from '@/mocks/ui/btnsFilter';
 import { onMounted, ref } from 'vue';

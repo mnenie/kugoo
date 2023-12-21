@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonThanks from '@/components/UI/ButtonThanks.vue';
 import linkToYoutubeHelper from '@/helpers/linkToYoutubeHelper';
 const { goToYouTube } = linkToYoutubeHelper()
 </script>

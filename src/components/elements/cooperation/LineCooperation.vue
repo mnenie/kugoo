@@ -4,7 +4,6 @@ import * as yup from 'yup'
 import { useForm } from 'vee-validate';
 import downloadExcelHelper from '@/helpers/downloadExcelHelper';
 
-
 const place = ref<string>('+7 (___) __ - __ - __')
 const phoneValue = ref<string>('')
 const { defineInputBinds, errors, validate } = useForm({
@@ -33,10 +32,10 @@ const phone = defineInputBinds('phone');
             <p class="size_6">Давайте обсудим условия сотрудничества, которые подходят именно для вашей компании</p>
             <form @submit.prevent="onSubmit">
               <div class="input_form">
-                <input-purple class="input" :placeholder="place" v-bind="phone" v-model="phoneValue" />
+                <InputPurple class="input" :placeholder="place" v-bind="phone" v-model="phoneValue" />
                 <span>{{ errors.phone }}</span>
               </div>
-              <btn-large-white class="btn">Скачать прайс-лист</btn-large-white>
+              <ButtonLargeWhite class="btn">Скачать прайс-лист</ButtonLargeWhite>
             </form>
           </div>
         </div>

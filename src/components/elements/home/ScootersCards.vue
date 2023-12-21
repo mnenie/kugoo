@@ -7,7 +7,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { TEST_ROUTE } from '@/utils/consts';
 
-defineProps<{
+const props = defineProps<{
   cards: ICards[],
   style: string
 }>()
@@ -119,11 +119,11 @@ const clickCardBtn = (cardId: number) => {
                   </div>
                 </div>
               </div>
-              <btn-card-yellow @click="openModal(card.title, card.img, card.price)"
+              <ButtonYellowCard @click="openModal(card.title, card.img, card.price)"
                 style="margin: 0 auto; display: block; width: 100%;" v-if="!card.basket">Оформить
-                предзаказ</btn-card-yellow>
-              <btn-card-purple @click="clickCardBtn(card.id)" style="margin: 0 auto; display: block; width: 100%;" v-else>{{
-                titleBtn }}</btn-card-purple>
+                предзаказ</ButtonYellowCard>
+              <ButtonCardPurple @click="clickCardBtn(card.id)" style="margin: 0 auto; display: block; width: 100%;" v-else>{{
+                titleBtn }}</ButtonCardPurple>
             </div>
           </div>
           <div v-if="card.rec" class="block_news catalog_3"

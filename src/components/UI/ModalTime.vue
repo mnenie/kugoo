@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { VueFinalModal } from 'vue-final-modal'
-import ButtonPurpleLg from './ButtonPurpleLg.vue';
 import { useRouter } from 'vue-router';
 import { CATALOG_ROUTE } from '@/utils/consts';
 const emit = defineEmits<{

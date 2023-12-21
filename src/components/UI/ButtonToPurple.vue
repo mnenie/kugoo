@@ -1,10 +1,3 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'btn-to-purple'
-})
-</script>
-
 <template>
   <button class="btn_to">
     <slot></slot>

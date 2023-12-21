@@ -4,7 +4,7 @@ import type { IFooterContacts } from '@/types/index';
 import { useModal, ModalsContainer } from 'vue-final-modal';
 import ModalPhone from '@/components/UI/ModalPhone.vue';
 import { useRouter } from 'vue-router';
-defineProps<{
+const props = defineProps<{
   catalog: IFooterCatalog[],
   buyers: IFooterCatalog[],
   contacts: IFooterContacts[],

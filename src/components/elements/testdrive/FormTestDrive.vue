@@ -2,9 +2,7 @@
 import { ref } from 'vue';
 import * as yup from 'yup'
 import { useForm } from 'vee-validate';
-import ButtonPurpleLg from '@/components/UI/ButtonPurpleLg.vue';
 import { useRouter } from 'vue-router';
-
 
 const placeholder = ref<string>('+7 (___) __ - __ - __')
 const phoneValue = ref<string>('')
@@ -30,7 +28,7 @@ const phone = defineInputBinds('phone');
   <form @submit.prevent="onSubmit" class="form">
     <div class="btn_content">
       <div class="input_format">
-        <input-form class="input" :placeholder="placeholder" v-model="phoneValue" v-bind="phone" />
+        <InputForm class="input" :placeholder="placeholder" v-model="phoneValue" v-bind="phone" />
         <div class="size_7" style="color: var(--pink-color);">{{ errors.phone }}</div>
       </div>
       <ButtonPurpleLg class="btn">Оставить заявку на тест-драйв</ButtonPurpleLg>

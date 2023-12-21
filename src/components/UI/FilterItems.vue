@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import type { IBtns } from '@/types/ui.interface';
 
-defineProps<{
+const props = defineProps<{
   btnsFilter: IBtns[]
 }>()
-const emits = defineEmits<{
+const emit = defineEmits<{
   (e: 'filterCards', index: number): void
 }>()
 </script>
 
 <template>
   <div class="btn_section">
-    <btn-gray @click="$emit('filterCards', index)" v-for="(btn, index) in btnsFilter" :key="btn.id"
+    <ButtonGray @click="emit('filterCards', index)" v-for="(btn, index) in btnsFilter" :key="btn.id"
       :class="[btn.active === true ? 'active_item' : '']">
       {{ btn.body }}
-    </btn-gray>
+    </ButtonGray>
   </div>
 </template>
 

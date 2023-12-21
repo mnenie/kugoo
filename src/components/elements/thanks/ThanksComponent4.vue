@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonThanks from '@/components/UI/ButtonThanks.vue';
 import linkToInstagramHelper from '@/helpers/linkToInstagramHelper';
 const {goToInst} = linkToInstagramHelper()
 </script>

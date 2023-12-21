@@ -1,13 +1,10 @@
 <script setup lang="ts">
-// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
-// Import Swiper styles
 import 'swiper/scss';
 import 'swiper/scss/grid';
 import 'swiper/scss/pagination';
 
-// import required modules
 import {Autoplay, Grid, Pagination } from 'swiper/modules';
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 

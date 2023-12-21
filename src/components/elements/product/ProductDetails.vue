@@ -8,7 +8,7 @@ import GuaranteeItem from './GuaranteeItem.vue';
 import AdditionalItems from './AdditionalItems.vue';
 import GiftBlock from './GiftBlock.vue';
 import PayBanner from './PayBanner.vue';
-defineProps<{
+const props = defineProps<{
   card: ICards,
   active: boolean
 }>()

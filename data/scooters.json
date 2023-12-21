@@ -505,7 +505,7 @@
   ],
   "cardsOften": [
     {
-      "id": 12,
+      "id": 1,
       "img": "/img/cards/scooter1.png",
       "balance": "/icons/balance2.svg",
       "rec": "ХИТ",
@@ -524,7 +524,7 @@
       "heart": "/icons/heartpurple.svg"
     },
     {
-      "id": 13,
+      "id": 2,
       "img": "/img/cards/scooter2.png",
       "balance": "/icons/balance2.svg",
       "rec": "Новинка",
@@ -543,10 +543,10 @@
       "heart": "/icons/heartpurple.svg"
     },
     {
-      "id": 14,
+      "id": 9,
       "img": "/img/cards/scooter9.png",
       "balance": "/icons/balance2.svg",
-      "title": "KUGOO G2 PRO Electric Scooter",
+      "title": "KUGOO G2 Electric Scooter",
       "accum": "15000 mAh",
       "accumSvg": "/icons/accumulator.svg",
       "speed": "45 км/ч",
@@ -561,7 +561,7 @@
       "heart": "/icons/heartpurple.svg"
     },
     {
-      "id": 15,
+      "id": 4,
       "img": "/img/cards/scooter4.png",
       "balance": "/icons/balance2.svg",
       "rec": "Новинка",

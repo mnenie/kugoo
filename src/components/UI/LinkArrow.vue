@@ -1,10 +1,3 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'link-arrow'
-})
-</script>
-
 <template>
   <div class="link">
     <slot></slot>

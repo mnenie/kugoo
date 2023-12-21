@@ -6,7 +6,7 @@ import { ref } from 'vue';
 
 const title = ref<string>('Каталог')
 const title2 = ref<string>('Электросамокаты')
-defineProps<{
+const props = defineProps<{
   card: ICards | null, 
   active: boolean
 }>()
