@@ -14,4 +14,6 @@ export const FAVOURITES_ROUTE = '/favourites'
 export const COMPARISON_ROUTE = '/comparison'
 export const THANKS_ROUTE = '/thanks/:id'
 export const NOT_FOUND_ROUTE = '/:catchAll(.*)'
+export const REGISTRATION_ROUTE = '/registration'
+export const AUTH_ROUTE = '/auth'
 

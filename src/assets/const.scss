@@ -162,11 +162,12 @@ button{cursor: pointer;}
 }
 .video-js .vjs-big-play-button::after{
   position: absolute;
-  top: -20px;
-  left: -4px;
+  top: 128px;
+  left: 138px;
   content: url(/icons/videobtn.svg) !important;
   cursor: pointer;
 }
+
 .video-js .vjs-big-play-button{
   background-color: unset !important;
   border: unset !important;
