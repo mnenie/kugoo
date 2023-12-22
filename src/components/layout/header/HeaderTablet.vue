@@ -6,6 +6,7 @@ import { BASKET_ROUTE } from '@/utils/consts'
 import DropdownHeader from './DropdownHeader.vue';
 import DropdownCards from '@/components/UI/DropdownCards.vue';
 import RoundCart from '@/components/UI/RoundCart.vue';
+import RoundGreenAuth from '@/components/UI/RoundGreenAuth.vue';
 import { useInput } from '@/stores/search';
 
 defineProps<{
@@ -78,6 +79,7 @@ onBeforeUnmount(() => {
             <i style="font-size: 20px; color: var(--black-color);" class='bx bx-glasses'></i>
             <img class="img" @click="$emit('rightPart', index)" v-for="(shopItem, index) in shopItems" :src="shopItem.img"
               alt="" :key="shopItem.id">
+              <RoundGreenAuth style="position: absolute; left: 31px; top: 5px;" />
             <button style="position: relative;" class="basket size_7" @click="router.push(BASKET_ROUTE)">
               <img src="/icons/shopping-cart.svg" alt="">
               Корзина
@@ -87,7 +89,7 @@ onBeforeUnmount(() => {
         </div>
         <div class="main_display_new-content_2">
           <form @submit.prevent>
-            <input v-model="inputMain1.search" @input="inputCatalog" @focus="inputMain1.focus" @mousedown="inputMain1.mouseDown" placeholder="Искать самокат KUGO">
+            <input v-model="inputMain1.search" @input="inputCatalog" @focus="inputMain1.focus" @mousedown="inputMain1.mouseDown" placeholder="Искать самокат KUGOO">
             <button @click="searchThis" class="btn-1">
               <img src="/icons/search.svg" alt="">
             </button>
@@ -187,6 +189,7 @@ onBeforeUnmount(() => {
         display: flex;
         align-items: center;
         gap: 20px;
+        position: relative;
 
         & img {
           cursor: pointer;
@@ -290,6 +293,12 @@ form {
     color: var(--purple-color);
   }
 }
+.img{
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
 .fixed {
   position: fixed;
   top: 0;
@@ -301,4 +310,4 @@ form {
   box-shadow: 0 10px 40px #41464c12;
   padding: 20px 20px;
 }
-</style>@/stores/search
+</style>

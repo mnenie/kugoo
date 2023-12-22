@@ -7,6 +7,7 @@ import { ABOUT_ROUTE, BLOG_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_RO
 import { useRouter } from 'vue-router';
 import HeaderMobile from './header/HeaderMobile.vue';
 import { useLimitation } from '@/stores/limitation';
+import { AUTH_ROUTE } from '../../utils/consts';
 const router = useRouter();
 
 const items = ref([
@@ -35,9 +36,10 @@ const svg = ref([
   },
 ])
 const shopItems = ref([
-  { id: 1, img: '/icons/glasses.svg' },
-  { id: 2, img: '/icons/balance.svg' },
-  { id: 3, img: '/icons/heart.svg' },
+  { id: 1, img: '/icons/header/smile.svg' },
+  { id: 2, img: '/icons/glasses.svg' },
+  { id: 3, img: '/icons/balance.svg' },
+  { id: 4, img: '/icons/heart.svg' },
 ])
 
 const menuItems = ref([
@@ -76,14 +78,17 @@ const menuItems = ref([
 ])
 const limitation = useLimitation()
 const rightPart = (index: number) => {
-  if (shopItems.value[index].id === 2) {
-    router.push(COMPARISON_ROUTE);
-  } 
-  if (shopItems.value[index].id === 3) {
-    router.push(FAVOURITES_ROUTE);
+  if(shopItems.value[index].id === 1){
+    router.push(AUTH_ROUTE)
   }
-  if (shopItems.value[index].id === 1) {
+  if (shopItems.value[index].id === 2) {
     limitation.changeShowLimitation()
+  }
+  if (shopItems.value[index].id === 3) {
+    router.push(COMPARISON_ROUTE);
+  }
+  if (shopItems.value[index].id === 4) {
+    router.push(FAVOURITES_ROUTE);
   }
 };
 

@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: HOME_ROUTE,
       name: 'home',
-      component: () => import('@/views/HomePage.vue')
+      component: () => import('@/views/HomePage.vue'),
     },
     {
       path: SERVICE_ROUTE,
@@ -96,5 +96,15 @@ const router = createRouter({
     }
   ]
 })
+
+router.beforeEach((to) => {
+  const token = sessionStorage.getItem('token');
+  const isAuthenticated = token;
+
+  if (isAuthenticated && (to.name === 'auth' || to.name === 'registration')) return { name: 'basket' };
+  if (!isAuthenticated && to.name !== 'auth') return { name: 'auth' };
+  return true;
+});
+
 
 export default router

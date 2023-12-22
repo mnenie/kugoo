@@ -10,22 +10,20 @@ export const useUser = defineStore('user', () => {
   const userRegistration = async (userInfo: IUser) => {
     try {
       const response = await UserService.registration(userInfo)
-      sessionStorage.setItem('token', response.data.token)
+      sessionStorage.setItem('token', response.data.localId)
       isAuth.value = true
       user.value = response.data.user
-      sessionStorage.setItem('user', JSON.stringify(user.value))
     } catch (err) {
       console.log(err)
     }
   }
 
-  const userLogin = async(loginInfo: {email: string, number: number | string}) => {
+  const userLogin = async(userAuth: IUser) => {
     try{
-      const response = await UserService.login(loginInfo)
-      sessionStorage.setItem('token', response.data.token)
+      const response = await UserService.login(userAuth)
       isAuth.value = true
       user.value = response.data.user
-      sessionStorage.setItem('user', JSON.stringify(user.value))
+      sessionStorage.setItem('token', response.data.localId)
     }
     catch(err) {
       console.log(err)

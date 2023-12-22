@@ -1,11 +1,9 @@
 export interface IUser {
   email: string
-  number: number | string
-  name: string
-  lastname: string
+  password: string
 }
 
 export interface IUserAuth {
   user: IUser
-  token: string
+  localId: string
 }

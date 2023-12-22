@@ -9,6 +9,7 @@ import HeaderTablet from './HeaderTablet.vue';
 import RoundCart from '@/components/UI/RoundCart.vue';
 import HeaderBtn from './HeaderBtn.vue'
 import { useInput } from '@/stores/search';
+import RoundGreenAuth from '@/components/UI/RoundGreenAuth.vue';
 
 defineProps<{
   shopItems: any[]
@@ -60,7 +61,7 @@ const searchThis = () => {
         <HeaderBtn />
         <form style="position: relative;" @submit.prevent>
           <input @input="inputCatalog" v-model="inputMain.search" @focus="inputMain.focus"
-            @mousedown="inputMain.mouseDown" placeholder="Искать самокат KUGO">
+            @mousedown="inputMain.mouseDown" placeholder="Искать самокат KUGOO">
           <button @click="searchThis" class="btn-1">
             <img src="/icons/search.svg" alt="">
           </button>
@@ -70,6 +71,7 @@ const searchThis = () => {
         <div class="shop_block">
           <img class="img" @click="emit('rightPart', index)" v-for="(shopItem, index) in shopItems" :src="shopItem.img"
             alt="" :key="shopItem.id">
+            <RoundGreenAuth style="position: absolute; left: 10px; top: 5px;" />
           <button style="position: relative;" class="basket size_7" @click="router.push(BASKET_ROUTE)">
             <img src="/icons/shopping-cart.svg" alt="">
             Корзина
@@ -170,6 +172,7 @@ form {
   display: flex;
   align-items: center;
   gap: 20px;
+  position: relative;
 
   & img {
     cursor: pointer;
@@ -228,4 +231,8 @@ form {
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 10px 40px #41464c12;
 }
-</style>@/stores/search
+
+.img{
+  position: relative;
+}
+</style>

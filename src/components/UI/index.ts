@@ -22,6 +22,7 @@ import InputPurple from "./InputPurple.vue"
 import LinkArrow from "./LinkArrow.vue"
 import AccordionItem from "./AccordionItem.vue"
 import FilterItems from "./FilterItems.vue"
+import InputAuth from "./InputAuth.vue"
 
 const components = [
   {name: 'BtnBanner', component: BtnBanner},
@@ -47,7 +48,7 @@ const components = [
   {name: 'LinkArrow', component: LinkArrow},
   {name: 'AccordionItem', component: AccordionItem},
   {name: 'FilterItems', component: FilterItems},
-
+  {name: 'InputAuth', component: InputAuth},
 ]
 export default {
   install(app: App){

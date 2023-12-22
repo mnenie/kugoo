@@ -5,12 +5,14 @@ import type { IUser, IUserAuth } from '@/types/user.interface'
 export default class UserService {
 
   static async registration(user: IUser): Promise<AxiosResponse<IUserAuth>> {
-    const response = await $api.post('/users/registration', user)
+    const userReg = { ...user, returnSecureToken: true}
+    const response = await $api.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${import.meta.env.VITE_API_KEY_FIREBASE}`, userReg)
     return response
   }
 
-  static async login(loginInfo: {email: string, number: number | string}): Promise<AxiosResponse<IUserAuth>> {
-    const response = await $api.post('/users/login', loginInfo)
+  static async login(user: IUser): Promise<AxiosResponse<IUserAuth>> {
+    const userAuth = { ...user, returnSecureToken: true}
+    const response = await $api.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${import.meta.env.VITE_API_KEY_FIREBASE}`, userAuth)
     return response
   }
 

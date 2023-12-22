@@ -2,8 +2,10 @@
 import { ref } from 'vue';
 import type { INavigation } from '@/types/ui.interface';
 import { useRouter } from 'vue-router';
-import {HOME_ROUTE, CATALOG_ROUTE, BASKET_ROUTE, FAVOURITES_ROUTE, COMPARISON_ROUTE} from '@/utils/consts'
+import { HOME_ROUTE, CATALOG_ROUTE, BASKET_ROUTE, FAVOURITES_ROUTE, COMPARISON_ROUTE } from '@/utils/consts'
 import RoundCart from '@/components/UI/RoundCart.vue';
+import RoundGreenAuth from '../UI/RoundGreenAuth.vue';
+import { AUTH_ROUTE } from '@/utils/consts';
 
 const navigations = ref<INavigation[]>([
   {
@@ -30,6 +32,11 @@ const navigations = ref<INavigation[]>([
     id: 5,
     img: '/icons/navigation/balance.svg',
     title: 'Сравнить',
+  },
+  {
+    id: 6,
+    img: '/icons/navigation/user.svg',
+    title: 'Профиль',
   }
 ])
 const router = useRouter()
@@ -50,6 +57,9 @@ const nextNavi = (index: number) => {
     case 4:
       router.push(COMPARISON_ROUTE)
       break;
+    case 5:
+      router.push(AUTH_ROUTE)
+      break;
   }
 }
 </script>
@@ -61,7 +71,8 @@ const nextNavi = (index: number) => {
         <img :src="navi.img" alt="">
         <span>{{ navi.title }}</span>
       </div>
-      <RoundCart style="position: absolute; left: 50%; top: 7px;" />
+      <RoundCart style="position: absolute; left: 41%; top: 7px;" />
+      <RoundGreenAuth style="position: absolute; right: 37px; top: 7px;" />
     </div>
   </div>
 </template>
@@ -102,8 +113,9 @@ const nextNavi = (index: number) => {
     }
   }
 }
-@media screen and (max-width: 540px){
-  .navi_mobile{
+
+@media screen and (max-width: 540px) {
+  .navi_mobile {
     display: block;
   }
 }
