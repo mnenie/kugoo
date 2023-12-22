@@ -2,6 +2,7 @@
 interface Props {
   modelValue: string | number;
   placeholder: string
+  type: string
 }
 const props = defineProps<Props>()
 const emit = defineEmits<{
@@ -13,7 +14,7 @@ const emit = defineEmits<{
   <div class="input_form">
     <slot />
     <input @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" :value="modelValue" class="input"
-      type="text" :placeholder="placeholder">
+      :type="type" :placeholder="placeholder">
   </div>
 </template>
 

@@ -40,13 +40,13 @@ const onSumbit = async () => {
   <div class="auth">
     <div class="form">
       <h2 class="size_2 title"><span style="color: var(--purple-color);">KUGOO</span> ID</h2>
-      <InputAuth style="margin-bottom: 15px;" :placeholder="'Введите email'" v-model="email" v-bind="emailValidate">
+      <InputAuth style="margin-bottom: 15px;" :type="'text'" :placeholder="'Введите email'" v-model="email" v-bind="emailValidate">
         <img style="width: 17px; height: 17px;" src="/icons/auth/email.svg" alt="">
       </InputAuth>
       <div class="size_7" v-if="loginErrs.email"
         style="color: var(--pink-color); margin-top: -10px; margin-bottom: 10px;">
         {{ loginErrs.email }} </div>
-      <InputAuth style="margin-bottom: 15px;" :placeholder="'Введите пароль'" v-model="password" v-bind="passwordValidate">
+      <InputAuth style="margin-bottom: 15px;" :placeholder="'Введите пароль'" :type="'password'" v-model="password" v-bind="passwordValidate">
         <img style="width: 17px; height: 17px;" src="/icons/auth/password.svg" alt="">
       </InputAuth>
       <div class="size_7" v-if="loginErrs.password"
