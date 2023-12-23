@@ -23,6 +23,7 @@ import LinkArrow from "./LinkArrow.vue"
 import AccordionItem from "./AccordionItem.vue"
 import FilterItems from "./FilterItems.vue"
 import InputAuth from "./InputAuth.vue"
+import Checkbox from "./Checkbox.vue"
 
 const components = [
   {name: 'BtnBanner', component: BtnBanner},
@@ -49,6 +50,7 @@ const components = [
   {name: 'AccordionItem', component: AccordionItem},
   {name: 'FilterItems', component: FilterItems},
   {name: 'InputAuth', component: InputAuth},
+  {name: 'Checkbox', component: Checkbox},
 ]
 export default {
   install(app: App){
