@@ -22,7 +22,7 @@ const emit = defineEmits<{
 .btn_section {
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .active_item {
