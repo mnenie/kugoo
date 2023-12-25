@@ -6,11 +6,13 @@ import { ref } from 'vue'
 export const useUser = defineStore('user', () => {
   const isAuth = ref<boolean>(false)
   const user = ref({} as IUser)
+  const token = ref('')
 
   const userRegistration = async (userInfo: IUser) => {
     try {
       const response = await UserService.registration(userInfo)
-      sessionStorage.setItem('token', response.data.localId)
+      token.value = response.data.idToken
+      sessionStorage.setItem('token', response.data.idToken)
       isAuth.value = true
       user.value = response.data.user
     } catch (err) {
@@ -23,7 +25,8 @@ export const useUser = defineStore('user', () => {
       const response = await UserService.login(userAuth)
       isAuth.value = true
       user.value = response.data.user
-      sessionStorage.setItem('token', response.data.localId)
+      token.value = response.data.idToken
+      sessionStorage.setItem('token', response.data.idToken)
     }
     catch(err) {
       console.log(err)
@@ -42,6 +45,7 @@ export const useUser = defineStore('user', () => {
     isAuth,
     user, 
     userLogin,
-    userLogout
+    userLogout,
+    token
   }
 })

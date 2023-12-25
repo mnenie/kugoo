@@ -16,7 +16,6 @@ import * as bootstrap from 'bootstrap'
 import vSelect from 'vue-select'
 import VueVideoPlayer from '@videojs-player/vue'
 
-
 import { initializeApp } from "firebase/app";
 initializeApp(firebaseConfig);
 

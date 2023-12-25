@@ -6,8 +6,8 @@ export default function useOftenCards() {
 
   const loadOften = async () => {
     try {
-      const response = await axios.get(`data/scooters.json`)
-      cardsOften.value = response.data.cardsOften
+      const response = await axios.get(`https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/scooters/cardsOften.json`)
+      cardsOften.value = response.data
     } catch(error) {
       console.log(error)
     }

@@ -7,8 +7,8 @@ export default function useTechnic(){
 
   const loadTechnic = async () => {
     try {
-      const response = await axios.get('data/technic.json')
-      home1.value = response.data.technic
+      const response = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/technic.json')
+      home1.value = response.data
 
     } catch (error) {
       console.error(error)

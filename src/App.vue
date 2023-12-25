@@ -21,15 +21,10 @@ const { open, close } = useModal({
     }
   }
 })
-onMounted(() => {
+onMounted(async () => {
   setTimeout(() => {
     isLoading.value = false;
   }, 700);
-  // if (window.innerWidth > 540) {
-  //   setTimeout(() => {
-  //     open();
-  //   }, 10000)
-  // }
 });
 const limitation = useLimitation()
 </script>

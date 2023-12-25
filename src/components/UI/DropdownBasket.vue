@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { basketItems } from '@/mocks/basketDropdown';
 import { useCart } from '@/stores/cart';
 import { ref } from 'vue';
 
-const cards = ref(basketItems);
+const cards = ref([]);
 const cart = useCart()
 </script>
 

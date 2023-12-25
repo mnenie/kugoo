@@ -18,6 +18,6 @@ export default class UserService {
 
   static logout(): void {
     localStorage.removeItem('user')
-    localStorage.removeItem('token')
+    sessionStorage.removeItem('token')
   }
 }

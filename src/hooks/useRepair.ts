@@ -5,8 +5,8 @@ import { type Ref } from 'vue'
 export default function useRepair() {
   const getRepairScooters = async (items: Ref<IRepair[]>) => {
     try {
-      const response = await axios.get('/data/repaircost.json')
-      items.value = response.data.repairScooters
+      const response = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/repaircost/repairScooters.json')
+      items.value = response.data
     } catch (err) {
       console.log(err)
     }
@@ -14,8 +14,8 @@ export default function useRepair() {
 
   const getRepairBikes = async(items: Ref<IRepair[]>) => {
     try {
-      const response = await axios.get('/data/repaircost.json')
-      items.value = response.data.repairBikes
+      const response = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/repaircost/repairBikes.json')
+      items.value = response.data
     } catch (err) {
       console.log(err)
     }
@@ -23,8 +23,8 @@ export default function useRepair() {
 
   const getRepairGiro = async(items: Ref<IRepair[]>) => {
     try {
-      const response = await axios.get('/data/repaircost.json')
-      items.value = response.data.repairGiro
+      const response = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/repaircost/repairGiro.json')
+      items.value = response.data
     } catch (err) {
       console.log(err)
     }
@@ -32,8 +32,8 @@ export default function useRepair() {
 
   const getRepairMoped= async(items: Ref<IRepair[]>) => {
     try {
-      const response = await axios.get('/data/repaircost.json')
-      items.value = response.data.repairMoped
+      const response = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/repaircost/repairMoped.json')
+      items.value = response.data
     } catch (err) {
       console.log(err)
     }

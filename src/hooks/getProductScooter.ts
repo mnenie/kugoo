@@ -6,7 +6,7 @@ export default function useGetScooterById(id: number) {
   const product = ref<ICards | null>(null)
   const getScooterById = async (itemId: number) => {
     try {
-      const response = await axios.get('/data/scooters.json')
+      const response = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/scooters.json')
       const allCards = [...response.data.cards1, ...response.data.cards2]
 
       const scooter = allCards.find((card) => card.id === itemId)
