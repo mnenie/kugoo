@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BannerStocks from '@/components/elements/stocks/BannerStocks.vue'
+import StocksItems from '@/components/elements/stocks/StocksItems.vue';
 import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 </script>
 
@@ -7,6 +8,7 @@ import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
   <div>
     <NavigationTopPage :title="'Акции'" />
     <BannerStocks />
+    <StocksItems />
   </div>
 </template>
 
