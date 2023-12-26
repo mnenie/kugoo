@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import useNews from '@/hooks/useNews';
-const {home} = useNews()
+import { onMounted } from 'vue';
+const {newsTop, getNewsTop} = useNews()
+
+onMounted(async () => {
+  await getNewsTop()
+})
 </script>
 
 <template>
-  <div v-for="news in home" :key="news.id" class="news_block">
+  <div v-for="news in newsTop" :key="news.id" class="news_block">
     <div class="img_item">
       <img class="img" :src="news.img" alt="">
     </div>
