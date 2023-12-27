@@ -1,12 +1,20 @@
 <script setup lang="ts">
+import smoothScroll from '@/helpers/smoothScrollHelper';
 import type { INews } from '@/types/index';
+import { useRouter } from 'vue-router';
 const props = defineProps<{
   news: INews[]
 }>()
+const router = useRouter()
+const {smoothScrollToTop} = smoothScroll()
+const linkToBlog = (id: number) => {
+  router.push(`/blog/${id}`)
+  smoothScrollToTop()
+}
 </script>
 
 <template>
-  <div v-for="blog in news" :key="blog.id" class="news_block">
+  <div @click="linkToBlog(blog.id)" v-for="blog in news" :key="blog.id" class="news_block">
     <div class="img_item">
       <img class="img" :src="blog.img" alt="">
     </div>
@@ -35,6 +43,11 @@ const props = defineProps<{
   border-radius: 10px;
   background: var(--btn-gray-color);
   overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 
   .img_item {
     width: 350px;

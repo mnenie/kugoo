@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import MarketHeader from '@/components/layout/header/MarketHeader.vue';
 import type { IMenu } from '@/types/ui.interface';
-import { ABOUT_ROUTE, BLOG_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE } from '@/utils/consts';
+import { ABOUT_ROUTE, BLOGS_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE } from '@/utils/consts';
 import { ref } from 'vue';
 import ModalPhone from './ModalPhone.vue';
 import { useModal, ModalsContainer } from 'vue-final-modal';
@@ -26,7 +26,7 @@ const menuItems = ref<IMenu[]>([
   },
   {
     id: 4,
-    routeTo: BLOG_ROUTE,
+    routeTo: BLOGS_ROUTE,
     about: 'Блог'
   },
   {

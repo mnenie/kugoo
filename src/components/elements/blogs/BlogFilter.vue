@@ -7,8 +7,9 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: 'filterCards', id: number) : void
+  (e: 'filterCards', id: number): void
 }>()
+
 const icons = ref([
   { id: 1, svg: '/icons/blog/vk.svg' },
   { id: 2, svg: '/icons/blog/inst.svg' },
@@ -49,6 +50,19 @@ const icons = ref([
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .filter_blog {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+
+    .btn_section {
+      grid-template-columns: repeat(4, 1fr) !important;
     }
   }
 }

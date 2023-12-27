@@ -39,13 +39,14 @@ onMounted(async () => {
   await getAllNews();
   refNews.value = news.value;
 });
+
 </script>
 
 <template>
   <div>
     <BlogFilter :btns-filter-blog="btnsFilterBlog" @filter-cards="filterCards" />
     <div class="news">
-      <NewsItems :news="refNews" />
+      <NewsItems  :news="refNews" />
     </div>
   </div>
 </template>

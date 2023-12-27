@@ -6,6 +6,7 @@ import ModalPreOrder from '@/components/UI/ModalPreOrder.vue';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { TEST_ROUTE } from '@/utils/consts';
+import smoothScroll from '@/helpers/smoothScrollHelper';
 
 const props = defineProps<{
   cards: ICards[],
@@ -53,18 +54,8 @@ onMounted(() => {
     titleBtn.value = 'Записаться на тест-драйв'
   }
 })
-const smoothScrollToTop = () => {
-  // const scrollDuration = 250;
-  const scrollStep = -window.scrollY;
-  window.scrollBy(0, scrollStep);
-  // const scrollInterval = setInterval(() => {
-  //   if (window.scrollY !== 0) {
-  //     window.scrollBy(0, scrollStep);
-  //   } else {
-  //     clearInterval(scrollInterval);
-  //   }
-  // }, 10);
-};
+
+const {smoothScrollToTop} = smoothScroll()
 const clickCardBtn = (cardId: number) => {
   if (titleBtn.value === 'Записаться на тест-драйв') {
     emit('openModalTest')

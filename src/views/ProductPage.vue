@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ProductItem from '@/components/elements/product/ProductItem.vue'
-import useGetScooterById from '../hooks/getProductScooter';
+import useGetScooterById from '../hooks/useGetProductScooter';
 import { useRoute } from 'vue-router';
 import { watchEffect, computed } from 'vue';
 import Alert from '@/components/UI/Alert.vue';
@@ -33,4 +33,4 @@ const active = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style>../hooks/useGetProductScooter

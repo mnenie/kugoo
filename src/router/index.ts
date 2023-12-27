@@ -1,6 +1,7 @@
 import {
-  ABOUT_ROUTE, AUTH_ROUTE, BASKET_ROUTE, BLOG_ROUTE, CATALOG_ROUTE, COMPARISON_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, FAVOURITES_ROUTE, HOME_ROUTE, NOT_FOUND_ROUTE, PRODUCT_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, THANKS_ROUTE} from '@/utils/consts'
+  ABOUT_ROUTE, AUTH_ROUTE, BASKET_ROUTE, BLOGS_ROUTE, CATALOG_ROUTE, COMPARISON_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, FAVOURITES_ROUTE, HOME_ROUTE, NOT_FOUND_ROUTE, PRODUCT_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, THANKS_ROUTE} from '@/utils/consts'
 import { createRouter, createWebHistory } from 'vue-router'
+import { BLOG_ROUTE } from '../utils/consts';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,9 +55,9 @@ const router = createRouter({
       }
     },
     {
-      path: BLOG_ROUTE,
-      name: 'blog',
-      component: () => import('@/views/BlogPage.vue'),
+      path: BLOGS_ROUTE,
+      name: 'blogs',
+      component: () => import('@/views/BlogsPage.vue'),
       meta: {
         auth: false
       }
@@ -121,6 +122,14 @@ const router = createRouter({
       path: THANKS_ROUTE,
       name: 'thanks',
       component: () => import('@/views/ThanksPage.vue'),
+      meta: {
+        auth: false
+      }
+    },
+    {
+      path: BLOG_ROUTE,
+      name: 'blog',
+      component: () => import('@/views/BlogPage.vue'),
       meta: {
         auth: false
       }

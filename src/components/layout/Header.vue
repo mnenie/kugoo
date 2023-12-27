@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import HeaderTop from './header/HeaderTop.vue'
 import HeaderMain from './header/HeaderMain.vue'
 import HeaderBottom from './header/HeaderBottom.vue';
-import { ABOUT_ROUTE, BLOG_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, FAVOURITES_ROUTE, COMPARISON_ROUTE } from '@/utils/consts';
+import { ABOUT_ROUTE, BLOGS_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, FAVOURITES_ROUTE, COMPARISON_ROUTE } from '@/utils/consts';
 import { useRouter } from 'vue-router';
 import HeaderMobile from './header/HeaderMobile.vue';
 import { useLimitation } from '@/stores/limitation';
@@ -61,7 +61,7 @@ const menuItems = ref([
   },
   {
     id: 4,
-    routeTo: BLOG_ROUTE,
+    routeTo: BLOGS_ROUTE,
     about: 'Блог'
   },
   {
