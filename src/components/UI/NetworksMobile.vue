@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 const imgs = [
   {
     id: 1,

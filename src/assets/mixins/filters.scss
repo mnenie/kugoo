@@ -1,0 +1,25 @@
+@mixin filter {
+  .filter_block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .filters {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      .filter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        & span {
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          color: var(--black-color);
+        }
+      }
+    }
+  }
+}

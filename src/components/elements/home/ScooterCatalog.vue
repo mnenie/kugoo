@@ -35,7 +35,9 @@ onBeforeUnmount(() => {
 <template>
   <div class="catalog_display">
     <ScooterFilterHome @filter-cards="filterCards" :btns-filter="btnsFilter" />
-    <ScootersCards :style="style" :cards="cards" />
+    <div class="container">
+      <ScootersCards :style="style" :cards="cards" />
+    </div>
     <ButtonMore v-if="usl" @click="router.push(CATALOG_ROUTE)"
       style="border: 1.3px solid var(--purple-color); margin: 0 auto; display: block;">Смотреть все</ButtonMore>
   </div>

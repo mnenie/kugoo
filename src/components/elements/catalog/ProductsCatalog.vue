@@ -3,14 +3,13 @@ import type { ICards } from '@/types/cards.interface';
 import { useCart } from '@/stores/cart';
 import { useModal, ModalsContainer } from 'vue-final-modal';
 import ModalPreOrder from '@/components/UI/ModalPreOrder.vue';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { TEST_ROUTE } from '@/utils/consts';
 import smoothScroll from '@/helpers/smoothScrollHelper';
 
 const props = defineProps<{
   cards: ICards[],
-  style: string
 }>()
 const emit = defineEmits<{
   (e: 'openModalTest'): void
@@ -60,16 +59,19 @@ const clickCardBtn = (cardId: number) => {
   if (titleBtn.value === 'Записаться на тест-драйв') {
     emit('openModalTest')
   } else {
-    // cart.addIndex()
     router.push(`/products/${cardId}`)
     smoothScrollToTop()
   }
 }
+
+const cardNewId = computed(() => {
+  return props.cards.length > 1;
+})
 </script>
 
 <template>
   <div class="cards_block">
-    <div :style="style" class="cards">
+    <div class="cards">
       <div v-for="card in cards" :key="card.id" class="card_item">
         <div class="cards_img-container">
           <img class="img_main" :src="card.img" alt="">
@@ -125,6 +127,10 @@ const clickCardBtn = (cardId: number) => {
           <img :src="card.balance" alt="">
         </div>
       </div>
+      <div v-if="cardNewId" class="custom_block">
+        <!-- Содержимое вашего блока -->
+        Кастомный блок
+      </div>
     </div>
   </div>
   <ModalsContainer />
@@ -134,8 +140,9 @@ const clickCardBtn = (cardId: number) => {
 .cards_block {
   .cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    margin-bottom: 100px;
 
     .card_item {
       position: relative;
@@ -276,7 +283,7 @@ const clickCardBtn = (cardId: number) => {
 @media screen and (max-width: 1200px) {
   .cards_block {
     .cards {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
 
       .card_item {
@@ -290,7 +297,7 @@ const clickCardBtn = (cardId: number) => {
 @media screen and (max-width: 890px) {
   .cards_block {
     .cards {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 20px;
 
       .card_item {

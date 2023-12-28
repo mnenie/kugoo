@@ -148,9 +148,10 @@ button {
   height: 53px !important;
 }
 .vs__dropdown-toggle {
-  height: 53px;
-  width: 100%;
-  max-width: 263px;
+  height: 53px !important;
+  width: 100% !important;
+  max-width: 263px !important;
+  min-width: 210px !important;
 }
 .vs__dropdown-menu {
   max-height: 150px !important;
