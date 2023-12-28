@@ -116,3 +116,30 @@ export const btnsFilterBlog = ref<IBtns[]>([
     active: false
   }
 ])
+export const btnsFilterContacts = ref<IBtns[]>([
+  {
+    id: 1,
+    body: 'Москва',
+    active: true
+  },
+  {
+    id: 2,
+    body: 'Санкт-Петербург',
+    active: false
+  },
+  {
+    id: 3,
+    body: 'Краснодар',
+    active: false
+  },
+  {
+    id: 4,
+    body: 'Минск',
+    active: false
+  },
+  {
+    id: 5,
+    body: 'CDEK',
+    active: false
+  }
+])

@@ -44,16 +44,16 @@ const icons = ref([
 
 <style lang="scss" scoped>
 .banner {
-  min-height: 400px;
+  min-height: 320px;
   padding: 26px 0;
   overflow: hidden;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   border-radius: 10px;
   background-size: cover;
   position: relative;
   z-index: -1;
   background-repeat: no-repeat;
-  background-position: top -300px right 0;
+  background-position: top -350px right 0;
 
   &::after {
     content: '';
@@ -67,7 +67,7 @@ const icons = ref([
   }
 
   .text_cont {
-    min-height: 400px;
+    min-height: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -130,13 +130,13 @@ const icons = ref([
 
 @media screen and (max-width: 1180px) {
   .banner {
-    background-position: top -100px right 0;
+    background-position: top -200px right 0;
   }
 }
 
 @media screen and (max-width: 890px) {
   .banner {
-    background-position: top 0px right 0;
+    background-position: top -100px right 0;
   }
 }
 
@@ -156,7 +156,7 @@ const icons = ref([
 
 @media screen and (max-width: 680px) {
   .banner {
-    background-position: top 0px right -50px;
+    background-position: top 0px right 0px;
   }
 }
 
@@ -175,7 +175,7 @@ const icons = ref([
 
 @media screen and (max-width: 600px) {
   .banner {
-    background-position: top 0px right -100px;
+    background-position: top 0px right 0px;
   }
 }
 
@@ -195,7 +195,7 @@ const icons = ref([
 
 @media screen and (max-width: 420px) {
   .banner {
-    background-position: top 0px right -60px;
+    background-position: top 0px right 0px;
   }
 }
 </style>

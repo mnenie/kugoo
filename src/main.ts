@@ -19,8 +19,13 @@ import VueVideoPlayer from '@videojs-player/vue'
 import { initializeApp } from "firebase/app";
 initializeApp(firebaseConfig);
 
+import { createYmaps } from 'vue-yandex-maps';
+
 const app = createApp(App)
 
+const ymaps = createYmaps({
+  apikey: import.meta.env.VITE_API_KEY_YANDEXMAP,
+});
 
 app.use(createPinia())
 app.use(router)
@@ -30,4 +35,5 @@ app.use(vue3Spinner)
 app.use(bootstrap)
 app.component('v-select', vSelect)
 app.use(VueVideoPlayer)
+app.use(ymaps);
 app.mount('#app')
