@@ -4,6 +4,10 @@ import { ref } from 'vue';
 const props = defineProps<{
   categories: ICategories[]
 }>()
+
+const emit = defineEmits<{
+  (e: 'pushToCatalog', id: number): void
+}>()
 const about = ref<boolean[]>([])
 function onOver(index: number) {
   about.value[index] = true
@@ -14,7 +18,7 @@ function onOut(index: number) {
 </script>
 
 <template>
-  <div @mouseover="onOver(index)" @mouseleave="onOut(index)" v-for="(category, index) in categories" :key="category.id"
+  <div @mouseover="onOver(index)" @mouseleave="onOut(index)" @click="emit('pushToCatalog', index)" v-for="(category, index) in categories" :key="category.id"
     class="block_categories">
     <img :src="category.img" alt="">
     <div class="body_block show-more" :class="[about[index] ? 'active' : '']">

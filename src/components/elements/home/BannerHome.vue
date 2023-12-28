@@ -2,11 +2,15 @@
 import { useRouter } from 'vue-router';
 import { DELIVERY_ROUTE } from '@/utils/consts'
 const router = useRouter()
+
+const props = defineProps<{
+  style?: string
+}>()
 </script>
 
 <template>
   <div class="container_lg">
-    <div class="banner">
+    <div :style="style" class="banner">
       <div class="container">
         <div class="banner_block">
           <div class="news catalog_2">
