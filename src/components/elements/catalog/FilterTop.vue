@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import FilterItems from '@/components/UI/FilterItems.vue';
-import {filters} from '@/mocks/filters'
+import type { IBtns } from '@/types/ui.interface';
+const props = defineProps<{
+  filters: IBtns[]
+}>()
+const emit = defineEmits<{
+  (e: 'filterCards', id: number): void
+}>()
 </script>
 
 <template>
@@ -8,7 +13,7 @@ import {filters} from '@/mocks/filters'
     <h2 class="size_3">Фильтр</h2>
     <div class="filters">
       <p>Сортировать:</p>
-      <FilterItems :btns-filter="filters" />
+      <FilterItems :btns-filter="filters" @filter-cards="emit('filterCards', $event)" />
     </div>
   </div>
 </template>

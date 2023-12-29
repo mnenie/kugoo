@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import useGetAllScooters from '@/hooks/useGetAllScooters';
+import type { ICards } from '@/types/cards.interface';
 import ProductsCatalog from '../ProductsCatalog.vue';
-const {items} = useGetAllScooters()
+
+const props =  defineProps<{
+  items: ICards[]
+}>()
 </script>
 
 <template>

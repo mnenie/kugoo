@@ -6,6 +6,25 @@ import WeightFilter from './filter/WeightFilter.vue'
 import SetsFilter from './filter/SetsFilter.vue'
 import ToFilter from './filter/ToFilter.vue'
 import PowerFilter from './filter/PowerFilter.vue'
+import { ref } from 'vue';
+
+const isMore = ref<boolean>(false)
+const style = ref<string>('')
+const title = ref<string>('Показать весь фильтр')
+let count = ref(0)
+const showMore = () => {
+  count.value++
+  if (count.value % 2 == 0) {
+    isMore.value = !isMore.value
+    style.value = ''
+    title.value = 'Показать весь фильтр'
+  }
+  else {
+    isMore.value = !isMore.value
+    style.value = 'transform: rotate(180deg)'
+    title.value = 'Скрыть часть фильтра'
+  }
+}
 </script>
 
 <template>
@@ -14,14 +33,14 @@ import PowerFilter from './filter/PowerFilter.vue'
     <TypeFilter />
     <ForWhoFilter />
     <WeightFilter />
-    <div class="more">
-      <span class="size_7">Показать весь фильтр</span>
-      <img src="/icons/catalog/arrow.svg" alt="">
-    </div>
-    <div class="more_blocks">
+    <div v-show="isMore" class="more_blocks">
       <SetsFilter />
       <ToFilter />
       <PowerFilter />
+    </div>
+    <div @click="showMore" class="more">
+      <span class="size_7">{{ title }}</span>
+      <img :style="style" src="/icons/catalog/arrow.svg" alt="">
     </div>
   </div>
 </template>
@@ -49,9 +68,7 @@ import PowerFilter from './filter/PowerFilter.vue'
     justify-content: center;
     gap: 6px;
     cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    
+
 
     & span {
       font-style: normal;
