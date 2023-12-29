@@ -4,14 +4,18 @@ import BannerScooters from '@/components/elements/catalog/scooters/BannerScooter
 import ScootersCatalogFilter from '@/components/elements/catalog/scooters/ScootersCatalogFilter.vue';
 import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 import FilterCatalog from '@/components/elements/catalog/FilterCatalog.vue';
-import { ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
 import useGetAllScooters from '@/hooks/useGetAllScooters';
 import useFilterCatalog from '@/hooks/useFilterCatalog';
 
 
 const title = ref<string>('Каталог')
 const { items, tempItems } = useGetAllScooters()
-const { filters, filterProductsByTop } = useFilterCatalog(items, tempItems)
+const { filters, filterProductsByTop, filterProductsPanel, clearFilters } = useFilterCatalog(items, tempItems)
+
+onUnmounted(() => {
+  clearFilters()
+})
 </script>
 
 <template>
@@ -20,8 +24,9 @@ const { filters, filterProductsByTop } = useFilterCatalog(items, tempItems)
   <div class="container">
     <FilterTop :filters="filters" @filter-cards="filterProductsByTop" />
     <div class="blocks">
-      <FilterCatalog />
-      <ScootersCatalogFilter :items="items" />
+      <FilterCatalog @onChecked="filterProductsPanel" />
+      <ScootersCatalogFilter v-if="items.length > 0" :items="items" />
+      <p v-else class="size_5" style="text-align: center; width: 100%; margin-top: 50px; color: var(--pink-color);">Ничего не найдено</p>
     </div>
   </div>
 </template>

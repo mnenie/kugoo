@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { IFilter } from '@/types/filter.interface';
-import { ref } from 'vue';
 
-const filters = ref<IFilter[]>([
-  { id: 1, checked: true, title: 'Да' },
-  { id: 2, checked: false, title: 'Нет' },
-])
+const props = defineProps<{
+  filters: IFilter[]
+}>()
+const emit = defineEmits<{
+  (e: 'updateChecked'): void
+}>()
 </script>
 
 <template>
@@ -13,7 +14,7 @@ const filters = ref<IFilter[]>([
     <p class="size_5">Наличие сиденья</p>
     <div class="filters">
       <div v-for="item in filters" :key="item.id" class="filter">
-        <input type="checkbox">
+        <input v-model="item.checked" type="checkbox" @change="emit('updateChecked')">
         <span class="size_7">{{ item.title }}</span>
       </div>
     </div>

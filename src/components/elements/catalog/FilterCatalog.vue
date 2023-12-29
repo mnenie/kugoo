@@ -7,6 +7,8 @@ import SetsFilter from './filter/SetsFilter.vue'
 import ToFilter from './filter/ToFilter.vue'
 import PowerFilter from './filter/PowerFilter.vue'
 import { ref } from 'vue';
+import { filtersPanel2, filtersPanel1, filtersPanel3, filtersPanel4, filtersPanel5, filtersPanel6 } from '@/mocks/filters';
+
 
 const isMore = ref<boolean>(false)
 const style = ref<string>('')
@@ -25,18 +27,19 @@ const showMore = () => {
     title.value = 'Скрыть часть фильтра'
   }
 }
+
 </script>
 
 <template>
   <div class="filter">
     <PriceFilter />
-    <TypeFilter />
-    <ForWhoFilter />
-    <WeightFilter />
+    <TypeFilter :filters-panel1="filtersPanel1" @on-checked="$emit('onChecked', $event)" />
+    <ForWhoFilter :filters="filtersPanel2" @update-filters="$emit('onChecked', $event)" />
+    <WeightFilter :filters="filtersPanel3" @update-checked="$emit('onChecked', $event)" />
     <div v-show="isMore" class="more_blocks">
-      <SetsFilter />
-      <ToFilter />
-      <PowerFilter />
+      <SetsFilter :filters="filtersPanel4" @update-checked="$emit('onChecked', $event)" />
+      <ToFilter :filters="filtersPanel5" @update-filters="$emit('onChecked', $event)" />
+      <PowerFilter :filters="filtersPanel6" @update-checked="$emit('onChecked', $event)" />
     </div>
     <div @click="showMore" class="more">
       <span class="size_7">{{ title }}</span>

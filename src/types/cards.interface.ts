@@ -31,4 +31,6 @@ export interface ICards {
   brake? : string
   equipment?: string
   guarantees?: string
+  weightType?: string
+  seat?: string
 }
