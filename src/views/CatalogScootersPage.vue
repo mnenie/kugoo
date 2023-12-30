@@ -10,8 +10,9 @@ import useFilterCatalog from '@/hooks/useFilterCatalog';
 
 
 const title = ref<string>('Каталог')
+const range = ref([0, 500000])
 const { items, tempItems } = useGetAllScooters()
-const { filters, filterProductsByTop, filterProductsPanel, clearFilters } = useFilterCatalog(items, tempItems)
+const { filters, filterProductsByTop, filterProductsPanel, clearFilters, filterProductsByPrice} = useFilterCatalog(items, tempItems, range)
 
 onUnmounted(() => {
   clearFilters()
@@ -24,7 +25,7 @@ onUnmounted(() => {
   <div class="container">
     <FilterTop :filters="filters" @filter-cards="filterProductsByTop" />
     <div class="blocks">
-      <FilterCatalog @onChecked="filterProductsPanel" />
+      <FilterCatalog :range="range" @update:range="filterProductsByPrice" @onChecked="filterProductsPanel" />
       <ScootersCatalogFilter v-if="items.length > 0" :items="items" />
       <p v-else class="size_5" style="text-align: center; width: 100%; margin-top: 50px; color: var(--pink-color);">Ничего не найдено</p>
     </div>

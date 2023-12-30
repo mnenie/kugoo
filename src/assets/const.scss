@@ -193,6 +193,37 @@ button {
   display: none !important;
 }
 
-.ymaps3x0--main-engine-container{
+.ymaps3x0--main-engine-container {
   border-radius: 10px !important;
 }
+
+.vue-slider-rail {
+  background-color: #eaebed !important;
+  border-radius: 10px !important;
+  transition: background-color 0.3s !important;
+}
+.vue-slider:hover .vue-slider-process {
+  background: var(--purple-color) !important;
+}
+.vue-slider-process {
+  background: var(--purple-color) !important;
+}
+.vue-slider-dot-handle {
+  border: 2px solid var(--purple-color) !important;
+}
+.vue-slider:hover .vue-slider-dot-handle:hover {
+  border-color: var(--purple-color);
+}
+.vue-slider-dot-tooltip-top {
+  display: none;
+}
+
+.vue-slider-dot-handle-focus {
+  border-color: var(--purple-color) !important;
+  box-shadow: none !important;
+}
+.vue-slider {
+  padding: 0 !important;
+  margin-bottom: 20px !important;
+}
+

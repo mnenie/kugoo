@@ -27,12 +27,20 @@ const showMore = () => {
     title.value = 'Скрыть часть фильтра'
   }
 }
+const emit = defineEmits(['update:range', 'onChecked'])
 
+const props = defineProps<{
+  range: number[]
+}>()
+
+const updateRange = (newRange: number[]) => {
+  emit('update:range', newRange);
+};
 </script>
 
 <template>
   <div class="filter">
-    <PriceFilter />
+    <PriceFilter :range="range" @update:range="updateRange" />
     <TypeFilter :filters-panel1="filtersPanel1" @on-checked="$emit('onChecked', $event)" />
     <ForWhoFilter :filters="filtersPanel2" @update-filters="$emit('onChecked', $event)" />
     <WeightFilter :filters="filtersPanel3" @update-checked="$emit('onChecked', $event)" />

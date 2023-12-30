@@ -2,10 +2,30 @@ import { filters, filtersPanel1, filtersPanel2, filtersPanel3, filtersPanel4, fi
 import type { ICards } from '@/types/cards.interface'
 import { computed, ref, watch, type Ref } from 'vue'
 
-export default function useFiterCatalog(items: Ref<ICards[]>, tempItems: Ref<ICards[]>) {
+export default function useFiterCatalog(
+  items: Ref<ICards[]>,
+  tempItems: Ref<ICards[]>,
+  range: Ref<number[]>
+) {
   const originalItems = ref<ICards[]>([])
+  const priceFilteredItems = ref<ICards[]>([]);
+
   watch(tempItems, (newTempItems) => {
     originalItems.value = newTempItems.slice()
+    priceFilteredItems.value = newTempItems.slice()
+  })
+
+  const filterProductsByPrice = computed(() => {
+    return (newRange: number[]) => {
+      range.value = newRange
+      const [minPrice, maxPrice] = range.value
+      priceFilteredItems.value = originalItems.value.filter((item) => {
+        const itemPrice = parseFloat(item.price.replace(/\s/g, ''))
+        return itemPrice >= minPrice && itemPrice <= maxPrice
+      })
+      items.value = priceFilteredItems.value
+      filterProductsPanel.value()
+    }
   })
 
   const filterProductsByTop = computed(() => {
@@ -16,11 +36,16 @@ export default function useFiterCatalog(items: Ref<ICards[]>, tempItems: Ref<ICa
       switch (id) {
         case 0:
           if (
-            filtersPanel1.value.some((checkbox) => checkbox.checked) || filtersPanel2.value.some((checkbox) => checkbox.checked) || filtersPanel3.value.some((checkbox) => checkbox.checked) ||filtersPanel4.value.some((checkbox) => checkbox.checked) || filtersPanel5.value.some((checkbox) => checkbox.checked) || filtersPanel6.value.some((checkbox) => checkbox.checked)
+            filtersPanel1.value.some((checkbox) => checkbox.checked) ||
+            filtersPanel2.value.some((checkbox) => checkbox.checked) ||
+            filtersPanel3.value.some((checkbox) => checkbox.checked) ||
+            filtersPanel4.value.some((checkbox) => checkbox.checked) ||
+            filtersPanel5.value.some((checkbox) => checkbox.checked) ||
+            filtersPanel6.value.some((checkbox) => checkbox.checked)
           ) {
             filterProductsPanel.value()
           } else {
-            items.value = originalItems.value.slice()
+            items.value = priceFilteredItems.value.slice()
           }
           break
         case 1:
@@ -49,7 +74,7 @@ export default function useFiterCatalog(items: Ref<ICards[]>, tempItems: Ref<ICa
       const activeCheckboxesBySeats = filtersPanel4.value.filter((checkbox) => checkbox.checked)
       const activeCheckboxesByMileage = filtersPanel5.value.filter((checkbox) => checkbox.checked)
       const activeCheckboxesByPower = filtersPanel6.value.filter((checkbox) => checkbox.checked)
-      let filteredItems = originalItems.value.slice()
+      let filteredItems = priceFilteredItems.value.slice()
 
       if (activeCheckboxesByType.length > 0) {
         filteredItems = filteredItems.filter((item) => {
@@ -100,13 +125,13 @@ export default function useFiterCatalog(items: Ref<ICards[]>, tempItems: Ref<ICa
           )
         })
       }
-
       items.value = filteredItems
     }
   })
 
   const clearFilters = () => {
-    [ filtersPanel1, filtersPanel2, filtersPanel3, filtersPanel4, filtersPanel5, filtersPanel6].forEach((panel) => {
+    [ filtersPanel1, filtersPanel2, filtersPanel3, filtersPanel4, filtersPanel5, filtersPanel6
+    ].forEach((panel) => {
       panel.value.forEach((checkbox) => (checkbox.checked = false))
     })
     filterProductsPanel.value()
@@ -115,6 +140,7 @@ export default function useFiterCatalog(items: Ref<ICards[]>, tempItems: Ref<ICa
     filters,
     filterProductsByTop,
     filterProductsPanel,
-    clearFilters
+    clearFilters,
+    filterProductsByPrice
   }
 }
