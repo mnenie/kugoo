@@ -13,6 +13,10 @@
         align-items: center;
         gap: 10px;
 
+        & input[type='checkbox'] {
+          accent-color: var(--purple-color);
+        }
+
         & span {
           font-style: normal;
           font-weight: 400;

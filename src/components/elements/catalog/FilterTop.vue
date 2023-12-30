@@ -12,7 +12,7 @@ const emit = defineEmits<{
   <div class="filter_top">
     <h2 class="size_3">Фильтр</h2>
     <div class="filters">
-      <p>Сортировать:</p>
+      <p class="size_7">Сортировать:</p>
       <FilterItems :btns-filter="filters" @filter-cards="emit('filterCards', $event)" />
     </div>
   </div>
@@ -43,6 +43,21 @@ const emit = defineEmits<{
       font-weight: 500;
       line-height: normal;
       color: var(--black-color);
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .filter_top{
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .filter_top{
+    .filters{
+      & p{
+        display: none;
+      }
     }
   }
 }

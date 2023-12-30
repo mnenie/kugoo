@@ -24,8 +24,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <vue-slider ref="sliderRef" :model-value="range" @change="(e: number[]) => emit('update:range', e)" :min-range="min"
-    :max-range="max" :min="min" :max="max" :enable-cross="false" :dot-size="15"/>
+  <vue-slider ref="sliderRef" :model-value="range" @change="(e: number[]) => emit('update:range', e)"  :min="min" :max="max" :dot-size="15" :tooltip="'hover'"/>
 </template>
 
 <style lang="scss" scoped>

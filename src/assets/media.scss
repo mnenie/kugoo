@@ -10,6 +10,12 @@
     padding-right: 20px;
   }
 }
+
+@media screen and (max-width: 860px){
+  .vue-slider{
+    width: 400px !important;
+  }
+}
 @media screen and (max-width: 768px) {
   .video-js .vjs-big-play-button::after {
     top: 105px;

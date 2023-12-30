@@ -108,4 +108,18 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+@media screen and (max-width: 860px){
+  .price{
+    .counts{
+      justify-content: flex-start;
+      gap: 15px;
+      .count{
+        width: 140px;
+        justify-content: space-between;
+        padding: 0 5px;
+      }
+    }
+  }
+}
 </style>

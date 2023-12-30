@@ -14,7 +14,8 @@ const props =  defineProps<{
 </template>
 
 <style lang="scss" scoped>
-.cards{
+.catalog{
+  width: 100%;
   margin-bottom: 100px;
 }
 </style>

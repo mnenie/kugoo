@@ -287,17 +287,17 @@ const cardNewId = computed(() => {
       gap: 20px;
 
       .card_item {
-        max-width: 350px;
+        max-width: 100%;
         width: 100%;
       }
     }
   }
 }
 
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 860px) {
   .cards_block {
     .cards {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
 
       .card_item {
