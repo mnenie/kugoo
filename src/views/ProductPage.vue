@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import ProductItem from '@/components/elements/product/ProductItem.vue'
-import useGetScooterById from '../hooks/useGetProductScooter';
+import useGetProductById from '../hooks/useGetProductById';
 import { useRoute } from 'vue-router';
 import { watchEffect, computed } from 'vue';
 import Alert from '@/components/UI/Alert.vue';
 import BottomDescriptionProduct from '@/components/elements/product/BottomDescriptionProduct.vue';
 
 const route = useRoute()
-const {product, getScooterById} = useGetScooterById(parseInt(route.params.id as string))
+const {product, getProductById} = useGetProductById(parseInt(route.params.id as string))
 const changeImg = (img: string) => {
   if(product.value?.img){
     product.value.img = img
@@ -16,7 +16,7 @@ const changeImg = (img: string) => {
 watchEffect(async () => {
   const productId = parseInt(route.params.id as string)
   if(product.value?.id !== productId){
-    await getScooterById(productId)
+    await getProductById(productId)
   }
 })
 
@@ -33,4 +33,4 @@ const active = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>../hooks/useGetProductScooter
+<style lang="scss" scoped></style>../hooks/useGetProductScooter../hooks/useGetProductById

@@ -1,6 +1,5 @@
-import { ABOUT_ROUTE, AUTH_ROUTE, BASKET_ROUTE, BLOGS_ROUTE, CATALOG_ROUTE, CATALOG_SCOOTERS_ROUTE, COMPARISON_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, FAVOURITES_ROUTE, HOME_ROUTE, NOT_FOUND_ROUTE, PRODUCT_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, THANKS_ROUTE } from '@/utils/consts'
+import { ABOUT_ROUTE, AUTH_ROUTE, BASKET_ROUTE, BLOGS_ROUTE, CATALOG_BIKES_ROUTE, CATALOG_ROUTE, CATALOG_SCOOTERS_ROUTE, COMPARISON_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, FAVOURITES_ROUTE, HOME_ROUTE, NOT_FOUND_ROUTE, PRODUCT_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, THANKS_ROUTE, BLOG_ROUTE } from '@/utils/consts'
 import { createRouter, createWebHistory } from 'vue-router'
-import { BLOG_ROUTE } from '../utils/consts'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -86,15 +85,30 @@ const router = createRouter({
       },
       children: [
         {
-          path: CATALOG_SCOOTERS_ROUTE,
+          path: '',
+          name: 'index-catalog',
+          component: () => import('@/views/CatalogMainPage.vue')
+        },
+        {
+          path: 'scooters',
           name: 'scooters',
           component: () => import('@/views/CatalogScootersPage.vue')
         },
         {
-          path: '',
-          name: 'catalog',
-          component: () => import('@/views/CatalogMainPage.vue')
-        }
+          path: 'bikes',
+          name: 'bikes',
+          component: () => import('@/views/CatalogBikesPage.vue')
+        },
+        {
+          path: 'gyroscooters',
+          name: 'gyroscooters',
+          component: () => import('@/views/CatalogGyroscootersPage.vue')
+        },
+        {
+          path: 'mopeds',
+          name: 'mopeds',
+          component: () => import('@/views/CatalogMopedsPage.vue')
+        },
       ]
     },
     {

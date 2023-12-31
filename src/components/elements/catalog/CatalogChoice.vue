@@ -2,18 +2,22 @@
 import CategoriesElement from '@/components/elements/home/CategoriesElement.vue';
 import useTechnic from '@/hooks/useTechnic';
 import { useRouter } from 'vue-router';
-import { CATALOG_SCOOTERS_ROUTE } from '@/utils/consts';
+import { CATALOG_BIKES_ROUTE, CATALOG_SCOOTERS_ROUTE } from '@/utils/consts';
+import { CATALOG_GYRO_ROUTE, CATALOG_MOPED_ROUTE } from '@/utils/consts';
 const { home1 } = useTechnic()
 
 const router = useRouter()
 
-const pushToCatalog = () => {
-  home1.value.map(item => {
-    if (item.id === 1) {
-      router.push(CATALOG_SCOOTERS_ROUTE)
+const pushToCatalog = (categoryId: number) => {
+  home1.value.map((item) => {
+    if (item.id === categoryId) {
+      if(item.id === 1 || item.id === 7) router.push(CATALOG_SCOOTERS_ROUTE)
+      if(item.id === 2 || item.id === 5) router.push(CATALOG_BIKES_ROUTE)
+      if(item.id === 3 || item.id === 8) router.push(CATALOG_GYRO_ROUTE)
+      if(item.id === 4 || item.id === 6) router.push(CATALOG_MOPED_ROUTE)
     }
   })
-}
+};
 </script>
 
 <template>
