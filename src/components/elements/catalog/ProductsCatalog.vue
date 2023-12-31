@@ -64,9 +64,6 @@ const clickCardBtn = (cardId: number) => {
   }
 }
 
-const cardNewId = computed(() => {
-  return props.cards.length > 1;
-})
 </script>
 
 <template>
@@ -127,10 +124,6 @@ const cardNewId = computed(() => {
           <img :src="card.balance" alt="">
         </div>
       </div>
-      <div v-if="cardNewId" class="custom_block">
-        <!-- Содержимое вашего блока -->
-        Кастомный блок
-      </div>
     </div>
   </div>
   <ModalsContainer />
@@ -142,7 +135,6 @@ const cardNewId = computed(() => {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-bottom: 100px;
 
     .card_item {
       position: relative;
