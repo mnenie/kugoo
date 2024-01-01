@@ -1,4 +1,25 @@
-import { ABOUT_ROUTE, AUTH_ROUTE, BASKET_ROUTE, BLOGS_ROUTE, CATALOG_BIKES_ROUTE, CATALOG_ROUTE, CATALOG_SCOOTERS_ROUTE, COMPARISON_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, FAVOURITES_ROUTE, HOME_ROUTE, NOT_FOUND_ROUTE, PRODUCT_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, THANKS_ROUTE, BLOG_ROUTE } from '@/utils/consts'
+import {
+  ABOUT_ROUTE,
+  AUTH_ROUTE,
+  BASKET_ROUTE,
+  BLOGS_ROUTE,
+  CATALOG_ROUTE,
+  COMPARISON_ROUTE,
+  CONTACTS_ROUTE,
+  COOPERATION_ROUTE,
+  DELIVERY_ROUTE,
+  FAVOURITES_ROUTE,
+  HOME_ROUTE,
+  NOT_FOUND_ROUTE,
+  PRODUCT_ROUTE,
+  REGISTRATION_ROUTE,
+  SERVICE_ROUTE,
+  STOCKS_ROUTE,
+  TEST_ROUTE,
+  THANKS_ROUTE,
+  BLOG_ROUTE,
+  PAYMENT_ROUTE
+} from '@/utils/consts'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -108,7 +129,7 @@ const router = createRouter({
           path: 'mopeds',
           name: 'mopeds',
           component: () => import('@/views/CatalogMopedsPage.vue')
-        },
+        }
       ]
     },
     {
@@ -125,7 +146,19 @@ const router = createRouter({
       component: () => import('@/views/BasketPage.vue'),
       meta: {
         auth: true
-      }
+      },
+      children: [
+        {
+          path: '',
+          name: 'index-basket',
+          component: () => import('@/views/BasketIndexPage.vue')
+        },
+        {
+          path: 'ways',
+          name: 'ways',
+          component: () => import('@/views/WaysPage.vue')
+        },
+      ]
     },
     {
       path: FAVOURITES_ROUTE,
@@ -179,6 +212,14 @@ const router = createRouter({
       path: NOT_FOUND_ROUTE,
       name: 'notfound',
       component: () => import('@/views/NotFoundPage.vue'),
+      meta: {
+        auth: false
+      }
+    },
+    {
+      path: PAYMENT_ROUTE,
+      name: 'payment',
+      component: () => import('@/views/PaymentPage.vue'),
       meta: {
         auth: false
       }
