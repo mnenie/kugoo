@@ -22,5 +22,4 @@ export const BLOG_ROUTE = '/blog/:id'
 export const NOT_FOUND_ROUTE = '/:catchAll(.*)'
 export const REGISTRATION_ROUTE = '/registration'
 export const AUTH_ROUTE = '/auth'
-export const PAYMENT_ROUTE = '/payment'
 
