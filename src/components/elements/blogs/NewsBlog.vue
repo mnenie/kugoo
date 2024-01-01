@@ -5,8 +5,9 @@ import { btnsFilterBlog } from '@/mocks/ui/btnsFilter';
 import useNews from '@/hooks/useNews';
 import { onMounted, ref, computed } from 'vue';
 import type { INews } from '@/types/index';
+import Preloader from '@/components/UI/preloader/Preloader.vue';
 
-const { news, getAllNews, newsRec, newsTop, newsComparison, getNewsComparison, getNewsRecomendation, getNewsTop } = useNews()
+const { news, getAllNews, newsRec, newsTop, newsComparison, getNewsComparison, getNewsRecomendation, getNewsTop, loader } = useNews()
 const refNews = ref<INews[]>([])
 
 const filterCards = computed(() => {
@@ -46,7 +47,8 @@ onMounted(async () => {
   <div>
     <BlogFilter :btns-filter-blog="btnsFilterBlog" @filter-cards="filterCards" />
     <div class="news">
-      <NewsItems  :news="refNews" />
+      <Preloader v-if="loader" :len="6" :style="'height: 350px'" />
+      <NewsItems v-else :news="refNews" />
     </div>
   </div>
 </template>

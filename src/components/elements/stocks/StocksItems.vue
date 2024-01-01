@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import useStocks from '@/hooks/useStocks';
+import Preloader from '@/components/UI/preloader/Preloader.vue';
 
-const { stocks } = useStocks()
+const { stocks, loader } = useStocks()
 </script>
 
 <template>
   <div class="container">
     <div class="items">
       <div class="stocks">
-        <div v-for="stock in stocks" :key="stock.id" class="stock">
+        <Preloader v-if="loader" :style="'height: 367'" :len="2" />
+        <div v-else v-for="stock in stocks" :key="stock.id" class="stock">
           <div class="img">
             <img :src="stock.img" alt="">
           </div>

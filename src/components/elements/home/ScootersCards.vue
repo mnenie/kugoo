@@ -7,10 +7,12 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { TEST_ROUTE } from '@/utils/consts';
 import smoothScroll from '@/helpers/smoothScrollHelper';
+import Preloader from '@/components/UI/preloader/Preloader.vue';
 
 const props = defineProps<{
   cards: ICards[],
-  style: string
+  style: string,
+  loader?: boolean
 }>()
 const emit = defineEmits<{
   (e: 'openModalTest'): void
@@ -70,7 +72,8 @@ const clickCardBtn = (cardId: number) => {
 <template>
   <div class="cards_block">
     <div :style="style" class="cards">
-      <div v-for="card in cards" :key="card.id" class="card_item">
+      <Preloader v-if="loader" :len="8" :style="'height: 400px'" />
+      <div v-else v-for="card in cards" :key="card.id" class="card_item">
         <div class="cards_img-container">
           <img class="img_main" :src="card.img" alt="">
         </div>

@@ -1,3 +1,4 @@
+import smoothScroll from '@/helpers/smoothScrollHelper'
 import useGetAllScooters from '@/hooks/useGetAllScooters'
 import type { ICards } from '@/types/cards.interface'
 import { defineStore } from 'pinia'
@@ -7,12 +8,13 @@ export const useInput = defineStore('input', () => {
   const flCatalog = ref<boolean>(false)
   const myBlock = ref<HTMLElement | null>(null)
   const cards = ref<ICards[]>([])
-
+  const { smoothScrollToTop } = smoothScroll()
   const {getAllScooters} = useGetAllScooters()
 
   const searchThis = () => {
     search.value = ''
     flCatalog.value = !flCatalog.value
+    smoothScrollToTop()
   }
   const inputCatalog = () => {
     flCatalog.value = search.value.trim() !== ''

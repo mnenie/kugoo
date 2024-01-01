@@ -1,11 +1,12 @@
 <script setup lang="ts">
 const props = defineProps<{
   len: number
+  style: string
 }>()
 </script>
 
 <template>
-  <div v-for="item in len" :key="item" class="card-loader" style=""></div>
+  <div v-for="item in len" :key="item" class="card-loader" :style="style"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -15,7 +16,6 @@ const props = defineProps<{
   position: relative;
   border-radius: 2px;
   margin-bottom: 0;
-  height: 250px;
   overflow: hidden;
   width: 100%;
 
@@ -25,8 +25,8 @@ const props = defineProps<{
     height: 100%;
     width: 100%;
     display: block;
-    background-color: #ededed;
-    box-shadow: -48px 78px 0 -48px #ededed, -51px 102px 0 -51px #ededed;
+    background-color: #f1f1f1;
+    box-shadow: -48px 78px 0 -48px #f1f1f1, -51px 102px 0 -51px #ededed;
   }
 
   &:after {

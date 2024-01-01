@@ -25,7 +25,7 @@ const pushToCatalog = (categoryId: number) => {
   <div class="catalog">
     <div class="container">
       <div class="categories">
-        <Preloader :len="8" v-if="loader" />
+        <Preloader :style="'height: 250px'" :len="8" v-if="loader" />
         <CategoriesElement v-else @push-to-catalog="pushToCatalog" :categories="home1" />
       </div>
     </div>

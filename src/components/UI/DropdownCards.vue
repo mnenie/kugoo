@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import smoothScroll from '@/helpers/smoothScrollHelper';
 import { useInput } from '@/stores/search';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -26,9 +27,11 @@ onUnmounted(() => {
 })
 const router = useRouter()
 
+const { smoothScrollToTop } = smoothScroll()
 const goToCard = (cardId: number) => {
   router.push(`/products/${cardId}`);
   inputMain.searchThis();
+  smoothScrollToTop()
 };
 </script>
 

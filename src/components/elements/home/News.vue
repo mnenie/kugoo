@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import NewsBlock from './NewsBlock.vue';
+import Preloader from '@/components/UI/preloader/Preloader.vue';
+
+import useNews from '@/hooks/useNews';
+import { onMounted } from 'vue';
+const {newsTop, getNewsTop, loader} = useNews()
+
+onMounted(async () => {
+  await getNewsTop()
+})
 </script>
 
 <template>
@@ -8,7 +17,8 @@ import NewsBlock from './NewsBlock.vue';
       <div class="news">
         <h1 class="size_1">Новые статьи в блоге</h1>
         <div class="news_blocks">
-          <NewsBlock />
+          <Preloader v-if="loader" :len="3" :style="'height: 390px'" :loader="loader" />
+          <NewsBlock v-else :news-top="newsTop" />
         </div>
       </div>
     </div>

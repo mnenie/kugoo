@@ -7,7 +7,7 @@ import { CATALOG_ROUTE } from '@/utils/consts'
 import useScooters from '@/hooks/useScooters';
 import useFilteredScooters from '@/hooks/useFilteredScooters';
 
-const { cards, cards2, originalCards, originalCards2} = useScooters()
+const { cards, cards2, originalCards, originalCards2, loader} = useScooters()
 const {usl, sortValue, filterCards, btnsFilter} = useFilteredScooters(cards, cards2, originalCards, originalCards2)
 const style = computed(() => {
   const uslValue = usl.value;
@@ -36,7 +36,7 @@ onBeforeUnmount(() => {
   <div class="catalog_display">
     <ScooterFilterHome @filter-cards="filterCards" :btns-filter="btnsFilter" />
     <div class="container">
-      <ScootersCards :style="style" :cards="cards" />
+      <ScootersCards :style="style" :cards="cards" :loader="loader" />
     </div>
     <ButtonMore v-if="usl" @click="router.push(CATALOG_ROUTE)"
       style="border: 1.3px solid var(--purple-color); margin: 0 auto; display: block;">Смотреть все</ButtonMore>

@@ -1,15 +1,22 @@
 <script setup lang="ts">
-import useNews from '@/hooks/useNews';
-import { onMounted } from 'vue';
-const {newsTop, getNewsTop} = useNews()
+import smoothScroll from '@/helpers/smoothScrollHelper';
+import type { INews } from '@/types';
+import { useRouter } from 'vue-router';
 
-onMounted(async () => {
-  await getNewsTop()
-})
+const props = defineProps<{
+  newsTop: INews[]
+}>()
+
+const router = useRouter()
+const { smoothScrollToTop } = smoothScroll()
+const linkToBlog = (id: number) => {
+  router.push(`/blog/${id}`)
+  smoothScrollToTop()
+}
 </script>
 
 <template>
-  <div v-for="news in newsTop" :key="news.id" class="news_block">
+  <div @click="linkToBlog(news.id)" v-for="news in newsTop" :key="news.id" class="news_block">
     <div class="img_item">
       <img class="img" :src="news.img" alt="">
     </div>
@@ -38,6 +45,11 @@ onMounted(async () => {
   border-radius: 10px;
   background: var(--btn-gray-color);
   overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 
   .img_item {
     width: 350px;
@@ -160,6 +172,7 @@ onMounted(async () => {
     }
   }
 }
+
 @media screen and (max-width: 670px) {
   .news_block {
     .img_item {
@@ -179,6 +192,7 @@ onMounted(async () => {
     }
   }
 }
+
 @media screen and (max-width: 540px) {
   .news_block {
     .img_item {
@@ -188,6 +202,7 @@ onMounted(async () => {
     }
   }
 }
+
 @media screen and (max-width: 435px) {
   .news_block {
     .img_item {
@@ -197,6 +212,7 @@ onMounted(async () => {
     }
   }
 }
+
 @media screen and (max-width: 420px) {
   .news_block {
     .img_item {
@@ -206,6 +222,7 @@ onMounted(async () => {
     }
   }
 }
+
 @media screen and (max-width: 390px) {
   .news_block {
     .img_item {
@@ -215,5 +232,4 @@ onMounted(async () => {
       }
     }
   }
-}
-</style>
+}</style>

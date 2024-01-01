@@ -2,14 +2,29 @@
 import CategoriesElement from './CategoriesElement.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { CATALOG_ROUTE } from '@/utils/consts';
+import { CATALOG_BIKES_ROUTE, CATALOG_GYRO_ROUTE, CATALOG_MOPED_ROUTE, CATALOG_ROUTE, CATALOG_SCOOTERS_ROUTE } from '@/utils/consts';
 import useTechnic from '@/hooks/useTechnic';
+import Preloader from '@/components/UI/preloader/Preloader.vue';
+import smoothScroll from '@/helpers/smoothScrollHelper';
 
 const title = ref<string>('Смотреть все')
 
 const router = useRouter()
-const { home1 } = useTechnic()
+const { home1, loader } = useTechnic()
 
+const { smoothScrollToTop } = smoothScroll()
+
+const pushToCatalog = (categoryId: number) => {
+  home1.value.map((item) => {
+    if (item.id === categoryId) {
+      if(item.id === 1 || item.id === 7) router.push(CATALOG_SCOOTERS_ROUTE)
+      if(item.id === 2 || item.id === 5) router.push(CATALOG_BIKES_ROUTE)
+      if(item.id === 3 || item.id === 8) router.push(CATALOG_GYRO_ROUTE)
+      if(item.id === 4 || item.id === 6) router.push(CATALOG_MOPED_ROUTE)
+      smoothScrollToTop()
+    }
+  })
+};
 </script>
 
 <template>
@@ -29,7 +44,8 @@ const { home1 } = useTechnic()
           </div>
         </div>
         <div class="categories">
-          <CategoriesElement :categories="home1" />
+          <Preloader :style="'height: 250px'" :len="8" v-if="loader" />
+          <CategoriesElement v-else @push-to-catalog="pushToCatalog" :categories="home1" />
         </div>
         <ButtonMore @click="router.push(CATALOG_ROUTE)" style="display: block; margin: 0 auto;">{{ title }}</ButtonMore>
       </div>

@@ -2,7 +2,7 @@
 import ScootersCards from './ScootersCards.vue';
 import { computed } from 'vue';
 import useOftenCards from '@/hooks/useOftenCards';
-const { cardsOften } = useOftenCards()
+const { cardsOften, loader } = useOftenCards()
 const style = computed(() => {
   return 'margin-bottom: 50px'
 })
@@ -13,7 +13,7 @@ const style = computed(() => {
     <div class="container">
       <div class="offten_buy_block">
         <h1 class="size_1">часто покупают</h1>
-        <ScootersCards :style="style" :cards="cardsOften" />
+        <ScootersCards :style="style" :cards="cardsOften" :loader="loader" />
       </div>
     </div>
   </div>
