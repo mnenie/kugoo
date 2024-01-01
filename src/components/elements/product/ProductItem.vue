@@ -8,7 +8,7 @@ const title = ref<string>('Каталог')
 const title2 = ref<string>('Электросамокаты')
 const props = defineProps<{
   card: ICards | null, 
-  active: boolean
+  active: boolean,
 }>()
 const emit = defineEmits<{
   (e: 'changeImg', img: string): void

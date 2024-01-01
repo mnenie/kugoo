@@ -4,6 +4,7 @@ import ProductsCatalog from '../ProductsCatalog.vue';
 
 const props =  defineProps<{
   items: ICards[]
+  loader?: boolean
 }>()
 </script>
 

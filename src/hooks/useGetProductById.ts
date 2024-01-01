@@ -4,9 +4,11 @@ import { onMounted, ref } from 'vue'
 
 export default function useGetProductById(id: number) {
   const product = ref<ICards | null>(null)
+  const loader = ref<boolean>(true)
 
   const getProductById = async (itemId: number) => {
     try {
+      loader.value = true
       const resp1 = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/scooters.json')
       const resp2 = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/bikes/bikes.json')
       const resp3 = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/mopeds/mopeds.json')
@@ -14,6 +16,7 @@ export default function useGetProductById(id: number) {
 
       const scooter = allCards.find((card) => card.id === itemId)
       product.value = scooter
+      loader.value = false
       return product.value
     } catch (err) {
       console.error(err)
@@ -25,6 +28,6 @@ export default function useGetProductById(id: number) {
   })
 
   return {
-    product, getProductById
+    product, getProductById, loader
   }
 }

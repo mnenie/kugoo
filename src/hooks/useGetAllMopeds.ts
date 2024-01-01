@@ -6,11 +6,15 @@ export default function useGetAllMopeds(){
   const items = ref<ICards[]>([])
   const tempItems = ref<ICards[]>([])
 
+  const loader = ref<boolean>(true)
+
   const getAllMopeds = async () => {
     try{
+      loader.value = true
       const response = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/mopeds/mopeds.json')
       items.value = response.data
       tempItems.value = [...items.value]
+      loader.value = false
       return items.value
 
     } catch(e){
@@ -24,6 +28,6 @@ export default function useGetAllMopeds(){
   })
 
   return {
-    getAllMopeds, items, tempItems
+    getAllMopeds, items, tempItems, loader
   }
 }

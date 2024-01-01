@@ -3,13 +3,15 @@ import type { ICards } from '@/types/cards.interface';
 import { useCart } from '@/stores/cart';
 import { useModal, ModalsContainer } from 'vue-final-modal';
 import ModalPreOrder from '@/components/UI/ModalPreOrder.vue';
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { TEST_ROUTE } from '@/utils/consts';
 import smoothScroll from '@/helpers/smoothScrollHelper';
+import Preloader from '@/components/UI/preloader/Preloader.vue';
 
 const props = defineProps<{
   cards: ICards[],
+  loader?: boolean
 }>()
 const emit = defineEmits<{
   (e: 'openModalTest'): void
@@ -69,7 +71,8 @@ const clickCardBtn = (cardId: number) => {
 <template>
   <div class="cards_block">
     <div class="cards">
-      <div v-for="card in cards" :key="card.id" class="card_item">
+      <Preloader v-if="loader" :len="3" :style="'height: 400px'" />
+      <div v-else v-for="card in cards" :key="card.id" class="card_item">
         <div class="cards_img-container">
           <img class="img_main" :src="card.img" alt="">
         </div>

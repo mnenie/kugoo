@@ -1,21 +1,14 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import useGetBlog from '../hooks/useGetBlog';
-import { watchEffect, computed, defineAsyncComponent, ref } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
 import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 import BlogBanner from '@/components/elements/blog/BlogBanner.vue';
 import BlogMore from '@/components/elements/blog/BlogMore.vue';
+import PreloaderBlog from '@/components/UI/preloader/PreloaderBlog.vue';
 
 const route = useRoute()
-const { blog, getBlogById } = useGetBlog(parseInt(route.params.id as string))
-
-const idItem = parseInt(route.params.id as string)
-
-watchEffect(async () => {
-  if (blog.value?.id === idItem) {
-    await getBlogById(parseInt(route.params.id as string))
-  }
-})
+const { blog, loader } = useGetBlog(parseInt(route.params.id as string))
 
 const getBlogName = computed(() => {
   const componentName = `BlogDescription${route.params.id as string}`;
@@ -25,7 +18,8 @@ const getBlogName = computed(() => {
 </script>
 
 <template>
-  <div>
+  <PreloaderBlog v-if="loader" />
+  <div v-else>
     <NavigationTopPage :title="'Блог'" :title2="blog?.title ? blog?.title : 'Нет информации о блоге'" />
     <div v-if="blog" class="elems">
       <BlogBanner :blog="blog" />
