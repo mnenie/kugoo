@@ -2,6 +2,9 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
+const props = defineProps<{
+  btnName: string
+}>()
 const prices = ref([
   { id: 1, title: 'Стоимость товаров', price: '106 680 ₽' },
   { id: 2, title: 'Сумма скидки', price: '0 ₽' },
@@ -23,7 +26,7 @@ const router = useRouter()
         <p class="size_6">{{ item.price }}</p>
       </div>
     </div>
-    <ButtonPurpleLg @click="router.push('/registration')" style="width: 100%;">Оформить заказ</ButtonPurpleLg>
+    <ButtonPurpleLg @click="router.push('/registration')" style="width: 100%;">{{ btnName }}</ButtonPurpleLg>
     <div class="check_block">
       <input type="checkbox" :checked="checked" :disabled="checked" id="flexCheckChecked">
       <label class="size_8" for="flexCheckChecked">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и

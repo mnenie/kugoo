@@ -11,7 +11,7 @@ import PayBlockTotal from './PayBlockTotal.vue';
         <TableLine />
         <CardsBasket />
       </div>
-      <PayBlockTotal />
+      <PayBlockTotal :btn-name="'Оформить заказ'" />
     </div>
   </div>
 </template>
