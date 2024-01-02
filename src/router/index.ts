@@ -1,24 +1,4 @@
-import {
-  ABOUT_ROUTE,
-  AUTH_ROUTE,
-  BASKET_ROUTE,
-  BLOGS_ROUTE,
-  CATALOG_ROUTE,
-  COMPARISON_ROUTE,
-  CONTACTS_ROUTE,
-  COOPERATION_ROUTE,
-  DELIVERY_ROUTE,
-  FAVOURITES_ROUTE,
-  HOME_ROUTE,
-  NOT_FOUND_ROUTE,
-  PRODUCT_ROUTE,
-  REGISTRATION_ROUTE,
-  SERVICE_ROUTE,
-  STOCKS_ROUTE,
-  TEST_ROUTE,
-  THANKS_ROUTE,
-  BLOG_ROUTE,
-} from '@/utils/consts'
+import { ABOUT_ROUTE, AUTH_ROUTE, BASKET_ROUTE, BLOGS_ROUTE, CATALOG_ROUTE, COMPARISON_ROUTE, CONTACTS_ROUTE, COOPERATION_ROUTE, DELIVERY_ROUTE, FAVOURITES_ROUTE, HOME_ROUTE, NOT_FOUND_ROUTE, PRODUCT_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, STOCKS_ROUTE, TEST_ROUTE, THANKS_ROUTE, BLOG_ROUTE, PAYMENT_PAGE } from '@/utils/consts'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -213,6 +193,14 @@ const router = createRouter({
       component: () => import('@/views/NotFoundPage.vue'),
       meta: {
         auth: false
+      }
+    },
+    {
+      path: PAYMENT_PAGE,
+      name: 'payment',
+      component: () => import('@/views/PaymentPage.vue'),
+      meta: {
+        auth: true
       }
     }
   ]
