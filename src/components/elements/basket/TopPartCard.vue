@@ -27,8 +27,10 @@ const props = defineProps<{
     </div>
     <div class="block_inside">
       <QuantityBlock />
-      <h3 class="size_4">{{ card.price }} ₽</h3>
-      <img style="cursor: pointer;" src="/icons/basket/delete.svg" alt="">
+      <div class="price_block">
+        <h3 class="size_4">{{ card.price }} ₽</h3>
+        <img style="cursor: pointer;" src="/icons/basket/delete.svg" alt="">
+      </div>
     </div>
   </div>
 </template>
@@ -102,11 +104,30 @@ const props = defineProps<{
     justify-content: flex-start;
     gap: 59px;
 
+    .price_block {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 59px;
+    }
+
     & h3 {
       font-style: normal;
       font-weight: 500;
       line-height: 119%;
       color: var(--black-color);
+    }
+  }
+}
+@media screen and (max-width: 800px){
+  .top_part{
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 30px;
+    .block_inside{
+      width: 100%;
+      justify-content: space-between;
     }
   }
 }

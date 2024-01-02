@@ -17,4 +17,9 @@ const {items} = useGetAllScooters()
   max-width: 760px;
   width: 100%;
 }
+@media screen and (max-width: 1100px){
+  .cards{
+    max-width: 100%;
+  }
+}
 </style>

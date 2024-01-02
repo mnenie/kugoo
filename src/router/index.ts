@@ -18,7 +18,6 @@ import {
   TEST_ROUTE,
   THANKS_ROUTE,
   BLOG_ROUTE,
-  PAYMENT_ROUTE
 } from '@/utils/consts'
 import { createRouter, createWebHistory } from 'vue-router'
 

@@ -37,4 +37,14 @@
     gap: 70px;
   }
 }
+@media screen and (max-width: 1100px){
+  .table{
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 800px){
+  .table{
+    display: none;
+  }
+}
 </style>

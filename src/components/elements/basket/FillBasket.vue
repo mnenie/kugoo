@@ -31,4 +31,17 @@ import PayBlockTotal from './PayBlockTotal.vue';
     }
   }
 }
+
+@media screen and (max-width: 1100px){
+  .fill_basket{
+    .elements{
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      &_1{
+        width: 100%;
+      }
+    }
+  }
+}
 </style>

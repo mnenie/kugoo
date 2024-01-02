@@ -119,4 +119,9 @@ const router = useRouter()
     }
   }
 }
+@media screen and (max-width: 1100px){
+  .pay_block{
+    max-width: 100%;
+  }
+}
 </style>
