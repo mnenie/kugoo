@@ -107,4 +107,10 @@ const { open, close } = useModal({
     }
   }
 }
+@media screen and (max-width: 600px) {
+  .filters{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>

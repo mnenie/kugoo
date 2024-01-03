@@ -20,7 +20,7 @@ const mouseDown1 = (event: MouseEvent) => {
 };
 onMounted(async () => {
   document.addEventListener("mousedown", mouseDown1);
-  await inputMain.getScooters()
+  await inputMain.getProducts()
 })
 onUnmounted(() => {
   document.removeEventListener("mousedown", mouseDown1)

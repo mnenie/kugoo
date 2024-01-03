@@ -71,7 +71,7 @@ const clickCardBtn = (cardId: number) => {
 <template>
   <div class="cards_block">
     <div class="cards">
-      <Preloader v-if="loader" :len="3" :style="'height: 400px'" />
+      <Preloader v-if="loader" :len="3" :style="'height: 460px'" />
       <div v-else v-for="card in cards" :key="card.id" class="card_item">
         <div class="cards_img-container">
           <img class="img_main" :src="card.img" alt="">

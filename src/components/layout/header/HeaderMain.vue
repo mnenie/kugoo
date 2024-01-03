@@ -82,7 +82,7 @@ const searchThis = () => {
       </div>
     </div>
   </div>
-  <HeaderTablet v-else :shop-items="shopItems" />
+  <HeaderTablet v-else :shop-items="shopItems" @right-part="emit('rightPart', $event)" />
 </template>
 
 <style lang="scss" scoped>

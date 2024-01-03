@@ -2,6 +2,7 @@
 import type { ICards } from '@/types/cards.interface';
 import ProductsCatalog from '../ProductsCatalog.vue';
 
+
 const props =  defineProps<{
   items: ICards[]
   loader?: boolean
@@ -10,7 +11,7 @@ const props =  defineProps<{
 
 <template>
   <div class="catalog">
-    <ProductsCatalog class="cards" :cards="items" />
+    <ProductsCatalog :loader="loader" class="cards" :cards="items" />
   </div>
 </template>
 

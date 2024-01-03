@@ -1,15 +1,15 @@
 import smoothScroll from '@/helpers/smoothScrollHelper'
-import useGetAllScooters from '@/hooks/useGetAllScooters'
 import type { ICards } from '@/types/cards.interface'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import useGetAllProducts from '../hooks/useGetAllProducts';
 export const useInput = defineStore('input', () => {
   const search = ref<string>('')
   const flCatalog = ref<boolean>(false)
   const myBlock = ref<HTMLElement | null>(null)
   const cards = ref<ICards[]>([])
   const { smoothScrollToTop } = smoothScroll()
-  const {getAllScooters} = useGetAllScooters()
+  const {getAllProducts} = useGetAllProducts()
 
   const searchThis = () => {
     search.value = ''
@@ -20,9 +20,9 @@ export const useInput = defineStore('input', () => {
     flCatalog.value = search.value.trim() !== ''
   }
 
-  const getScooters = async () => {
-    const scooters = await getAllScooters();
-    cards.value = scooters
+  const getProducts = async () => {
+    const scooters = await getAllProducts();
+    cards.value = scooters!
   }
 
   const filteredProducts = computed(() => {
@@ -77,6 +77,6 @@ export const useInput = defineStore('input', () => {
     changeDrop, 
     stopForm, 
     myBlock, 
-    getScooters
+    getProducts
   }
 })

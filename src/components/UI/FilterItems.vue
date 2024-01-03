@@ -11,7 +11,7 @@ const emit = defineEmits<{
 
 <template>
   <div class="btn_section">
-    <ButtonGray @click="emit('filterCards', index)" v-for="(btn, index) in btnsFilter" :key="btn.id"
+    <ButtonGray class="btn" @click="emit('filterCards', index)" v-for="(btn, index) in btnsFilter" :key="btn.id"
       :class="[btn.active === true ? 'active_item' : '']">
       {{ btn.body }}
     </ButtonGray>
@@ -32,10 +32,12 @@ const emit = defineEmits<{
   background: var(--white-color);
 }
 
+
 @media screen and (max-width: 600px) {
   .btn_section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 </style>
