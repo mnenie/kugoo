@@ -7,7 +7,7 @@ import WayDelivery from './WayDelivery.vue';
 </script>
 
 <template>
-  <div class="blocks">
+  <div class="blocks_col">
     <WayDelivery />
     <FormUser />
     <WayCard />
@@ -15,9 +15,10 @@ import WayDelivery from './WayDelivery.vue';
 </template>
 
 <style lang="scss" scoped>
-.blocks{
+.blocks_col{
   display: flex;
   flex-direction: column;
+  gap: 50px;
   max-width: 760px;
   width: 100%;
 }

@@ -6,51 +6,52 @@ import { useRouter } from 'vue-router';
 
 let stripeKey = ref(import.meta.env.VITE_API_PUBLIC_KEY_STRIPE)
 
-const stripeLoaded = ref(false)
 const elms = ref()
 const card = ref()
 const result = ref({
   elementErrors: [],
 });
-onBeforeMount(() => {
-  const stripePromise = loadStripe(stripeKey.value)
-  stripePromise.then(() => {
-    stripeLoaded.value = true
-  })
+const stripeLoaded = ref(false)
+onBeforeMount(async () => {
+  await loadStripe(stripeKey.value)
+  stripeLoaded.value = true
 })
 const router = useRouter()
 
 const pay = () => {
-  const elementsArray = [card.value.stripeElement];
-  result.value.elementErrors = [];
+  if (elms.value && card.value) {
+    const elementsArray = [card.value.stripeElement];
+    result.value.elementErrors = [];
 
-  const promises = elementsArray.map((element) => {
-    return elms.value.instance.createToken(element)
-      .then((tokenResult: object) => {
-        if (tokenResult.error && Object.keys(tokenResult.error).length !== 0) {
-          result.value.elementErrors.push(tokenResult.error);
-        }
-        return tokenResult;
-      });
-  });
-
-  Promise.all(promises)
-    .then((results) => {
-      const hasErrors = results.some(result => result.error && Object.keys(result.error).length !== 0);
-      if (!hasErrors) {
-        router.push({ name: 'thanks', params: { id: '5' } });
-      }
-    })
-    .catch((error) => {
-      console.error(error);
+    const promises = elementsArray.map((element) => {
+      return elms.value.instance.createToken(element)
+        .then((tokenResult: object) => {
+          if (tokenResult.error && Object.keys(tokenResult.error).length !== 0) {
+            result.value.elementErrors.push(tokenResult.error);
+          }
+          return tokenResult;
+        });
     });
+
+    Promise.all(promises)
+      .then((results) => {
+        const hasErrors = results.some(result => result.error && Object.keys(result.error).length !== 0);
+        if (!hasErrors) {
+          router.push({ name: 'thanks', params: { id: '5' } });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 }
+
 </script>
 
 <template>
   <div class="card_payment">
     <label style="margin-bottom: 5px;" class="size_7">Данные карты</label>
-    <StripeElements class="elements" v-slot="{ elements }" ref="elms" :stripe-key="stripeKey">
+    <StripeElements v-if="stripeLoaded" class="elements" v-slot="{ elements }" ref="elms" :stripe-key="stripeKey">
       <div class="top_card">
         <StripeElement ref="card" class="cb_top" type="cardNumber" :elements="elements" />
         <div class="imgs">
@@ -63,7 +64,7 @@ const pay = () => {
         <StripeElement ref="card" type="cardExpiry" :elements="elements" />
         <div class="cvc">
           <StripeElement ref="card" class="cb" type="cardCvc" :elements="elements" />
-          <img style="width: 27px; height: 24px;" src="/icons/payment/1.png" alt="">
+          <img style="width: 27px; height: 24px;" src="/icons/payment/cvc.png" alt="">
         </div>
       </div>
     </StripeElements>

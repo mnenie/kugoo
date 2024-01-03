@@ -4,9 +4,9 @@ import FillBasket from './FillBasket.vue';
 import { useCart } from '@/stores/cart';
 import { computed } from 'vue';
 
-const { cartIndex } = useCart()
+const cart = useCart()
 const style = computed(() => {
-  const marginBottom = cartIndex === 0 ? '40px' : '8px';
+  const marginBottom = cart.cartIndex === 0 ? '40px' : '8px';
   return 'margin-bottom: ' + marginBottom
 })
 </script>
@@ -16,8 +16,8 @@ const style = computed(() => {
     <div class="container">
       <div class="content">
         <h1 :style="style" class="size_1 h1">Моя корзина</h1>
-        <p v-if="cartIndex != 0" class="size_7 span">Количество товаров: {{ cartIndex }}</p>
-        <EmptyBasket v-if="cartIndex === 0" />
+        <p v-if="cart.cartIndex != 0" class="size_7 span">Количество товаров: {{ cart.cartIndex }}</p>
+        <EmptyBasket v-if="cart.cartIndex === 0" />
         <FillBasket v-else />
       </div>
     </div>

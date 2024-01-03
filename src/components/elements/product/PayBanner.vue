@@ -6,7 +6,7 @@ const router = useRouter()
 defineProps<{
   card: ICards
 }>()
-const {addIndex} = useCart()
+const cart = useCart()
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const {addIndex} = useCart()
     </div>
     <div v-if="card.basket" class="btns">
       <ButtonPurpleLg @click="router.push('/registration')" class="btn">Купить в 1 клик</ButtonPurpleLg>
-      <ButtonLgBorderPurple @click="addIndex" class="btn">Добавить в корзину</ButtonLgBorderPurple>
+      <ButtonLgBorderPurple @click="cart.addToCart(card)" class="btn">Добавить в корзину</ButtonLgBorderPurple>
     </div>
     <div v-else style="text-align: center; color: var(--pink-color); margin-top: 40px;" class="no_content">
       нет в наличии

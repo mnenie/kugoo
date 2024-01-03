@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { ICards } from '@/types/cards.interface';
 import QuantityBlock from './QuantityBlock.vue';
+import { useCart } from '../../../stores/cart';
 const props = defineProps<{
   card: ICards
 }>()
+
+const cart = useCart()
 </script>
 
 <template>
@@ -26,9 +29,9 @@ const props = defineProps<{
       </div>
     </div>
     <div class="block_inside">
-      <QuantityBlock />
+      <QuantityBlock :id="card.id" />
       <div class="price_block">
-        <h3 class="size_4">{{ card.price }} ₽</h3>
+        <h3 class="size_4">{{ cart.changeSum(card.id, card.price) }} ₽</h3>
         <img style="cursor: pointer;" src="/icons/basket/delete.svg" alt="">
       </div>
     </div>

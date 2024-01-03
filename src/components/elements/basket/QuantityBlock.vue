@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useCart } from '@/stores/cart';
 
-const count = ref<number>(1)
+const cart = useCart()
+const props = defineProps<{
+  id: number
+}>()
 </script>
 
 <template>
   <div class="quantity">
-    <img @click="() => count--"  src="/icons/basket/minus.svg" alt="">
-    <span class="size_6">{{ count }}</span>
-    <img @click="() => count++" src="/icons/basket/plus.svg" alt="">
+    <img @click="cart.changeQuantity(id,'dec')"  src="/icons/basket/minus.svg" alt="">
+    <span class="size_6">{{ cart.getCountForProduct(id) }}</span>
+    <img @click="cart.changeQuantity(id, 'inc')" src="/icons/basket/plus.svg" alt="">
   </div>
 </template>
 

@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { BASKET_ROUTE, PAYMENT_ROUTE, WAYS_ROUTE } from '@/utils/consts';
+import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useCart } from '@/stores/cart';
 
 const props = defineProps<{
   btnName: string
 }>()
-const prices = ref([
-  { id: 1, title: 'Стоимость товаров', price: '106 680 ₽' },
-  { id: 2, title: 'Сумма скидки', price: '0 ₽' },
-  { id: 3, title: 'Итого без учета доставки', price: '106 680 ₽' },
+
+const cart = useCart()
+const prices = computed(() => [
+  { id: 1, title: 'Стоимость товаров', price: cart.getTotalSum },
+  { id: 2, title: 'Сумма скидки', price: '0' },
+  { id: 3, title: 'Итого без учета доставки', price: cart.getTotalSum },
 ])
 const checked = ref<boolean>(true)
 const router = useRouter()
@@ -18,15 +22,15 @@ const router = useRouter()
   <div class="pay_block">
     <div class="total">
       <span class="size_8">Итого</span>
-      <h2 class="size_3">106 680 ₽</h2>
+      <h2 class="size_3">{{cart.getTotalSum}} ₽</h2>
     </div>
     <div class="cost_blocks">
       <div v-for="item in prices" :key="item.id" class="cost_block">
         <span class="size_8">{{ item.title }}</span>
-        <p class="size_6">{{ item.price }}</p>
+        <p class="size_6">{{ item.price }} ₽</p>
       </div>
     </div>
-    <ButtonPurpleLg @click="router.push('/registration')" style="width: 100%;">{{ btnName }}</ButtonPurpleLg>
+    <ButtonPurpleLg @click="$route.path === BASKET_ROUTE ? router.push(WAYS_ROUTE) : router.push(PAYMENT_ROUTE)" style="width: 100%;">{{ btnName }}</ButtonPurpleLg>
     <div class="check_block">
       <input type="checkbox" :checked="checked" :disabled="checked" id="flexCheckChecked">
       <label class="size_8" for="flexCheckChecked">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и

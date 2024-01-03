@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import useGetAllScooters from '@/hooks/useGetAllScooters';
 import CardBasket from './CardBasket.vue';
-const {items} = useGetAllScooters()
+import { useCart } from '@/stores/cart';
+
+const cart = useCart()
 </script>
 
 <template>
   <div class="cards">
-    <CardBasket :cards="items" />
+    <CardBasket :cards="cart.products" />
   </div>  
 </template>
 
