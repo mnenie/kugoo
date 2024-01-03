@@ -88,41 +88,26 @@ const router = createRouter({
           path: '',
           name: 'index-catalog',
           component: () => import('@/views/CatalogMainPage.vue'),
-          meta: {
-            auth: false
-          },
         },
         {
           path: 'scooters',
           name: 'scooters',
           component: () => import('@/views/CatalogScootersPage.vue'),
-          meta: {
-            auth: false
-          },
         },
         {
           path: 'bikes',
           name: 'bikes',
           component: () => import('@/views/CatalogBikesPage.vue'),
-          meta: {
-            auth: false
-          },
         },
         {
           path: 'gyroscooters',
           name: 'gyroscooters',
           component: () => import('@/views/CatalogGyroscootersPage.vue'),
-          meta: {
-            auth: false
-          },
         },
         {
           path: 'mopeds',
           name: 'mopeds',
           component: () => import('@/views/CatalogMopedsPage.vue'),
-          meta: {
-            auth: false
-          },
         }
       ]
     },
