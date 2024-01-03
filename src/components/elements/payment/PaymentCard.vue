@@ -1,19 +1,50 @@
 <script setup lang="ts">
 import { StripeElements, StripeElement } from 'vue-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 let stripeKey = ref(import.meta.env.VITE_API_PUBLIC_KEY_STRIPE)
 
 const stripeLoaded = ref(false)
 const elms = ref()
+const card = ref()
+const result = ref({
+  elementErrors: [],
+});
 onBeforeMount(() => {
   const stripePromise = loadStripe(stripeKey.value)
   stripePromise.then(() => {
     stripeLoaded.value = true
   })
 })
+const router = useRouter()
 
+const pay = () => {
+  const elementsArray = [card.value.stripeElement];
+  result.value.elementErrors = [];
+
+  const promises = elementsArray.map((element) => {
+    return elms.value.instance.createToken(element)
+      .then((tokenResult: object) => {
+        if (tokenResult.error && Object.keys(tokenResult.error).length !== 0) {
+          result.value.elementErrors.push(tokenResult.error);
+        }
+        return tokenResult;
+      });
+  });
+
+  Promise.all(promises)
+    .then((results) => {
+      const hasErrors = results.some(result => result.error && Object.keys(result.error).length !== 0);
+      if (!hasErrors) {
+        router.push({ name: 'thanks', params: { id: '5' } });
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
 </script>
 
 <template>
@@ -21,7 +52,7 @@ onBeforeMount(() => {
     <label style="margin-bottom: 5px;" class="size_7">Данные карты</label>
     <StripeElements class="elements" v-slot="{ elements }" ref="elms" :stripe-key="stripeKey">
       <div class="top_card">
-        <StripeElement class="cb_top" type="cardNumber" :elements="elements" />
+        <StripeElement ref="card" class="cb_top" type="cardNumber" :elements="elements" />
         <div class="imgs">
           <img class="img1" src="/icons/pay3.svg" alt="">
           <img class="img2" src="/icons/pay4.svg" alt="">
@@ -29,14 +60,17 @@ onBeforeMount(() => {
         </div>
       </div>
       <div class="card_bottom">
-        <StripeElement type="cardExpiry" :elements="elements" />
+        <StripeElement ref="card" type="cardExpiry" :elements="elements" />
         <div class="cvc">
-          <StripeElement class="cb" type="cardCvc" :elements="elements" />
+          <StripeElement ref="card" class="cb" type="cardCvc" :elements="elements" />
           <img style="width: 27px; height: 24px;" src="/icons/payment/1.png" alt="">
         </div>
       </div>
     </StripeElements>
-    <ButtonPurpleLg style="margin-top: 30px; font-size: 14px;">Оплатить</ButtonPurpleLg>
+    <div v-show="result.elementErrors.length > 0" style="margin-top: 5px; color: var(--pink-color); font-size: 12px;"
+      v-for="elementError in result.elementErrors" :key="elementError" class="error">{{ elementError.message }}
+    </div>
+    <ButtonPurpleLg @click="pay" style="margin-top: 30px; font-size: 14px;">Оплатить</ButtonPurpleLg>
   </div>
 </template>
 
@@ -70,7 +104,8 @@ onBeforeMount(() => {
   .cb {
     position: relative;
   }
-  & img{
+
+  & img {
     position: absolute;
     top: 50%;
     right: 12px;
@@ -83,7 +118,7 @@ onBeforeMount(() => {
 
   .cb_top {
     position: relative;
-    
+
   }
 
   .imgs {
