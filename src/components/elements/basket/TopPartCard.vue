@@ -119,6 +119,7 @@ const cart = useCart()
       font-weight: 500;
       line-height: 119%;
       color: var(--black-color);
+      white-space: nowrap;
     }
   }
 }

@@ -44,13 +44,16 @@ const alert = useCart()
   display: flex;
   align-items: center;
   padding: 10px 10px;
+  justify-content: center;
   gap: 10px;
+
 
   & span {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     color: var(--white-color);
+    white-space: nowrap;
   }
 }
-</style>@/store/cart
+</style>

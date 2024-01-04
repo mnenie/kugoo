@@ -9,10 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="ul_drop">
-    
-  </div>
-  <ul v-if="ul" style="width: 652px; padding: 10px 0 10px 10px;" class="ul_drop">
+  <ul v-if="ul" class="ul_drop">
     <div style="display: flex; align-items: center;" class="ul_main">
       <div class="li_1">
         <li v-for="item in catalogMenu1" :key="item.id">
@@ -58,10 +55,11 @@ const props = defineProps<{
   background-clip: padding-box;
   border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
   border-radius: 5px;
-  width: 247px;
+  width: 652px;
   background: #ffffff;
   box-shadow: 0px 10px 30px 0px rgba(111, 115, 238, 0.10);
   transform: translate3d(-50px, 0px, 0);
+  padding: 10px 0 10px 10px;
 }
 .li_1 {
   padding: 20px 34px 20px 24px;
@@ -133,6 +131,21 @@ const props = defineProps<{
 @media screen and (max-width: 992px) {
   .ul_drop{
     transform: translate3d(0px, 5px, 0);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .ul_drop{
+    width: 70%;
+    padding: 10px;
+  }
+  .new_li{
+    display: none;
+  }
+  .li_1{
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
   }
 }
 </style>

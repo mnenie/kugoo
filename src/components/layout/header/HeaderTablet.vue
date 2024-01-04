@@ -89,7 +89,7 @@ onBeforeUnmount(() => {
         </div>
         <div class="main_display_new-content_2">
           <form @submit.prevent>
-            <input v-model="inputMain1.search" @input="inputCatalog" @focus="inputMain1.focus" @mousedown="inputMain1.mouseDown" placeholder="Искать самокат KUGOO">
+            <input v-model="inputMain1.search" @input="inputCatalog" @focus="inputMain1.focus" @mousedown="inputMain1.mouseDown" @keyup.enter="inputMain1.stopForm" placeholder="Искать самокат KUGOO">
             <button @click="searchThis" class="btn-1">
               <img src="/icons/search.svg" alt="">
             </button>

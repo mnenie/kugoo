@@ -92,21 +92,23 @@ export const useCart = defineStore('cart', () => {
   }
 
   const getTotalSum = computed(() => {
-    let totalSum = 0
+    let totalSum = 0;
+  
     for (const product of products.value) {
-      const productId = product.id
-      const productSum = product.price
-      const formattedSum = changeSum.value(productId, productSum)
-
-      const numSum = Number(formattedSum!.replace(' ', ''))
-
+      const productId = product.id;
+      const productSum = product.price;
+      const formattedSum = changeSum.value(productId, productSum);
+  
+      const numSum = parseFloat(formattedSum!.replace(/\s/g, ''));
+  
       if (!isNaN(numSum)) {
-        totalSum += numSum
+        totalSum += numSum;
       }
     }
-    const formattedTotalSum = totalSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-    return formattedTotalSum
-  })
+  
+    const formattedTotalSum = totalSum.toLocaleString();
+    return formattedTotalSum;
+  });
 
   const removeAllProducts = () => {
     cartIndex.value = 0

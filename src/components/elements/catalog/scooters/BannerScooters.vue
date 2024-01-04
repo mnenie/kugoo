@@ -1,12 +1,14 @@
 <script setup lang="ts">
-
+const props = defineProps<{
+  bannerTitle: string
+}>()
 </script>
 
 <template>
   <div class="container_lg">
     <div class="banner">
       <div class="container">
-        <h1 class="size_1">Электросамокаты Kugoo Kirin</h1>
+        <h1 class="size_1">{{ bannerTitle }} Kugoo Kirin</h1>
       </div>
     </div>
   </div>

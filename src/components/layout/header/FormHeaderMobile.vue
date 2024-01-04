@@ -7,7 +7,7 @@ const inputMobile = useInput()
 
 <template>
   <form @submit.prevent class="input_content">
-    <input @input="inputMobile.inputCatalog" v-model="inputMobile.search" @keydown="inputMobile.stopForm" @focus="inputMobile.focus" @mousedown="inputMobile.mouseDown" placeholder="Искать самокат KUGOO">
+    <input @input="inputMobile.inputCatalog" v-model="inputMobile.search" @keydown="inputMobile.stopForm" @focus="inputMobile.focus" @mousedown="inputMobile.mouseDown" @keyup.enter="inputMobile.stopForm" placeholder="Искать самокат KUGOO">
     <img @click="inputMobile.searchThis" src="/icons/searchmobile.svg" alt="">
     <DropdownCards />
   </form>

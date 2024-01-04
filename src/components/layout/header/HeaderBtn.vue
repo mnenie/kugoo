@@ -1,20 +1,18 @@
 <script setup lang="ts">
-import DropdownCatalog from '@/components/UI/DropdownCatalog.vue';
-import useClickOutsideHandlerBtn from '@/hooks/useClickOutsideBtn';
-const {styleBtn, dropdownValue} = useClickOutsideHandlerBtn()
-const openDropdown = () => {
-  styleBtn.value = !styleBtn.value
-  dropdownValue.value = !dropdownValue.value
-}
-const closeRoute = () => {
-  styleBtn.value = !styleBtn.value
-  dropdownValue.value = !dropdownValue.value
+import { useRouter } from 'vue-router';
+import { CATALOG_ROUTE } from '@/utils/consts';
+import smoothScroll from '@/helpers/smoothScrollHelper';
+const {smoothScrollToTop} = smoothScroll()
+const router = useRouter()
+const goToCatalog = () => {
+  router.push(CATALOG_ROUTE)
+  smoothScrollToTop()
 }
 </script>
 
 <template>
   <div class="dropdown">
-    <button @click="openDropdown" :class="[styleBtn === true ? 'btn_focus' : '']" class="btn-group">
+    <button @click="goToCatalog" class="btn-group">
       <div>
         <span></span>
         <span></span>
@@ -22,7 +20,6 @@ const closeRoute = () => {
       </div>
       Каталог
     </button>
-    <DropdownCatalog @close-dropdown-route="closeRoute" :ul="dropdownValue === true" />
   </div>
 </template>
 

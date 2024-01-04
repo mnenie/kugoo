@@ -37,7 +37,7 @@ const goToCard = (cardId: number) => {
 
 <template>
   <Transition name="slide-fade">
-    <div ref="myBlock" v-if="inputMain.flCatalog && (filteredCards.length > 0 || error)" class="dropdown-cards">
+    <div ref="myBlock" v-if="inputMain.flCatalog && (filteredCards.length > 0 || error)" class="dropdown-cards" :class="[inputMain.focusStyle ? 'border_focus' : '']">
       <div v-if="error" style="color: var(--purple-color); padding: 10px;" class="error_drop">
         Нет товаров
       </div>
@@ -47,25 +47,25 @@ const goToCard = (cardId: number) => {
           <img class="img" :src="card.img" alt="">
           <div class="text_card_dropdown">
             <div class="text_card_main_dropdown">
-              <span>{{ card.title }}</span>
-              <span>{{ card.price }} ₽</span>
+              <span style="font-weight: 500;" class="size_6">{{ card.title }}</span>
+              <span style="font-weight: 500; white-space: nowrap;" class="size_6">{{ card.price }} ₽</span>
             </div>
             <div class="more_dropdown">
               <div class="element_dropdown">
                 <img :src="card.accumSvg" alt="">
-                <span>{{ card.accum }}</span>
+                <span class="size_8">{{ card.accum }}</span>
               </div>
               <div class="element_dropdown">
                 <img :src="card.powerSvg" alt="">
-                <span>{{ card.power }}</span>
+                <span class="size_8">{{ card.power }}</span>
               </div>
               <div class="element_dropdown">
                 <img :src="card.speedSvg" alt="">
-                <span>{{ card.speed }}</span>
+                <span class="size_8">{{ card.speed }}</span>
               </div>
               <div class="element_dropdown">
                 <img :src="card.timeSvg" alt="">
-                <span>{{ card.time }}</span>
+                <span class="size_8">{{ card.time }}</span>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ const goToCard = (cardId: number) => {
     width: 100%;
     align-items: flex-start;
     height: auto !important;
-    max-height: 320px;
+    max-height: 315px;
     overflow-y: scroll;
 
     .card_dropdown {
@@ -143,6 +143,7 @@ const goToCard = (cardId: number) => {
           align-items: center;
           justify-content: space-between;
           width: 100%;
+          gap: 20px;
         }
 
         .more_dropdown {
@@ -151,6 +152,7 @@ const goToCard = (cardId: number) => {
           // justify-content: space-between;
           gap: 20px;
           width: 100%;
+          flex-wrap: wrap;
 
           .element_dropdown {
             display: flex;
@@ -160,6 +162,31 @@ const goToCard = (cardId: number) => {
         }
       }
     }
+  }
+}
+
+.border_focus{
+  border: 1px solid var(--purple-color);
+  animation: blink 1s ease 2 forwards;
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--purple-color);
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .dropdown-cards .cards_dropdown .card_dropdown{
+    align-items: flex-start;
+  }
+}
+@media screen and (max-width: 992px){
+  .dropdown-cards .cards_dropdown .card_dropdown{
+    align-items: center;
   }
 }
 </style>

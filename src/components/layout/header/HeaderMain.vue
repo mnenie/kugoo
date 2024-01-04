@@ -60,8 +60,8 @@ const searchThis = () => {
         </router-link>
         <HeaderBtn />
         <form style="position: relative;" @submit.prevent>
-          <input @input="inputCatalog" v-model="inputMain.search" @focus="inputMain.focus"
-            @mousedown="inputMain.mouseDown" placeholder="Искать самокат KUGOO">
+          <input @input="inputCatalog" v-model.trim="inputMain.search" @focus="inputMain.focus"
+            @mousedown="inputMain.mouseDown" @keyup.enter="inputMain.stopForm" placeholder="Искать самокат KUGOO">
           <button @click="searchThis" class="btn-1">
             <img src="/icons/search.svg" alt="">
           </button>

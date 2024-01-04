@@ -1,4 +1,3 @@
-import smoothScroll from '@/helpers/smoothScrollHelper'
 import type { ICards } from '@/types/cards.interface'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
@@ -7,14 +6,13 @@ export const useInput = defineStore('input', () => {
   const search = ref<string>('')
   const flCatalog = ref<boolean>(false)
   const myBlock = ref<HTMLElement | null>(null)
+  const focusStyle = ref<boolean>(false)
   const cards = ref<ICards[]>([])
-  const { smoothScrollToTop } = smoothScroll()
   const {getAllProducts} = useGetAllProducts()
 
   const searchThis = () => {
-    search.value = ''
+    focusStyle.value = true
     flCatalog.value = !flCatalog.value
-    smoothScrollToTop()
   }
   const inputCatalog = () => {
     flCatalog.value = search.value.trim() !== ''
@@ -46,6 +44,7 @@ export const useInput = defineStore('input', () => {
   }
   const focus = () => {
     flCatalog.value = true
+    focusStyle.value = false
   }
   const mouseDown = (event: MouseEvent) => {
     if (myBlock.value) {
@@ -60,11 +59,13 @@ export const useInput = defineStore('input', () => {
 
   const stopForm = (event: KeyboardEvent) => {
     if(event.key === 'Enter'){
-      search.value = ''
+      focusStyle.value = true
+      flCatalog.value = true
     }
   }
   return {
     search,
+    focusStyle,
     flCatalog,
     filteredProducts,
     cards,

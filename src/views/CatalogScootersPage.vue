@@ -17,11 +17,13 @@ const { filters, filterProductsByTop, filterProductsPanel, clearFilters, filterP
 onUnmounted(() => {
   clearFilters()
 })
+
+const bannerTitle = ref('Электросамокаты')
 </script>
 
 <template>
   <NavigationTopPage :title="title" :title2="'Электросамокаты'" />
-  <BannerScooters />
+  <BannerScooters :banner-title="bannerTitle" />
   <div class="container">
     <FilterTop :filters="filters" @filter-cards="filterProductsByTop" />
     <div class="blocks">
