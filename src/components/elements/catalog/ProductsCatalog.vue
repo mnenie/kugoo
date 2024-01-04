@@ -103,7 +103,7 @@ const clickCardBtn = (cardId: number) => {
                 <span class="catalog_4">{{ card.price }} ₽</span>
               </div>
               <div class="cart">
-                <div v-if="card.basket">
+                <div @click="cart.addToCart(card)" v-if="card.basket">
                   <img :src="card.basket" alt="">
                 </div>
                 <div>
@@ -263,6 +263,12 @@ const clickCardBtn = (cardId: number) => {
               border-radius: 50%;
               border: 1px solid var(--gray-200-color);
               padding: 10px 10px 10px 9px;
+              transition: 0.15s ease-in;
+              cursor: pointer;
+
+              &:hover {
+                border: 1px solid var(--purple-color);
+              }
 
               & img {
                 display: block;

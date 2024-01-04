@@ -7,6 +7,7 @@ import DropdownHeader from './DropdownHeader.vue';
 import DropdownCards from '@/components/UI/DropdownCards.vue';
 import RoundCart from '@/components/UI/RoundCart.vue';
 import RoundGreenAuth from '@/components/UI/RoundGreenAuth.vue';
+import RoundSmall from '@/components/UI/RoundSmall.vue';
 import { useInput } from '@/stores/search';
 
 defineProps<{
@@ -80,6 +81,7 @@ onBeforeUnmount(() => {
             <img class="img" @click="$emit('rightPart', index)" v-for="(shopItem, index) in shopItems" :src="shopItem.img"
               alt="" :key="shopItem.id">
               <RoundGreenAuth style="position: absolute; left: 31px; top: 5px;" />
+              <RoundSmall style="position: absolute; left: 152px; top: 5px;"  />
             <button style="position: relative;" class="basket size_7" @click="router.push(BASKET_ROUTE)">
               <img src="/icons/shopping-cart.svg" alt="">
               Корзина

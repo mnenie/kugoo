@@ -24,7 +24,7 @@ watchEffect(() => {
       <div class="content">
         <h1 :style="style" class="size_1 h1">Моя корзина</h1>
         <p v-if="cart.cartIndex != 0" class="size_7 span">Количество товаров: {{ cart.cartIndex }}</p>
-        <EmptyBasket v-if="showEmpty" />
+        <EmptyBasket :empty-title="'Ваша корзина пуста'" :empty-body="'Добавьте в нее товары из каталога'" v-if="showEmpty" />
         <FillBasket v-else />
       </div>
     </div>

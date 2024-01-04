@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router';
 import type { ICards } from '@/types/cards.interface';
 import { useCart } from '@/stores/cart';
+import { PAYMENT_ROUTE } from '@/utils/consts';
 const router = useRouter()
 defineProps<{
   card: ICards
@@ -23,7 +24,7 @@ const cart = useCart()
         дня при заказе до 01.09</span>
     </div>
     <div v-if="card.basket" class="btns">
-      <ButtonPurpleLg @click="router.push('/registration')" class="btn">Купить в 1 клик</ButtonPurpleLg>
+      <ButtonPurpleLg @click="router.push(PAYMENT_ROUTE)" class="btn">Купить в 1 клик</ButtonPurpleLg>
       <ButtonLgBorderPurple @click="cart.addToCart(card)" class="btn">Добавить в корзину</ButtonLgBorderPurple>
     </div>
     <div v-else style="text-align: center; color: var(--pink-color); margin-top: 40px;" class="no_content">

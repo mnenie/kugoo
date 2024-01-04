@@ -10,6 +10,7 @@ import RoundCart from '@/components/UI/RoundCart.vue';
 import HeaderBtn from './HeaderBtn.vue'
 import { useInput } from '@/stores/search';
 import RoundGreenAuth from '@/components/UI/RoundGreenAuth.vue';
+import RoundSmall from '@/components/UI/RoundSmall.vue';
 
 defineProps<{
   shopItems: any[]
@@ -72,6 +73,7 @@ const searchThis = () => {
           <img class="img" @click="emit('rightPart', index)" v-for="(shopItem, index) in shopItems" :src="shopItem.img"
             alt="" :key="shopItem.id">
             <RoundGreenAuth style="position: absolute; left: 10px; top: 5px;" />
+            <RoundSmall style="position: absolute; left: 132px; top: 5px;"  />
           <button style="position: relative;" class="basket size_7" @click="router.push(BASKET_ROUTE)">
             <img src="/icons/shopping-cart.svg" alt="">
             Корзина

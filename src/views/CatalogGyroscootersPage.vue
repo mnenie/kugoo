@@ -4,6 +4,7 @@ import BannerScooters from '@/components/elements/catalog/scooters/BannerScooter
 import ScootersCatalogFilter from '@/components/elements/catalog/scooters/ScootersCatalogFilter.vue';
 import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 import FilterCatalog from '@/components/elements/catalog/FilterCatalog.vue';
+import Alert from '@/components/UI/Alert.vue';
 import { ref, onUnmounted } from 'vue';
 import useFilterCatalog from '@/hooks/useFilterCatalog';
 
@@ -35,6 +36,7 @@ const bannerTitle = ref('Гироскутеры')
       </div>
     </div>
   </div>
+  <Alert />
 </template>
 
 <style lang="scss" scoped>

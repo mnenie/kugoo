@@ -5,9 +5,10 @@ import { useModal, ModalsContainer } from 'vue-final-modal';
 import ModalPreOrder from '@/components/UI/ModalPreOrder.vue';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import { TEST_ROUTE } from '@/utils/consts';
+import { FAVOURITES_ROUTE, TEST_ROUTE } from '@/utils/consts';
 import smoothScroll from '@/helpers/smoothScrollHelper';
 import Preloader from '@/components/UI/preloader/Preloader.vue';
+import { useFav } from '@/stores/fav';
 
 const props = defineProps<{
   cards: ICards[],
@@ -51,6 +52,8 @@ const openModal = (cardTitle: string, cardImg: string, cardPrice: string) => {
   })
   open()
 }
+
+const favHeart = ref('/icons/fav/heart.svg')
 onMounted(() => {
   if (router.currentRoute.value.path === TEST_ROUTE) {
     titleBtn.value = 'Записаться на тест-драйв'
@@ -67,6 +70,8 @@ const clickCardBtn = (cardId: number) => {
     smoothScrollToTop()
   }
 }
+
+const fav = useFav()
 </script>
 
 <template>
@@ -104,11 +109,11 @@ const clickCardBtn = (cardId: number) => {
                 <span class="catalog_4">{{ card.price }} ₽</span>
               </div>
               <div class="cart">
-                <div v-if="card.basket">
+                <div class="cart_border" @click="cart.addToCart(card)" v-if="card.basket">
                   <img :src="card.basket" alt="">
                 </div>
-                <div>
-                  <img :src="card.heart" alt="">
+                <div @click="fav.addFavProducts(card)">
+                  <img :src="$route.path === FAVOURITES_ROUTE ? favHeart : card.heart" alt="">
                 </div>
               </div>
             </div>
@@ -264,6 +269,12 @@ const clickCardBtn = (cardId: number) => {
               border-radius: 50%;
               border: 1px solid var(--gray-200-color);
               padding: 10px 10px 10px 9px;
+              transition: 0.15s ease-in;
+              cursor: pointer;
+
+              &:hover {
+                border: 1px solid var(--purple-color);
+              }
 
               & img {
                 display: block;

@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router';
 import { HOME_ROUTE, CATALOG_ROUTE, BASKET_ROUTE, FAVOURITES_ROUTE, COMPARISON_ROUTE } from '@/utils/consts'
 import RoundCart from '@/components/UI/RoundCart.vue';
 import RoundGreenAuth from '../UI/RoundGreenAuth.vue';
+import RoundSmall from '../UI/RoundSmall.vue';
 import { AUTH_ROUTE } from '@/utils/consts';
 
 const navigations = ref<INavigation[]>([
@@ -73,6 +74,7 @@ const nextNavi = (index: number) => {
       </div>
       <RoundCart style="position: absolute; left: 41%; top: 7px;" />
       <RoundGreenAuth style="position: absolute; right: 37px; top: 7px;" />
+      <RoundSmall style="position: absolute; right: 40%; top: 7px;"  />
     </div>
   </div>
 </template>

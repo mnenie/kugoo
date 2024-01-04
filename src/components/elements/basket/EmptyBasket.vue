@@ -2,14 +2,18 @@
 import { CATALOG_ROUTE } from '@/utils/consts';
 import { useRouter } from 'vue-router';
 
+const props = defineProps<{
+  emptyTitle: string,
+  emptyBody: string,
+}>()
 const router = useRouter()
 </script>
 
 <template>
   <div class="empty_basket">
     <img src="/icons/basket/empty.svg" alt="">
-    <h1 class="size_3">Ваша корзина пуста</h1>
-    <p class="size_7">Добавьте в нее товары из каталога</p>
+    <h1 class="size_3">{{ emptyTitle }}</h1>
+    <p class="size_7">{{ emptyBody }}</p>
     <ButtonCardPurple @click="router.push(CATALOG_ROUTE)">Перейти в каталог</ButtonCardPurple>
   </div>
 </template>
