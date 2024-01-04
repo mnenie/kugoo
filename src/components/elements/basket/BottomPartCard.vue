@@ -22,6 +22,7 @@ const items: IBasket[] = [
 </template>
 
 <style lang="scss" scoped>
+
 .bottom_part {
   border-radius: 5px;
   border: 1px solid rgba(92, 107, 122, 0.1);

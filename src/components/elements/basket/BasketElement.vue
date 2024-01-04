@@ -2,12 +2,19 @@
 import EmptyBasket from './EmptyBasket.vue';
 import FillBasket from './FillBasket.vue';
 import { useCart } from '@/stores/cart';
-import { computed } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 
 const cart = useCart()
 const style = computed(() => {
   const marginBottom = cart.cartIndex === 0 ? '40px' : '8px';
   return 'margin-bottom: ' + marginBottom
+})
+const showEmpty = ref<boolean>(false)
+
+watchEffect(() => {
+  if(cart.cartIndex === 0){
+    showEmpty.value = true
+  }
 })
 </script>
 
@@ -17,7 +24,7 @@ const style = computed(() => {
       <div class="content">
         <h1 :style="style" class="size_1 h1">Моя корзина</h1>
         <p v-if="cart.cartIndex != 0" class="size_7 span">Количество товаров: {{ cart.cartIndex }}</p>
-        <EmptyBasket v-if="cart.cartIndex === 0" />
+        <EmptyBasket v-if="showEmpty" />
         <FillBasket v-else />
       </div>
     </div>

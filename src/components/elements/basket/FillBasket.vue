@@ -18,6 +18,7 @@ import PayBlockTotal from './PayBlockTotal.vue';
 
 <style lang="scss" scoped>
 .fill_basket {
+  margin-bottom: 80px;
 
   .elements {
     display: flex;

@@ -1,6 +1,6 @@
 import type { ICards } from '@/types/cards.interface'
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 export const useCart = defineStore('cart', () => {
   const products = ref<ICards[]>(JSON.parse(localStorage.getItem('products') ?? '[]') as ICards[])
   const cartIndex = ref<number>(JSON.parse(localStorage.getItem('cartIndex') || '0'))
@@ -21,6 +21,18 @@ export const useCart = defineStore('cart', () => {
     }, 3000)
   }
 
+  const updateProductCounts = () => {
+    localStorage.setItem('productCounts', JSON.stringify(productCounts.value))
+  }
+  const initProductCounts = () => {
+    const storedProductCounts = localStorage.getItem('productCounts')
+    if (storedProductCounts) {
+      productCounts.value = JSON.parse(storedProductCounts)
+    }
+  }
+
+  initProductCounts()
+
   const addToCart = async (product: ICards) => {
     addIndex()
     const productInCart = products.value.find((item) => item.id === product.id)
@@ -28,7 +40,7 @@ export const useCart = defineStore('cart', () => {
       changeQuantity(product.id, 'inc')
     } else {
       products.value.push(product)
-      updateProductCounts();
+      updateProductCounts()
       localStorage.setItem('products', JSON.stringify(products.value))
       products.value = JSON.parse(localStorage.getItem('products')!)
       if (!productCounts.value[product.id]) {
@@ -50,9 +62,9 @@ export const useCart = defineStore('cart', () => {
         productCounts.value[productId]++
       }
     }
-    cartIndex.value = Object.values(productCounts.value).reduce((acc, count) => acc + count, 0);
+    cartIndex.value = Object.values(productCounts.value).reduce((acc, count) => acc + count, 0)
     localStorage.setItem('cartIndex', JSON.stringify(cartIndex.value))
-    updateProductCounts();
+    updateProductCounts()
   }
 
   const changeSum = computed(() => {
@@ -79,7 +91,6 @@ export const useCart = defineStore('cart', () => {
     return productCounts.value[productId]
   }
 
-
   const getTotalSum = computed(() => {
     let totalSum = 0
     for (const product of products.value) {
@@ -101,20 +112,27 @@ export const useCart = defineStore('cart', () => {
     localStorage.removeItem('products')
     localStorage.removeItem('cartIndex')
     localStorage.removeItem('flagCart')
+    localStorage.removeItem('productCounts')
     products.value = [] as ICards[]
+    cartIndex.value = 0
+    flag.value = false
   }
 
-  const updateProductCounts = () => {
-    localStorage.setItem('productCounts', JSON.stringify(productCounts.value));
-  };
-  const initProductCounts = () => {
-    const storedProductCounts = localStorage.getItem('productCounts');
-    if (storedProductCounts) {
-      productCounts.value = JSON.parse(storedProductCounts);
-    }
-  };
+  const removeProductById = (productId: number) => {
+    products.value = products.value.filter((product) => product.id !== productId)
+    delete productCounts.value[productId]
 
-  initProductCounts();
+    updateProductCounts()
+    localStorage.setItem('products', JSON.stringify(products.value))
+    cartIndex.value = Object.values(productCounts.value).reduce((acc, count) => acc + count, 0)
+    localStorage.setItem('cartIndex', JSON.stringify(cartIndex.value))
+  }
+
+  watchEffect(() => {
+    if (products.value.length === 0 && cartIndex.value == 0) {
+      removeAllProducts()
+    }
+  })
 
   return {
     flag,
@@ -128,7 +146,8 @@ export const useCart = defineStore('cart', () => {
     changeSum,
     productCounts,
     getCountForProduct,
-    getTotalSum, 
-    removeAllProducts
+    getTotalSum,
+    removeAllProducts,
+    removeProductById
   }
 })

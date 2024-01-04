@@ -155,4 +155,10 @@
   100% {
     transform: translate3d(100%, 0, 0);
   }
-}</style>
+}
+@media screen and (max-width: 1200px){
+  .preloader{
+    flex-direction: column;
+  }
+}
+</style>

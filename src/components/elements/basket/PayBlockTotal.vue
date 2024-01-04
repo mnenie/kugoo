@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { BASKET_ROUTE, PAYMENT_ROUTE, WAYS_ROUTE } from '@/utils/consts';
 import { computed, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { useCart } from '@/stores/cart';
+import { useWays } from '../../../stores/ways';
 
 const props = defineProps<{
   btnName: string
@@ -16,6 +17,15 @@ const prices = computed(() => [
 ])
 const checked = ref<boolean>(true)
 const router = useRouter()
+const route = useRoute()
+
+const ways = useWays()
+const onPay = () => {
+  if(route.path === BASKET_ROUTE) return router.push(WAYS_ROUTE)
+  if(route.path === WAYS_ROUTE) {
+    ways.onSubmit()
+  }
+}
 </script>
 
 <template>
@@ -30,7 +40,7 @@ const router = useRouter()
         <p class="size_6">{{ item.price }} ₽</p>
       </div>
     </div>
-    <ButtonPurpleLg @click="$route.path === BASKET_ROUTE ? router.push(WAYS_ROUTE) : router.push(PAYMENT_ROUTE)" style="width: 100%;">{{ btnName }}</ButtonPurpleLg>
+    <ButtonPurpleLg @click="onPay" style="width: 100%;">{{ btnName }}</ButtonPurpleLg>
     <div class="check_block">
       <input type="checkbox" :checked="checked" :disabled="checked" id="flexCheckChecked">
       <label class="size_8" for="flexCheckChecked">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и

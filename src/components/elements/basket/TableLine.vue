@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { useCart } from '@/stores/cart';
 
+const cart = useCart()
 </script>
 
 <template>
@@ -8,7 +10,7 @@
     <div class="blocks_2">
       <span style="margin-right: 30px;" class="size_8">Количество</span>
       <span style=";" class="size_8">Сумма</span>
-      <span style="color: var(--gray-600-color);" class="size_8">Удалить все</span>
+      <span @click="cart.removeAllProducts" class="size_8 delete_all">Удалить все</span>
     </div>
   </div>
 </template>
@@ -35,6 +37,13 @@
     display: flex;
     align-items: center;
     gap: 70px;
+  }
+}
+.delete_all{
+  color: var(--gray-600-color);
+  cursor: pointer;
+  &:hover{
+    color: var(--purple-color);
   }
 }
 @media screen and (max-width: 1100px){

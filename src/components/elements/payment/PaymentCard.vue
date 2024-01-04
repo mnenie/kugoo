@@ -3,6 +3,7 @@ import { StripeElements, StripeElement } from 'vue-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import { onBeforeMount, ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { useCart } from '@/stores/cart';
 
 let stripeKey = ref(import.meta.env.VITE_API_PUBLIC_KEY_STRIPE)
 
@@ -17,6 +18,7 @@ onBeforeMount(async () => {
   stripeLoaded.value = true
 })
 const router = useRouter()
+const cart = useCart()
 
 const pay = () => {
   if (elms.value && card.value) {
@@ -38,6 +40,7 @@ const pay = () => {
         const hasErrors = results.some(result => result.error && Object.keys(result.error).length !== 0);
         if (!hasErrors) {
           router.push({ name: 'thanks', params: { id: '5' } });
+          cart.removeAllProducts()
         }
       })
       .catch((error) => {
