@@ -27,6 +27,7 @@ const ymaps = createYmaps({
   apikey: import.meta.env.VITE_API_KEY_YANDEXMAP,
 });
 
+
 app.use(createPinia())
 app.use(router)
 app.use(uicomponents)

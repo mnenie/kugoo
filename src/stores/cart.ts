@@ -109,13 +109,14 @@ export const useCart = defineStore('cart', () => {
   })
 
   const removeAllProducts = () => {
+    cartIndex.value = 0
+    flag.value = false
+    products.value = [] as ICards[]
+    productCounts.value = {}
     localStorage.removeItem('products')
     localStorage.removeItem('cartIndex')
     localStorage.removeItem('flagCart')
     localStorage.removeItem('productCounts')
-    products.value = [] as ICards[]
-    cartIndex.value = 0
-    flag.value = false
   }
 
   const removeProductById = (productId: number) => {
@@ -129,7 +130,7 @@ export const useCart = defineStore('cart', () => {
   }
 
   watchEffect(() => {
-    if (products.value.length === 0 && cartIndex.value == 0) {
+    if (products.value.length === 0) {
       removeAllProducts()
     }
   })

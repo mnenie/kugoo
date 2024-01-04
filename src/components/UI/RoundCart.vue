@@ -3,13 +3,11 @@ import { computed } from 'vue';
 import { useCart } from '@/stores/cart'
 
 const cart = useCart()
-const cartFlag = computed(() => cart.flag);
-const cartIndex = computed(() => cart.cartIndex);
 </script>
 
 <template>
-  <div class="round_cart" v-if="cartFlag">
-    <span>{{ cartIndex }}</span>
+  <div class="round_cart" v-if="cart.products.length > 0">
+    <span>{{ cart.cartIndex }}</span>
   </div>
 </template>
 

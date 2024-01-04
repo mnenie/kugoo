@@ -12,7 +12,7 @@ const style = computed(() => {
 const showEmpty = ref<boolean>(false)
 
 watchEffect(() => {
-  if(cart.cartIndex === 0){
+  if(cart.products.length === 0){
     showEmpty.value = true
   }
 })

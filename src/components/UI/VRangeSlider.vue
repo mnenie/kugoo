@@ -1,34 +1,24 @@
 <script setup lang="ts">
-import VueSlider from 'vue-slider-component'
-import 'vue-slider-component/theme/antd.css'
-import { ref, watchEffect } from 'vue';
+import VueSimpleRangeSlider from "vue-simple-range-slider";
+import "vue-simple-range-slider/css";
 
 interface IProps {
-  range: number[]
-  min: number
-  max: number
+  range: number[];
+  min: number;
+  max: number;
 }
 
-const props = defineProps<IProps>()
-
-const emit = defineEmits(['update:range'])
-
-const sliderRef = ref<typeof VueSlider | null>(null);
-
-watchEffect(() => {
-  if (sliderRef.value) {
-    sliderRef.value.setValue(props.range);
-  }
-});
+const props = defineProps<IProps>();
+const emit = defineEmits(['update:range']);
 
 </script>
 
 <template>
-  <vue-slider ref="sliderRef" :model-value="range" @change="(e: number[]) => emit('update:range', e)"  :min="min" :max="max" :dot-size="15" :tooltip="'hover'"/>
+  <div class="slider">
+    <VueSimpleRangeSlider :model-value="range" @update:model-value="(e: number[]) => emit('update:range', e)" :min="min" :max="max" :activeBarColor="'#6F73EE'" :barColor="'#eaebed'" style="width: 100%;" ></VueSimpleRangeSlider>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.slider {
-  position: relative;
-}
+
 </style>

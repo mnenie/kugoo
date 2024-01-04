@@ -29,7 +29,7 @@
     "vue-final-modal": "^4.4.6",
     "vue-router": "^4.2.5",
     "vue-select": "^4.0.0-beta.6",
-    "vue-slider-component": "^4.1.0-beta.7",
+    "vue-simple-range-slider": "^1.1.0",
     "vue-yandex-maps": "next",
     "vue3-spinner": "^0.0.17",
     "xlsx": "^0.18.5",

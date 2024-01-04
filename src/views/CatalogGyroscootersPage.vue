@@ -41,6 +41,7 @@ onUnmounted(() => {
   gap: 30px;
   align-items: flex-start;
   justify-content: space-between;
+  margin-bottom: 100px;
 }
 
 @media screen and (max-width: 860px) {

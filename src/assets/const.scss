@@ -197,34 +197,36 @@ button {
   border-radius: 10px !important;
 }
 
-.vue-slider-rail {
-  background-color: #eaebed !important;
-  border-radius: 10px !important;
-  transition: background-color 0.3s !important;
+.simple-range-slider .simple-range-slider-popover {
+  display: none !important;
 }
-.vue-slider:hover .vue-slider-process {
-  background: var(--purple-color) !important;
+.simple-range-slider
+  .simple-range-slider-bg-bar
+  .simple-range-slider-anchor
+  .simple-range-slider-popover-arrow {
+  display: none !important;
 }
-.vue-slider-process {
-  background: var(--purple-color) !important;
+.simple-range-slider .simple-range-slider-bg-bar {
+  margin: 0 0 20px 0 !important;
 }
-.vue-slider-dot-handle {
-  border: 2px solid var(--purple-color) !important;
-}
-.vue-slider:hover .vue-slider-dot-handle:hover {
-  border-color: var(--purple-color);
-}
-.vue-slider-dot-tooltip-top {
-  // display: none;
-}
-
-.vue-slider-dot-handle-focus {
-  border-color: var(--purple-color) !important;
-  box-shadow: none !important;
-}
-.vue-slider {
+.simple-range-slider {
   padding: 0 !important;
-  margin-bottom: 20px !important;
+}
+.simple-range-slider .simple-range-slider-bg-bar .simple-range-slider-anchor {
+  background: var(--white-color) !important;
+  box-shadow: 0 0 0px 3px #6f73ee !important;
+  width: 12px !important;
+  height: 12px !important;
+  top: -4.5px !important;
+}
+.simple-range-slider
+  .simple-range-slider-bg-bar
+  .simple-range-slider-anchor
+  .simple-range-slider-handle {
+  opacity: 0.1 !important;
+}
+.simple-range-slider .simple-range-slider-bg-bar .simple-range-slider-bar {
+  height: 90% !important;
 }
 
 .StripeElement {

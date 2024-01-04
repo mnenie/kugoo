@@ -18,6 +18,5 @@ const props =  defineProps<{
 <style lang="scss" scoped>
 .catalog{
   width: 100%;
-  margin-bottom: 100px;
 }
 </style>
