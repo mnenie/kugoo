@@ -16,10 +16,14 @@ const getName = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="thanks_blocks">
     <NavBackLink />
     <component :is="getName" />
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.thanks_blocks{
+  margin-bottom: 90px;
+}
+</style>
