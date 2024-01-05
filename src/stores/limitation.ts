@@ -1,5 +1,7 @@
+import { HOME_ROUTE } from '@/utils/consts';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 export const useLimitation = defineStore('limitation', () => {
   const showLimitation = ref<boolean>(false);
@@ -65,7 +67,9 @@ export const useLimitation = defineStore('limitation', () => {
     });
   };
 
-  const resetFontSize = () => {
+  const router = useRouter()
+  const resetFontSize = async () => {
+    await router.push(HOME_ROUTE)
     location.reload();
   };
 
