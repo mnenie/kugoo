@@ -3,18 +3,21 @@ import { useRouter } from 'vue-router';
 import type { ICards } from '@/types/cards.interface';
 import { useCart } from '@/stores/cart';
 import { PAYMENT_ROUTE } from '@/utils/consts';
+import { useFav } from '@/stores/fav';
 const router = useRouter()
 defineProps<{
   card: ICards
 }>()
 const cart = useCart()
+
+const fav = useFav()
 </script>
 
 <template>
   <div class="banner_pay">
     <div class="price">
       <h1 class="size_1">{{ card.price }} руб.</h1>
-      <div class="img">
+      <div @click="fav.addFavProducts(card)" class="img">
         <img src="/icons/product/fav.svg" alt="">
       </div>
     </div>
