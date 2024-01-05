@@ -7,6 +7,7 @@ import RoundCart from '@/components/UI/RoundCart.vue';
 import RoundGreenAuth from '../UI/RoundGreenAuth.vue';
 import RoundSmall from '../UI/RoundSmall.vue';
 import { AUTH_ROUTE } from '@/utils/consts';
+import ComparisonRound from '@/components/UI/ComparisonRound.vue';
 
 const navigations = ref<INavigation[]>([
   {
@@ -74,7 +75,8 @@ const nextNavi = (index: number) => {
       </div>
       <RoundCart style="position: absolute; left: 41%; top: 7px;" />
       <RoundGreenAuth style="position: absolute; right: 37px; top: 7px;" />
-      <RoundSmall style="position: absolute; right: 40%; top: 7px;"  />
+      <RoundSmall style="position: absolute; right: 40%; top: 7px;" />
+      <ComparisonRound style="position: absolute; right: 22.4%; top: 7px;"/>
     </div>
   </div>
 </template>

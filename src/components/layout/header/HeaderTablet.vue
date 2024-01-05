@@ -10,6 +10,7 @@ import RoundSmall from '@/components/UI/RoundSmall.vue';
 import { CATALOG_ROUTE } from '@/utils/consts';
 import { useInput } from '@/stores/search';
 import smoothScroll from '@/helpers/smoothScrollHelper';
+import ComparisonRound from '@/components/UI/ComparisonRound.vue';
 
 defineProps<{
   shopItems: any[]
@@ -73,6 +74,7 @@ const goToCatalog = () => {
               alt="" :key="shopItem.id">
               <RoundGreenAuth style="position: absolute; left: 31px; top: 5px;" />
               <RoundSmall style="position: absolute; left: 152px; top: 5px;"  />
+              <ComparisonRound style="position: absolute; left: 112px; top: 5px;" />
             <button style="position: relative;" class="basket size_7" @click="router.push(BASKET_ROUTE)">
               <img src="/icons/shopping-cart.svg" alt="">
               Корзина

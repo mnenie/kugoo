@@ -5,16 +5,22 @@ import { ref } from 'vue'
 export const useComparison = defineStore('comparison', () => {
   const products = ref<ICards[]>(JSON.parse(localStorage.getItem('comparison') ?? '[]') as ICards[])
   const style = ref<boolean>(false)
+  const indexComparison = ref<number>(JSON.parse(localStorage.getItem('indexComparison') || '0'))
+
   const addComparisonProduct = (product: ICards) => {
     if (products.value.findIndex((p) => p.id === product.id) === -1) {
       products.value.push(product)
+      indexComparison.value ++
     }
     localStorage.setItem('comparison', JSON.stringify(products.value))
+    localStorage.setItem('indexComparison', JSON.stringify(indexComparison.value))
   }
 
   const removeAllComparisonProducts = () => {
     products.value = []
     localStorage.removeItem('comparison')
+    indexComparison.value = 0
+    localStorage.removeItem('indexComparison')
   }
 
   const comparisonProducts = (): boolean[] => {
@@ -46,6 +52,7 @@ export const useComparison = defineStore('comparison', () => {
     removeAllComparisonProducts,
     products,
     comparisonProducts,
-    style
+    style, 
+    indexComparison
   }
 })
