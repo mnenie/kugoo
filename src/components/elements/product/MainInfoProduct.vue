@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import type { ICards } from '@/types/cards.interface';
 import { ref } from 'vue';
+import { useComparison } from '@/stores/comparison';
 const props = defineProps<{
   card: ICards
 }>()
 const count = ref<number>(196)
+
+const comparison = useComparison()
 </script>
 
 <template>
@@ -22,7 +25,7 @@ const count = ref<number>(196)
         <span>{{ card.basket ? 'В наличии' : 'Нет в наличии' }}</span>
       </div>
       <div class="actions_1">
-        <div class="balance">
+        <div @click="comparison.addComparisonProduct(card)" style="cursor: pointer;" class="balance">
           <img src="/icons/scooters/balance.svg" alt="">
           <span class="size_7">Сравнить</span>
         </div>
