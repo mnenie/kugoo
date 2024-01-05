@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import CategoriesElement from './CategoriesElement.vue';
+import ModalPhone from '@/components/UI/ModalPhone.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { CATALOG_BIKES_ROUTE, CATALOG_GYRO_ROUTE, CATALOG_MOPED_ROUTE, CATALOG_ROUTE, CATALOG_SCOOTERS_ROUTE } from '@/utils/consts';
 import useTechnic from '@/hooks/useTechnic';
 import Preloader from '@/components/UI/preloader/Preloader.vue';
 import smoothScroll from '@/helpers/smoothScrollHelper';
+import { useModal } from 'vue-final-modal';
 
 const title = ref<string>('Смотреть все')
 
@@ -25,6 +27,19 @@ const pushToCatalog = (categoryId: number) => {
     }
   })
 };
+
+const { open, close } = useModal({
+  component: ModalPhone,
+  attrs:{
+    onClose(){
+      close()
+    },
+    onConfirm(){
+      close()
+      router.push({name: 'thanks', params: {id: '2'}})
+    }
+  }
+})
 </script>
 
 <template>
@@ -39,7 +54,7 @@ const pushToCatalog = (categoryId: number) => {
             </div>
             <div class="text_manager">
               <p>Менеджер ответит на любой ваш вопрос о продуктах Kugoo</p>
-              <a style="cursor: pointer;">Задать вопрос</a>
+              <a @click="open" style="cursor: pointer;">Задать вопрос</a>
             </div>
           </div>
         </div>
