@@ -51,4 +51,9 @@
     color: var(--black-color);
   }
 }
+@media screen and (max-width: 992px){
+  .text{
+    margin-bottom: 90px;
+  }
+}
 </style>

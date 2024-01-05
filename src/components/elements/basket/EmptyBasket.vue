@@ -38,6 +38,7 @@ const router = useRouter()
     margin-bottom: 5px;
     color: var(--black-color);
     text-align: center;
+    margin-top: 25px;
   }
 
   & p {
@@ -49,4 +50,16 @@ const router = useRouter()
     text-align: center;
   }
 }
+
+@media screen and (max-width: 992px){
+  .empty_basket{
+    margin-bottom: 90px;
+  }
+}
+@media screen and (max-width: 600px){
+  .empty_basket{
+    margin-bottom: 80px;
+  }
+}
+
 </style>

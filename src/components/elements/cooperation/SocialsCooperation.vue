@@ -94,5 +94,10 @@ import SocialsBlock from './SocialsBlock.vue';
     }
   }
 }
+@media screen and (max-width: 600px) {
+  .socilas {
+    margin-bottom: 70px;
+  }
+}
 
 </style>

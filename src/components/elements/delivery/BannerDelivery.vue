@@ -17,7 +17,7 @@
 
 <style lang="scss" scoped>
 .banner {
-  margin-bottom: 100px;
+  margin-bottom: 90px;
   border-radius: 10px;
   padding: 50px 0;
   width: 100%;
@@ -65,6 +65,11 @@
     }
   }
 }
+@media screen and (max-width: 992px){
+  .banner{
+    margin-bottom: 80px;
+  }
+}
 @media screen and (max-width: 900px){
   .banner{
     &::after{
@@ -109,6 +114,11 @@
         max-width: 320px;
       }
     }
+  }
+}
+@media screen and (max-width: 600px){
+  .banner{
+    margin-bottom: 60px;
   }
 }
 @media screen and (max-width: 540px){

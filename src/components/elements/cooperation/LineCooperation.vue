@@ -132,7 +132,7 @@ const phone = defineInputBinds('phone');
 
 @media screen and (max-width: 600px) {
   .line {
-
+    margin-bottom: 60px;
     .content {
       .block {
         & form {

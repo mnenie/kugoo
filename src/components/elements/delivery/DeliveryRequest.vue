@@ -72,6 +72,7 @@ import FormDelivery from './FormDelivery.vue';
 
 @media screen and (max-width: 992px) {
   .block_request {
+    margin-bottom: 80px;
     .content {
       padding: 60px 0;
 
@@ -127,7 +128,11 @@ import FormDelivery from './FormDelivery.vue';
     }
   }
 }
-
+@media screen and (max-width: 600px) {
+  .block_request {
+    margin-bottom: 60px;
+  }
+}
 @media screen and (max-width: 580px) {
   .block_request {
     .img {
@@ -168,9 +173,4 @@ import FormDelivery from './FormDelivery.vue';
     }
   }
 }
-
-@media screen and (max-width: 600px) {
-  .block_request {
-    margin-bottom: 80px;
-  }
-}</style>
+</style>

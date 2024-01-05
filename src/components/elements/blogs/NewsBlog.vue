@@ -61,10 +61,20 @@ onMounted(async () => {
   margin-bottom: 100px;
 }
 
+@media screen and (max-width: 992px) {
+  .news {
+   margin-bottom: 80px;
+  }
+}
 @media screen and (max-width: 890px) {
   .news {
     grid-template-columns: repeat(2, 1fr);
     align-items: stretch;
+  }
+}
+@media screen and (max-width: 600px) {
+  .news {
+   margin-bottom: 60px;
   }
 }
 </style>

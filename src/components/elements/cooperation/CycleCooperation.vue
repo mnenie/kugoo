@@ -63,4 +63,10 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .cycle {
+    margin-bottom: 60px;
+  }
+}
+
 </style>

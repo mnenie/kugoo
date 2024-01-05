@@ -38,4 +38,9 @@ const changeItems = (id: number) => {}
 .bottom_description {
   margin-bottom: 80px;
 }
+@media screen and (max-width: 600px){
+  .bottom_description{
+    margin-bottom: 60px;
+  }
+}
 </style>

@@ -111,6 +111,11 @@ const items = [
     }
   }
 }
+@media screen and (max-width: 992px) {
+  .left_list {
+    margin-bottom: 80px;
+  }
+}
 
 @media screen and (max-width: 890px) {
   .left_list {
@@ -161,7 +166,7 @@ const items = [
 
 @media screen and (max-width: 600px) {
   .left_list {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
 }
 @media screen and (max-width: 540px) {

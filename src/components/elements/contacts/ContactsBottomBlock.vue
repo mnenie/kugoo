@@ -43,4 +43,9 @@ import BlockWrite from './BlockWrite.vue'
     }
   }
 }
+@media screen and (max-width: 600px){
+  .bottom_contacts{
+    margin-bottom: 60px;
+  }
+}
 </style>

@@ -121,4 +121,15 @@ const { stocks, loader } = useStocks()
     }
   }
 }
+
+@media screen and (max-width: 992px){
+  .items{
+    margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 600px){
+  .items{
+    margin-bottom: 60px;
+  }
+}
 </style>

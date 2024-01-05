@@ -113,4 +113,81 @@ const onSubmit = async () => {
     }
   }
 }
+@media screen and (max-width: 1300px){
+  .test_drive .text .form .form_btns{
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 992px){
+  .test_drive {
+    margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 890px){
+  .test_drive .content{
+    flex-direction: column-reverse;
+  }
+  .test_drive .img img{
+    left: 0;
+  }
+  .test_drive{
+    .text{
+      width: 100%;
+      & h1{
+        max-width: unset;
+        text-align: center;
+      }
+      & p{
+        text-align: center;
+      }
+      .form{
+        width: 100%;
+        align-items: center;
+      }
+    }
+  }
+  .test_drive .text .form .form_btns .input{
+    min-width: 282.52px;
+  }
+}
+
+@media screen and (max-width: 710px){
+  .test_drive .img{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 620px){
+  .test_drive .img img{
+    left: -91px;
+  }
+}
+@media screen and (max-width: 600px){
+  .test_drive{
+    margin-bottom: 60px;
+  }
+}
+@media screen and (max-width: 540px){
+  .test_drive .img{
+    width: 600px;
+  }
+  .test_drive .img img{
+    left: 0px;
+  }
+}
+@media screen and (max-width: 450px){
+  .test_drive .img{
+    width: 100%;
+  }
+  .test_drive .img img{
+    left: 0px;
+  }
+}
+@media screen and (max-width: 400px){
+  .test_drive .img{
+    width: 100%;
+  }
+  .test_drive .img img{
+    left: -91px;
+  }
+}
 </style>

@@ -35,6 +35,7 @@ import TextCertificateAbout from './TextCertificateAbout.vue';
 
 @media screen and (max-width: 992px) {
   .certificate {
+    margin-bottom: 80px;
     .block {
       .img {
         width: 374px;
@@ -68,4 +69,10 @@ import TextCertificateAbout from './TextCertificateAbout.vue';
       }
     }
   }
-}</style>
+}
+@media screen and (max-width: 600px){
+  .certificate{
+    margin-bottom: 70px;
+  }
+}
+</style>

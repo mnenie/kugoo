@@ -47,4 +47,10 @@
 .route {
   text-decoration: none;
   color: var(--purple-color);
-}</style>
+}
+@media screen and (max-width: 992px){
+  .text{
+    margin-bottom: 90px;
+  }
+}
+</style>

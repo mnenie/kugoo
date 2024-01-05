@@ -24,13 +24,13 @@ const router = useRouter()
 
 const { open, close } = useModal({
   component: ModalPhone,
-  attrs:{
-    onClose(){
+  attrs: {
+    onClose() {
       close()
     },
-    onConfirm(){
+    onConfirm() {
       close()
-      router.push({name: 'thanks', params: {id: '2'}})
+      router.push({ name: 'thanks', params: { id: '2' } })
     }
   }
 })
@@ -49,7 +49,8 @@ const { open, close } = useModal({
           <p class="size_5">Стоимость</p>
         </div>
         <div class="parts">
-          <TopCityPart @open="open" v-if="btnsFilter4[0].active || btnsFilter4[1].active || btnsFilter4[2].active" :filters="btnsFilter4" />
+          <TopCityPart @open="open" v-if="btnsFilter4[0].active || btnsFilter4[1].active || btnsFilter4[2].active"
+            :filters="btnsFilter4" />
           <TopPartRegion @open="open" v-if="btnsFilter4[3].active" />
           <TopPartAfter @open="open" v-if="btnsFilter4[4].active" />
           <MiddlePart :filters="btnsFilter4" />
@@ -107,8 +108,25 @@ const { open, close } = useModal({
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .send_content {
+    margin-bottom: 80px;
+  }
+}
+
 @media screen and (max-width: 600px) {
-  .filters{
+  .send_content {
+    margin-bottom: 60px;
+
+    .blocks {
+      & h1 {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .filters {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }

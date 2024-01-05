@@ -45,4 +45,9 @@
   text-decoration: none;
   color: var(--purple-color);
 }
+@media screen and (max-width: 992px){
+  .text{
+    margin-bottom: 90px;
+  }
+}
 </style>

@@ -131,4 +131,10 @@ const items = [
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .plan {
+    margin-bottom: 60px;
+  }
+}
 </style>

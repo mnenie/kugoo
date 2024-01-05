@@ -48,4 +48,10 @@ watchEffect(() => {
   color: var(--gray-600-color);
   margin-bottom: 40px;
 }
+
+@media screen and (max-width: 768px){
+  .h1{
+    margin-top: 40px;
+  }
+}
 </style>

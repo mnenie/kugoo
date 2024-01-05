@@ -47,4 +47,11 @@ const comparison = useComparison()
     justify-content: space-between;
   }
 }
+
+@media screen and (max-width: 768px){
+  .top_part{
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+}
 </style>

@@ -29,12 +29,22 @@ const props = defineProps<{
   gap: 20px;
   margin-bottom: 100px;
 }
+@media screen and (max-width: 992px){
+  .top_address{
+    margin-bottom: 80px;
+  }
+}
 
 @media screen and (max-width: 890px){
   .top_address{
     flex-direction: column;
     width: 100%;
     gap: 30px;
+  }
+}
+@media screen and (max-width: 600px){
+  .top_address{
+    margin-bottom: 60px;
   }
 }
 </style>

@@ -85,6 +85,11 @@
   }
 }
 
+@media screen and (max-width: 992px) {
+  .map {
+    margin-bottom: 90px;
+  }
+}
 @media screen and (max-width: 600px) {
   .map {
     margin-bottom: 80px;

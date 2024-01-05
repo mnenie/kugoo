@@ -26,7 +26,7 @@
 .banner {
   border-radius: 10px;
   background: linear-gradient(88deg, #6F73EE 24.95%, rgba(111, 115, 238, 0.00) 59.45%);
-  margin-bottom: 110px;
+  margin-bottom: 100px;
   padding: 33px 0;
   position: relative;
   overflow: hidden;
@@ -104,6 +104,7 @@
 }
 @media screen and (max-width: 992px){
   .banner{
+    margin-bottom: 80px;
     .content{
       & h1{
         max-width: 450px;
@@ -120,6 +121,7 @@
 }
 @media screen and (max-width: 600px){
   .banner{
+    margin-bottom: 60px;
     .content{
       & h1{
         max-width: 380px;

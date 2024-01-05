@@ -71,6 +71,7 @@ import BannerBlocks from './BannerBlocks.vue';
 
 @media screen and (max-width: 992px) {
   .banner {
+    margin-bottom: 80px;
     .banner_block {
       min-height: 380px;
 

@@ -68,6 +68,11 @@ import CardBanner from './CardBanner.vue';
     }
   }
 }
+@media screen and (max-width: 992px){
+  .banner{
+    margin-bottom: 80px;
+  }
+}
 @media screen and (max-width: 768px){
   .banner{
     padding: 0;
@@ -80,6 +85,11 @@ import CardBanner from './CardBanner.vue';
         top: 8px;
       }
     }
+  }
+}
+@media screen and (max-width: 600px){
+  .banner{
+    margin-bottom: 60px;
   }
 }
 </style>

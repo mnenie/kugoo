@@ -90,6 +90,11 @@ import PriceListForm from './PriceListForm.vue';
     }
   }
 }
+@media screen and (max-width: 600px) {
+  .banner {
+    margin-bottom: 60px;
+  }
+}
 
 @media screen and (max-width: 540px) {
   .banner {

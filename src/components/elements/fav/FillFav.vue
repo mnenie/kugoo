@@ -5,7 +5,18 @@ const fav = useFav()
 </script>
 
 <template>
-  <ScootersCards :cards="fav.products" :style="'margin-bottom: 0px'" />
+  <div class="fill">
+    <ScootersCards :cards="fav.products" :style="'margin-bottom: 0px'" />
+  </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.fill{
+  margin-bottom: 80px;
+}
+@media screen and (max-width: 600px){
+  .fill{
+    margin-bottom: 60px;
+  }
+}
+</style>

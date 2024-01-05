@@ -52,6 +52,12 @@ const pushToCatalog = (categoryId: number) => {
   }
 }
 
+@media screen and (max-width: 992px) {
+  .catalog {
+    margin-bottom: 90px;
+  }
+}
+
 @media screen and (max-width: 820px) {
   .catalog {
     .categories {
@@ -62,7 +68,7 @@ const pushToCatalog = (categoryId: number) => {
 
 @media screen and (max-width: 600px) {
   .catalog {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
   }
 }
 

@@ -55,6 +55,7 @@
 }
 @media screen and (max-width: 992px) {
   .banner{
+    margin-bottom: 80px;
     .content{
       &::after{
         right: -200px;
@@ -73,7 +74,7 @@
 }
 @media screen and (max-width: 600px){
   .banner{
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     .content{
       padding: 70px 0;
     }

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
-import DropdownCatalog from '@/components/UI/DropdownCatalog.vue';
 import { useRouter } from 'vue-router';
 import { BASKET_ROUTE } from '@/utils/consts'
 import DropdownHeader from './DropdownHeader.vue';
@@ -8,7 +7,9 @@ import DropdownCards from '@/components/UI/DropdownCards.vue';
 import RoundCart from '@/components/UI/RoundCart.vue';
 import RoundGreenAuth from '@/components/UI/RoundGreenAuth.vue';
 import RoundSmall from '@/components/UI/RoundSmall.vue';
+import { CATALOG_ROUTE } from '@/utils/consts';
 import { useInput } from '@/stores/search';
+import smoothScroll from '@/helpers/smoothScrollHelper';
 
 defineProps<{
   shopItems: any[]
@@ -17,22 +18,6 @@ const emit = defineEmits<{
   (e: 'rightPart', index: number): void
 }>()
 const router = useRouter()
-const flag = ref<boolean>(false)
-const dropdownFlag = ref<boolean>(false)
-const openDropdown = () => {
-  dropdownFlag.value = true
-}
-const catalogStyle = () => {
-  flag.value = true
-  dropdownFlag.value = true
-}
-const catalogStyleNone = () => {
-  flag.value = false
-  dropdownFlag.value = false
-}
-const closeRoute = () => {
-  dropdownFlag.value = false
-}
 
 const inputMain1 = useInput()
 const inputCatalog = () => {
@@ -54,6 +39,12 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+
+const {smoothScrollToTop} = smoothScroll()
+const goToCatalog = () => {
+  router.push(CATALOG_ROUTE)
+  smoothScrollToTop()
+}
 </script>
 
 <template>
@@ -62,15 +53,15 @@ onBeforeUnmount(() => {
       <div class="main_display_new-content">
         <div :class="{'main_display_new-content_1': true, 'fixed': scrollY > offset}">
           <div style="display: flex; align-items: center;" class="catalog_new">
-            <div @mouseover="catalogStyle" @mouseleave="catalogStyleNone" class="catalog_modal">
-              <button @mouseover="openDropdown" :class="[flag === true ? 'btn_focus' : '']" class="btn-catalog">
+            <div class="catalog_modal">
+              <button @click="goToCatalog" class="btn-catalog">
                 <div>
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
               </button>
-              <DropdownCatalog @close-dropdown-route="closeRoute" :ul="dropdownFlag" />
+              <!-- <DropdownCatalog @close-dropdown-route="closeRoute" :ul="dropdownFlag" /> -->
             </div>
             <router-link style="text-decoration: none;" to="/">
               <h1 class="size_2" style="cursor: pointer;">Kugoo</h1>

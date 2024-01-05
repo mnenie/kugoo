@@ -83,6 +83,7 @@ import FormComparison from './FormComparison.vue';
 }
 @media screen and (max-width: 992px) {
   .banner{
+    margin-bottom: 80px;
     .content{
       padding: 60px 0;
       .block{
@@ -129,6 +130,11 @@ import FormComparison from './FormComparison.vue';
       height: 364px;
       right: -60px;
     }
+  }
+}
+@media screen and (max-width: 600px){
+  .banner{
+    margin-bottom: 60px;
   }
 }
 @media screen and (max-width: 580px) {

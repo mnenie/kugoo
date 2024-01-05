@@ -12,7 +12,7 @@ const comparison = useComparison()
 <template>
   <div>
     <NavBackLink />
-    <div v-if="comparison.products.length > 0" class="fill">
+    <div v-if="comparison.products.length > 1" class="fill">
       <TopPartComparison />
       <MainPartComparison :products="comparison.products" />
       <ComparisonBanner />

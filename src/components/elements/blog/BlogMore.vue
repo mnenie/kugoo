@@ -41,6 +41,11 @@ onMounted(async () => {
     gap: 20px;
   }
 }
+@media screen and (max-width: 992px){
+  .more_blog{
+    margin-bottom: 80px;
+  }
+}
 
 @media screen and (max-width: 890px) {
   .more_blog {
@@ -48,6 +53,11 @@ onMounted(async () => {
       grid-template-columns: repeat(2, 1fr);
       align-items: stretch;
     }
+  }
+}
+@media screen and (max-width: 600px){
+  .more_blog{
+    margin-bottom: 60px;
   }
 }
 </style>

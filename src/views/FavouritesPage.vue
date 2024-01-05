@@ -23,7 +23,6 @@ const fav = useFav()
 .blocks {
   display: flex;
   flex-direction: column;
-  margin-bottom: 80px;
 
   & h1 {
     font-style: normal;
@@ -32,6 +31,13 @@ const fav = useFav()
     text-transform: uppercase;
     color: var(--black-color);
     margin: 30px 0 37px 0;
+  }
+}
+@media screen and (max-width: 768px){
+  .blocks{
+    & h1{
+      margin: 20px 0 37px 0;
+    }
   }
 }
 </style>

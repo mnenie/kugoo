@@ -63,4 +63,14 @@ const emit = defineEmits<{
     }
   }
 }
+@media screen and (max-width: 992px){
+  .content{
+    margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 600px){
+  .content{
+    margin-bottom: 60px;
+  }
+}
 </style>

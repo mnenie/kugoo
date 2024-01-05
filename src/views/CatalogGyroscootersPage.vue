@@ -48,10 +48,20 @@ const bannerTitle = ref('Гироскутеры')
   margin-bottom: 100px;
 }
 
+@media screen and (max-width: 992px){
+  .blocks{
+    margin-bottom: 80px;
+  }
+}
 @media screen and (max-width: 860px) {
   .blocks {
     flex-direction: column;
     gap: 20px;
+  }
+}
+@media screen and (max-width: 600px){
+  .blocks{
+    margin-bottom: 60px;
   }
 }
 </style>

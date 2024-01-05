@@ -38,4 +38,15 @@ import TeamMembers from '../service/TeamMembers.vue';
     }
   }
 }
+
+@media screen and (max-width: 992px){
+  .team{
+    margin-bottom: 90px;
+  }
+}
+@media screen and (max-width: 600px){
+  .team{
+    margin-bottom: 60px;
+  }
+}
 </style>

@@ -23,4 +23,14 @@ const props = defineProps<{
   align-items: flex-start;
   margin-bottom: 120px;
 }
+@media screen and (max-width: 992px){
+  .main_part{
+    margin-bottom: 90px;
+  }
+}
+@media screen and (max-width: 600px){
+  .main_part{
+    margin-bottom: 70px;
+  }
+}
 </style>

@@ -121,6 +121,13 @@ const items = [
     }
   }
 }
+
+@media screen and (max-width: 992px){
+  .banner{
+    margin-bottom: 90px;
+  }
+}
+
 @media screen and (max-width: 890px) {
   .banner {
     padding: 60px 0;
@@ -168,6 +175,7 @@ const items = [
 }
 @media screen and (max-width: 600px) {
   .banner {
+    margin-bottom: 60px;
     .content {
       .text{
         & h1{

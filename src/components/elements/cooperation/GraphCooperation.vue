@@ -107,4 +107,9 @@
     }
   }
 }
+@media screen and (max-width: 600px) {
+  .graph_block {
+    margin-bottom: 60px;
+  }
+}
 </style>

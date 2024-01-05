@@ -59,9 +59,14 @@ const openModalTest = () => {
     }
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 992px) {
   .card_block{
     margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .card_block{
+    margin-bottom: 60px;
   }
 }
 </style>
