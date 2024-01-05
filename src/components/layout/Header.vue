@@ -73,7 +73,7 @@ const menuItems = ref([
     id: 6,
     routeTo: STOCKS_ROUTE,
     about: 'Акции',
-    svg: '/icons/%.svg'
+    svg: '/icons/persent.svg'
   },
 ])
 const limitation = useLimitation()
