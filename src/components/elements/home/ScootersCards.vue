@@ -9,6 +9,7 @@ import { FAVOURITES_ROUTE, TEST_ROUTE } from '@/utils/consts';
 import smoothScroll from '@/helpers/smoothScrollHelper';
 import Preloader from '@/components/UI/preloader/Preloader.vue';
 import { useFav } from '@/stores/fav';
+import { useComparison } from '@/stores/comparison';
 
 const props = defineProps<{
   cards: ICards[],
@@ -19,6 +20,8 @@ const emit = defineEmits<{
   (e: 'openModalTest'): void
 }>()
 const cart = useCart()
+
+const comparison = useComparison()
 const router = useRouter()
 
 const titleBtn = ref<string>('Перейти к товару')
@@ -112,7 +115,7 @@ const fav = useFav()
                 <div class="cart_border" @click="cart.addToCart(card)" v-if="card.basket">
                   <img :src="card.basket" alt="">
                 </div>
-                <div @click="fav.addFavProducts(card)">
+                <div @click="$route.path === FAVOURITES_ROUTE ? fav.removeProductById(card.id) : fav.addFavProducts(card)">
                   <img :src="$route.path === FAVOURITES_ROUTE ? favHeart : card.heart" alt="">
                 </div>
               </div>
@@ -129,7 +132,7 @@ const fav = useFav()
           :style="[card.rec === 'ХИТ' ? 'background: var(--pink-color)' : 'background: var(--green-color)']">
           {{ card.rec }}
         </div>
-        <div v-if="card.balance" class="balance">
+        <div v-if="card.balance" @click="comparison.addComparisonProduct(card)" class="balance">
           <img :src="card.balance" alt="">
         </div>
       </div>
@@ -177,8 +180,16 @@ const fav = useFav()
         height: 35px;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.2);
-        padding: 8px 10px 11px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         z-index: 99;
+        transition: 0.15s ease-in;
+        border: 1px solid var(--btn-gray-color);
+        cursor: pointer;
+        &:hover{
+          border: 1px solid var(--purple-color);
+        }
       }
 
       .cards_img-container {

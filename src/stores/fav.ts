@@ -7,15 +7,32 @@ export const useFav = defineStore('fav', () => {
   const products = ref<ICards[]>(JSON.parse(localStorage.getItem('fav') ?? '[]') as ICards[])
 
   const addFavProducts = (product: ICards) => {
-    favIndex.value ++
-    products.value.push(product)
+    if (products.value.findIndex(p => p.id === product.id) === -1) {
+      products.value.push(product);
+      favIndex.value++;
+    }
     localStorage.setItem('fav', JSON.stringify(products.value))
     localStorage.setItem('favIndex', JSON.stringify(favIndex.value))
+  }
+
+  const removeProductById = (productId: number) => {
+    products.value = products.value.filter((product) => product.id !== productId)
+    favIndex.value --
+    localStorage.setItem('fav', JSON.stringify(products.value))
+    localStorage.setItem('favIndex', JSON.stringify(favIndex.value))
+
+    if(products.value.length === 0){
+      products.value = [] 
+      favIndex.value = 0
+      localStorage.removeItem('favIndex')
+      localStorage.removeItem('fav')
+    }
   }
 
   return {
     products,
     favIndex,
-    addFavProducts
+    addFavProducts,
+    removeProductById
   }
 })

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-
+import { useComparison } from '@/stores/comparison';
+const comparison = useComparison()
 </script>
 
 <template>
@@ -9,8 +10,8 @@
       <p class="size_6">Здесь вы можете сравнить выбранные товары по различным параметрам и характеристикам, и выбрать
         оптимальное решение</p>
       <div class="btns">
-        <ButtonMore>Показать различия</ButtonMore>
-        <ButtonPurpleLg>Очистить товары</ButtonPurpleLg>
+        <ButtonMore @click="comparison.removeAllComparisonProducts()">Очистить товары</ButtonMore>
+        <span class="size_7" style="color: var(--purple-color);">Возможность скрола товаров в блоке сравнения</span>
       </div>
     </div>
   </div>
@@ -41,8 +42,9 @@
 
   .btns {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 20px;
+    justify-content: space-between;
   }
 }
 </style>
