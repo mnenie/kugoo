@@ -133,7 +133,7 @@ const fav = useFav()
           {{ card.rec }}
         </div>
         <div v-if="card.balance" @click="comparison.addComparisonProduct(card)" class="balance">
-          <img :src="card.balance" alt="">
+          <img style="width: 20px; height: 20px;" :src="card.balance" alt="">
         </div>
       </div>
     </div>
@@ -185,8 +185,8 @@ const fav = useFav()
         justify-content: center;
         z-index: 99;
         transition: 0.15s ease-in;
-        border: 1px solid var(--btn-gray-color);
         cursor: pointer;
+        border: 1px solid var(--btn-gray-color);
         &:hover{
           border: 1px solid var(--purple-color);
         }

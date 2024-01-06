@@ -128,7 +128,7 @@ const clickCardBtn = (cardId: number) => {
           {{ card.rec }}
         </div>
         <div v-if="card.balance" @click="comparison.addComparisonProduct(card)" class="balance">
-          <img :src="card.balance" alt="">
+          <img style="width: 20px; height: 20px;" :src="card.balance" alt="">
         </div>
       </div>
     </div>

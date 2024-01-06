@@ -51,9 +51,9 @@ const stars = ref<IStar[]>([
 
 <style lang="scss" scoped>
 .market {
-  height: 40px;
+  // height: 40px;
   border-bottom: 1px solid var(--gray-200-color);
-  padding: 3px 0;
+  // padding: 3px 0;
   width: 100%;
 
   .market_block {

@@ -191,9 +191,7 @@ const openModal = () => {
       #more {
         display: flex;
         justify-content: center;
-        height: 20px;
-        padding: 2.4px 0px 2px 0px;
-        width: 106px;
+        padding: 2px 10px;
         border-radius: 300px;
         background: #6F73EE;
         font-size: 10px;

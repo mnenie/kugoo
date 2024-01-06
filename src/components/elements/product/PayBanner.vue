@@ -96,6 +96,7 @@ const fav = useFav()
 
     .btn {
       min-width: 200px;
+      white-space: nowrap;
     }
   }
 }

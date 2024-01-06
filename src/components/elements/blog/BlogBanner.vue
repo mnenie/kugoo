@@ -60,6 +60,7 @@ const icons = ref([
     position: absolute;
     background: rgba(255, 255, 255, 0.004);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     top: 0;
     left: 0;
     right: 0;
