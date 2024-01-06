@@ -26,4 +26,9 @@ const getName = computed(() => {
 .thanks_blocks{
   margin-bottom: 90px;
 }
+@media screen and (max-width: 600px){
+  .thanks_blocks{
+    margin-bottom: 110px;
+  }
+}
 </style>
