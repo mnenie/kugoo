@@ -45,7 +45,7 @@ const user = useUser()
 }
 @media screen and (max-width: 600px){
   .success_auth{
-    margin: 30px 0 90px 0;
+    margin: 40px 0 120px 0;
   }
 }
 </style>

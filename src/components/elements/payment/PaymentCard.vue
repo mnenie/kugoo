@@ -136,4 +136,10 @@ const pay = () => {
   }
 }
 
+@media screen and (max-width: 600px){
+  .card_payment{
+    margin: 10px 0 100px 0;
+  }
+}
+
 </style>
