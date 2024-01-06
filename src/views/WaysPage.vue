@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import NavBackLink from '@/components/UI/links/NavBackLink.vue';
 import PayBlockTotal from '@/components/elements/basket/PayBlockTotal.vue';
+import AlertErrorWays from '@/components/elements/ways/AlertErrorWays.vue';
 import HeadWays from '@/components/elements/ways/HeadWays.vue';
 import WaysBlock from '@/components/elements/ways/WaysBlock.vue'
+
 </script>
 
 <template>
@@ -16,6 +18,7 @@ import WaysBlock from '@/components/elements/ways/WaysBlock.vue'
       </div>
     </div>
   </div>
+  <AlertErrorWays />
 </template>
 
 <style lang="scss" scoped>

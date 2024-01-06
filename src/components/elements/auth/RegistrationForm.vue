@@ -33,7 +33,6 @@ const onSumbit = async () => {
   }
   if (Object.keys(regErrs.value).length === 0) {
     await user.userRegistration(registrationInfo)
-    router.push(HOME_ROUTE)
   }
 }
 </script>

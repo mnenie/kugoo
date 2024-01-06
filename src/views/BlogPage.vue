@@ -6,6 +6,7 @@ import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 import BlogBanner from '@/components/elements/blog/BlogBanner.vue';
 import BlogMore from '@/components/elements/blog/BlogMore.vue';
 import PreloaderBlog from '@/components/UI/preloader/PreloaderBlog.vue';
+import { BLOGS_ROUTE } from '@/utils/consts';
 
 const route = useRoute()
 
@@ -26,7 +27,7 @@ watchEffect(() => {
 <template>
   <PreloaderBlog v-if="loader" />
   <div v-else>
-    <NavigationTopPage :title="'Блог'" :title2="blog?.title ? blog?.title : 'Нет информации о блоге'" />
+    <NavigationTopPage :title="'Блог'" :path="BLOGS_ROUTE" :title2="blog?.title ? blog?.title : 'Нет информации о блоге'" />
     <div v-if="blog" class="elems">
       <BlogBanner :blog="blog" />
       <component :is="getBlogName" />

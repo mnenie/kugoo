@@ -2,7 +2,9 @@
 import type { ICards } from '@/types/cards.interface';
 import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 import ProductDetails from './ProductDetails.vue';
+import { CATALOG_ROUTE} from '@/utils/consts';
 import { ref } from 'vue';
+
 
 const title = ref<string>('Каталог')
 const title2 = ref<string>('Электросамокаты')
@@ -18,7 +20,7 @@ const emit = defineEmits<{
 <template>
   <div>
     <div v-if="card">
-      <NavigationTopPage :title="title" :title2="title2" :title3="card.title" />
+      <NavigationTopPage :title="title" :path="CATALOG_ROUTE" :title2="title2" :title3="card.title" />
       <div class="container">
         <ProductDetails :card="card" @change-img="emit('changeImg', $event)" :active="active" />
       </div>

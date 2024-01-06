@@ -9,7 +9,6 @@ import { useRouter } from 'vue-router';
 const email = ref<string>('')
 const password = ref<string>('')
 const user = useUser()
-const router = useRouter()
 
 const {
   defineInputBinds: defineLoginInputBinds, errors: loginErrs, validate: validateLogin } = useForm({
@@ -29,9 +28,6 @@ const onSumbit = async () => {
   }
   if (Object.keys(loginErrs.value).length === 0) {
     await user.userLogin(authInfo)
-    router.push(HOME_ROUTE)
-    email.value = ''
-    password.value = ''
   }
 }
 </script>
@@ -61,7 +57,7 @@ const onSumbit = async () => {
 
 <style lang="scss" scoped>
 .auth {
-  margin: 50px 0;
+  margin: 50px 0 80px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,4 +82,15 @@ const onSumbit = async () => {
     text-decoration: none;
     color: var(--purple-color);
   }
-}</style>
+}
+@media screen and (max-width: 992px){
+  .auth{
+    margin: 30px 0 80px 0;
+  }
+}
+@media screen and (max-width: 600px){
+  .auth{
+    margin: 30px 0 80px 0;
+  }
+}
+</style>

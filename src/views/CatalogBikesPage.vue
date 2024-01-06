@@ -8,6 +8,7 @@ import Alert from '@/components/UI/Alert.vue';
 import { ref, onUnmounted } from 'vue';
 import useFilterCatalog from '@/hooks/useFilterCatalog';
 import useGetAllBikes from '@/hooks/useGetAllBikes';
+import { CATALOG_ROUTE } from '../utils/consts';
 
 const title = ref<string>('Каталог')
 const range = ref([0, 500000])
@@ -22,7 +23,7 @@ const bannerTitle = ref('Электровелосипеды')
 </script>
 
 <template>
-  <NavigationTopPage :title="title" :title2="'Электровелосипеды'" />
+  <NavigationTopPage :title="title" :path="CATALOG_ROUTE" :title2="'Электровелосипеды'" />
   <BannerScooters :banner-title="bannerTitle" />
   <div class="container">
     <FilterTop :filters="filters" @filter-cards="filterProductsByTop" />

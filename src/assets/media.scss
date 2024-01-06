@@ -28,6 +28,9 @@
   }
 }
 @media screen and (max-width: 540px) {
+  .StripeElement iframe{
+    height: 26px !important;
+  }
   .container {
     padding-left: 15px;
     padding-right: 15px;

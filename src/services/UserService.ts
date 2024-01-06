@@ -19,5 +19,6 @@ export default class UserService {
   static logout(): void {
     localStorage.removeItem('user')
     sessionStorage.removeItem('token')
+    sessionStorage.removeItem('idUser')
   }
 }

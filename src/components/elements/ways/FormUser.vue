@@ -32,7 +32,7 @@ const number = ref<string | number>('')
         </div>
       </div>
       <div class="input">
-        <label class="size_8">Ваша фамилия:</label>
+        <label class="size_8">Ваш телефон:</label>
         <InputForm :placeholder="'+7 (___) __ - __ - __'" v-model="number" style="width: 100%;"
            v-bind="ways.phone" />
         <div class="size_7" style="color: var(--pink-color); margin-top: 2px; margin-bottom: 10px;">{{ ways.errors.phone }}

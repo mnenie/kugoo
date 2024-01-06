@@ -3,6 +3,7 @@ interface INavigationTop {
   title: string
   title2?: string
   title3?: string
+  path?: string
 }
 defineProps<INavigationTop>()
 </script>
@@ -16,7 +17,7 @@ defineProps<INavigationTop>()
           <span class="size_8">Главная</span>
         </router-link>
         <span class="size_8 line">/</span>
-        <span class="size_8 title">{{ title }}</span>
+        <span @click="path && $router.push(path)" class="size_8 title">{{ title }}</span>
         <span v-if="title2" class="size_8 line">/</span>
         <span v-if="title2" class="size_8 title">{{ title2 }}</span>
         <span v-if="title3" class="size_8 line">/</span>
@@ -69,10 +70,19 @@ defineProps<INavigationTop>()
       line-height: normal;
       cursor: pointer;
     }
+
+    .title_block {
+      color: var(--gray-600-color);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      cursor: pointer;
+    }
   }
 }
-@media screen and (max-width: 540px){
-  .navigation{
+
+@media screen and (max-width: 540px) {
+  .navigation {
     margin: 0 0 20px 0;
   }
 }

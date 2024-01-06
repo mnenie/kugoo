@@ -80,7 +80,7 @@ const pay = () => {
 
 <style lang="scss" scoped>
 .card_payment {
-  margin: 0 0 50px 0;
+  margin: 0 0 80px 0;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -135,4 +135,5 @@ const pay = () => {
     gap: 5px;
   }
 }
+
 </style>
