@@ -1,20 +1,26 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import useGetBlog from '../hooks/useGetBlog';
-import { computed, defineAsyncComponent } from 'vue';
+import { computed, defineAsyncComponent, ref, watch, watchEffect } from 'vue';
 import NavigationTopPage from '@/components/UI/links/NavigationTopPage.vue';
 import BlogBanner from '@/components/elements/blog/BlogBanner.vue';
 import BlogMore from '@/components/elements/blog/BlogMore.vue';
 import PreloaderBlog from '@/components/UI/preloader/PreloaderBlog.vue';
 
 const route = useRoute()
-const { blog, loader } = useGetBlog(parseInt(route.params.id as string))
 
 const getBlogName = computed(() => {
-  const componentName = `BlogDescription${route.params.id as string}`;
-  const component = defineAsyncComponent(() => import(`@/components/elements/blog/description/${componentName}.vue`));
-  return component;
-})
+  const blogId = ref(parseInt(route.params.id as string))
+  const componentName = `BlogDescription${blogId.value}`
+  const component = defineAsyncComponent(() => import(`@/components/elements/blog/description/${componentName}.vue`))
+  return component
+});
+
+const { blog, loader, getBlogById } = useGetBlog(parseInt(route.params.id as string))
+
+watchEffect(() => {
+  getBlogById(parseInt(route.params.id as string))
+});
 </script>
 
 <template>

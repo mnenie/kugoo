@@ -6,7 +6,7 @@ export default function useGetBlog(id: number){
   const blog = ref<INews | null>(null)
   const loader = ref<boolean>(true)
 
-  const getBlogById = async(itemId: number) => {
+  const getBlogById = async(itemId: number): Promise<INews | null> => {
     try{
       loader.value = true
       const response = await axios.get('https://kugoo-ffd41-default-rtdb.europe-west1.firebasedatabase.app/news/news.json')
@@ -19,6 +19,7 @@ export default function useGetBlog(id: number){
       return blog.value
     } catch(err){
       console.log(err)
+      return null
     }
   } 
 
