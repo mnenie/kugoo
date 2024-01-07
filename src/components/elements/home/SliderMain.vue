@@ -325,6 +325,14 @@ const store = useSwiperStore()
 
     .content_slider {
       padding-left: 0;
+      .new_btn{
+        padding: 4px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: unset;
+        align-self: flex-start;
+      }
     }
     .img_1 {
       width: 260px;
@@ -338,4 +346,4 @@ const store = useSwiperStore()
     margin: 0 0 30px 0;
   }
 }
-</style>@/store/swiper
+</style>
